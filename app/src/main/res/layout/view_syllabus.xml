@@ -22,7 +22,7 @@
             android:background="@color/sy1"
             android:layout_height="wrap_content">
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:id="@+id/subname1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

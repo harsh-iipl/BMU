@@ -33,7 +33,7 @@
                 android:background="@color/white"
                 android:gravity="center_vertical">
 
-                <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                <com.infinity.infoway.bmu.CommonCls.CustomTextView
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -47,7 +47,11 @@
 
     </android.support.design.widget.AppBarLayout>
 
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:id="@+id/swipe_refresh"
 
+        android:layout_height="match_parent">
     <RelativeLayout
         android:id="@+id/ll_elerning"
         android:layout_width="match_parent"
@@ -75,7 +79,7 @@
             android:layout_alignParentTop="true"
             android:divider="@null"
             android:dividerHeight="10dp"></ListView>
-        <com.infinity.infoway.gsfc.CommonCls.CustomBoldTextView
+        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
             android:id="@+id/tv_no_records_leave"
             android:layout_width="match_parent"
             android:textSize="20sp"
@@ -86,7 +90,7 @@
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            ></com.infinity.infoway.gsfc.CommonCls.CustomBoldTextView>
+            ></com.infinity.infoway.bmu.CommonCls.CustomBoldTextView>
     </RelativeLayout>
 
 
@@ -113,5 +117,5 @@
      android:layout_margin="5dp"
      android:background="@drawable/border_cat_main_bg_transperant"
      android:layout_height="wrap_content" />-->
-
+    </android.support.v4.widget.SwipeRefreshLayout>
 </LinearLayout>

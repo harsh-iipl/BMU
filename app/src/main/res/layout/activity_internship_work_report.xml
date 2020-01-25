@@ -32,7 +32,7 @@
                 android:background="@color/white"
                 android:gravity="center_vertical">
 
-                <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                <com.infinity.infoway.bmu.CommonCls.CustomTextView
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
                             android:orientation="horizontal">
 
 
-                            <com.infinity.infoway.gsfc.CommonCls.CustomBoldTextView
+                            <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
                                 android:id="@+id/tv_name_internship"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -136,7 +136,7 @@
                             android:layout_marginTop="10dp"
                             android:orientation="horizontal">
 
-                            <com.infinity.infoway.gsfc.CommonCls.CustomBoldTextView
+                            <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
                                 android:id="@+id/tv_report_title"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -165,7 +165,7 @@
                             android:orientation="horizontal"
                             android:weightSum="2">
 
-                            <com.infinity.infoway.gsfc.CommonCls.CustomEditText
+                            <com.infinity.infoway.bmu.CommonCls.CustomEditText
                                 android:id="@+id/edt_report_title"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -187,7 +187,7 @@
                             android:layout_marginTop="10dp"
                             android:orientation="horizontal">
 
-                            <com.infinity.infoway.gsfc.CommonCls.CustomBoldTextView
+                            <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
                                 android:id="@+id/tv_desc_report"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -216,7 +216,7 @@
                             android:orientation="horizontal"
                             android:weightSum="2">
 
-                            <com.infinity.infoway.gsfc.CommonCls.CustomEditText
+                            <com.infinity.infoway.bmu.CommonCls.CustomEditText
                                 android:id="@+id/edt_desc_report"
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
@@ -250,7 +250,7 @@
 
                                 android:orientation="horizontal">
 
-                                <com.infinity.infoway.gsfc.CommonCls.CustomBoldTextView
+                                <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
                                     android:id="@+id/tv_grp_type"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -277,7 +277,7 @@
                                 android:orientation="horizontal"
                                 android:weightSum="2">
 
-                                <com.infinity.infoway.gsfc.CommonCls.CustomEditText
+                                <com.infinity.infoway.bmu.CommonCls.CustomEditText
                                     android:id="@+id/file_upload"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
@@ -289,7 +289,7 @@
                                     android:padding="8dp"
                                     android:textSize="@dimen/text_size_u" />
 
-                                <com.infinity.infoway.gsfc.CommonCls.CustomButton
+                                <com.infinity.infoway.bmu.CommonCls.CustomButton
                                     android:id="@+id/btn_upload_file_assign"
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
@@ -306,7 +306,7 @@
 
 
 
-                        <com.infinity.infoway.gsfc.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
                             android:id="@+id/tv_save"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -347,7 +347,7 @@
                             android:layout_marginTop="10dp"
                             android:visibility="gone">
 
-                            <com.infinity.infoway.gsfc.CommonCls.CustomBoldTextView
+                            <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
                                 android:id="@+id/tv_desc"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -367,7 +367,7 @@
 
                         </RelativeLayout>
 
-                        <com.infinity.infoway.gsfc.CommonCls.CustomEditText
+                        <com.infinity.infoway.bmu.CommonCls.CustomEditText
                             android:id="@+id/edt_desc_e_lerning"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"

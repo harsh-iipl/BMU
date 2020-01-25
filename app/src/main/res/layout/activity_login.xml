@@ -26,19 +26,9 @@
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:padding="10dp"
-                android:src="@drawable/gsfc_new_logo" />
+                android:src="@drawable/logo_login" />
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:text="Agriculture Junagadh"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:visibility="gone" />
-        </LinearLayout>
+</LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -62,7 +52,7 @@
             android:orientation="vertical"
             android:padding="15dp">
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -76,7 +66,7 @@
                 android:backgroundTint="@color/btn_color"
                 android:textColorHint="@color/silver">
 
-                <com.infinity.infoway.gsfc.CommonCls.CustomEditText
+                <com.infinity.infoway.bmu.CommonCls.CustomEditText
                     android:id="@+id/etusername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -91,7 +81,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="2dp"
                 android:background="@color/green"/>
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -105,7 +95,7 @@
                 android:backgroundTint="@color/btn_color"
                 android:textColorHint="@color/silver">
 
-                <com.infinity.infoway.gsfc.CommonCls.CustomEditText
+                <com.infinity.infoway.bmu.CommonCls.CustomEditText
                     android:id="@+id/etpassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -122,7 +112,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="2dp"
                 android:background="@color/green"/>
-            <com.infinity.infoway.gsfc.CommonCls.CustomButton
+            <com.infinity.infoway.bmu.CommonCls.CustomButton
                 android:id="@+id/btnlogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -135,7 +125,7 @@
                 android:textSize="14sp"
                 android:textStyle="bold" />
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:id="@+id/tvforgotpassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -146,7 +136,7 @@
                 android:textColor="@color/btn_color"
                 android:textSize="16sp" />
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomButton
+            <com.infinity.infoway.bmu.CommonCls.CustomButton
                 android:id="@+id/btnloginsignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

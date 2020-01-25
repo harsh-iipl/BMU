@@ -33,7 +33,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="3">
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="5dp"
@@ -41,7 +41,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size_u" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/tv_tv1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -72,7 +72,7 @@
                 android:orientation="horizontal"
                 android:padding="2dp">
 
-                <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                <com.infinity.infoway.bmu.CommonCls.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="5dp"
@@ -81,7 +81,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_size_u" />
 
-                <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                <com.infinity.infoway.bmu.CommonCls.CustomTextView
                     android:id="@+id/tv_tv2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -91,7 +91,7 @@
             </LinearLayout>
 
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomBoldTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
                 android:id="@+id/tv_manage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

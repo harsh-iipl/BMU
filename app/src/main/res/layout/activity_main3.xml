@@ -142,7 +142,7 @@
                             app:civ_border_color="@color/white"
                             app:civ_border_width="2dp" />
 
-                        <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                        <com.infinity.infoway.bmu.CommonCls.CustomTextView
                             android:id="@+id/nav_logout"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -156,7 +156,7 @@
                             android:textColor="@color/white"
                             android:textSize="17dp" />
 
-                        <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                        <com.infinity.infoway.bmu.CommonCls.CustomTextView
                             android:id="@+id/txtlogin"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -172,7 +172,7 @@
 
                     </RelativeLayout>
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/txtmenuname"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -182,7 +182,7 @@
                         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                         android:textSize="18sp" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/txtmenucourse"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -190,7 +190,7 @@
                         android:text="----------"
                         android:textSize="18sp" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_memberno"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -210,7 +210,7 @@
                 android:gravity="center"
                 android:orientation="horizontal">
 
-                <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                <com.infinity.infoway.bmu.CommonCls.CustomTextView
                     android:id="@+id/nav_version_name_"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -223,7 +223,7 @@
                     android:textColor="@color/white"
                     android:textSize="17dp" />
 
-                <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                <com.infinity.infoway.bmu.CommonCls.CustomTextView
                     android:id="@+id/nav_version_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -253,7 +253,7 @@
                     android:orientation="vertical"
                     android:padding="10dp">
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_profile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -266,7 +266,7 @@
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_fees"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -279,7 +279,7 @@
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_rec"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -293,7 +293,7 @@
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_attendance"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -310,7 +310,7 @@
 
 
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_lessionplan"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -323,7 +323,7 @@
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_internship_work_rpt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -337,7 +337,7 @@
                         android:textSize="16dp"
                         android:visibility="gone" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_punch_in_out"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -353,7 +353,7 @@
 
 
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_elrning"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -368,7 +368,7 @@
                         android:textSize="16dp" />
 
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_placement"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -382,7 +382,7 @@
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_Leave_app"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -395,7 +395,7 @@
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_news"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -408,7 +408,7 @@
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_acivity"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -421,7 +421,7 @@
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_homework"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -435,7 +435,7 @@
                         android:textSize="16dp" />
 
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_syllabus"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -448,7 +448,7 @@
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_result"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -464,7 +464,7 @@
 
 
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_pending_fees"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -478,7 +478,7 @@
                         android:textSize="16dp"
                         android:visibility="gone" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_asnmnt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -493,7 +493,7 @@
                         android:visibility="visible" />
 
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_timetable"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -506,7 +506,7 @@
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_exam_TT"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -520,7 +520,7 @@
                         android:textSize="16dp"
                         android:visibility="gone" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_fee_circular"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -548,7 +548,7 @@
                           android:textSize="16dp" />-->
 
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_feedback"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -562,7 +562,7 @@
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_lleave"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -576,7 +576,7 @@
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_more"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -590,7 +590,7 @@
                         android:textSize="16dp"
                         android:visibility="gone" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/emp_nav_asnmnt"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -604,7 +604,7 @@
                         android:textSize="16dp"
                         android:visibility="gone" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/emp_nav_el"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -618,7 +618,7 @@
                         android:textSize="16dp"
                         android:visibility="gone" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_change_psw"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -631,7 +631,7 @@
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/nav_share"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -693,7 +693,7 @@
 
             </LinearLayout>
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -735,7 +735,7 @@
                     android:background="@drawable/ic_notifications_white"
                     android:gravity="start" />
 
-                <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                <com.infinity.infoway.bmu.CommonCls.CustomTextView
                     android:id="@+id/notification_count"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

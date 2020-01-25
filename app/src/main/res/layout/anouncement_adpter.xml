@@ -15,7 +15,7 @@
         android:visibility="gone"
         android:orientation="vertical">
 
-        <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+        <com.infinity.infoway.bmu.CommonCls.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="No Records Found"
@@ -48,7 +48,7 @@
                     android:layout_gravity="center"
                     android:src="@drawable/cal_" />
 
-                <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                <com.infinity.infoway.bmu.CommonCls.CustomTextView
                     android:id="@+id/date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -82,14 +82,14 @@
             android:orientation="horizontal"
             android:visibility="gone">
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Announced By  :"
                 android:textColor="@color/black"
                 android:textSize="@dimen/Font_size" />
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:id="@+id/tv_announce_by"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
@@ -112,7 +112,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/Font_size" />
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:id="@+id/tv_desc_ann"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -144,7 +144,7 @@
                 android:gravity="left"
                 android:orientation="vertical">
 
-                <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                <com.infinity.infoway.bmu.CommonCls.CustomTextView
                     android:id="@+id/tv_view"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -169,7 +169,7 @@
                 android:gravity="right"
                 android:orientation="horizontal">
 
-                <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                <com.infinity.infoway.bmu.CommonCls.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins"
@@ -177,7 +177,7 @@
                     android:textColor="@color/method2"
                     android:textSize="@dimen/Font_size" />
 
-                <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                <com.infinity.infoway.bmu.CommonCls.CustomTextView
                     android:id="@+id/tv_ann_by"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

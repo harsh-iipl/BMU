@@ -36,7 +36,7 @@
             android:layout_gravity="center"
             android:background="@drawable/lecturer" />
     </LinearLayout>
-       <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+       <com.infinity.infoway.bmu.CommonCls.CustomTextView
             android:id="@+id/idlecture"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
         android:layout_centerVertical="true"
         android:layout_gravity="center_vertical">
 
-       <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+       <com.infinity.infoway.bmu.CommonCls.CustomTextView
             android:id="@+id/tvstarttime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -70,7 +70,7 @@
             android:gravity="right"
             android:textColor="@color/white"/>
 
-       <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+       <com.infinity.infoway.bmu.CommonCls.CustomTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="To"
@@ -79,7 +79,7 @@
             android:layout_marginLeft="5dp"
             android:textColor="@color/white" />
 
-       <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+       <com.infinity.infoway.bmu.CommonCls.CustomTextView
             android:id="@+id/tvendtime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
             android:background="#DFECF5"
             android:paddingBottom="5dp"
             android:orientation="vertical">
-       <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+       <com.infinity.infoway.bmu.CommonCls.CustomTextView
             android:id="@+id/tvsemester"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -130,7 +130,7 @@
                     android:layout_marginTop="5dp"
                     android:weightSum="1">
 
-                   <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                   <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/tvhdivision"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -139,16 +139,15 @@
                         android:layout_weight="0.75"
                         />
 
-                   <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                   <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text=" : "
                         android:textStyle="bold"/>
 
-                   <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                   <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="---"
                         android:id="@+id/tvdivision"
                         android:paddingLeft="10dp"
                         android:layout_weight="0.25"
@@ -165,23 +164,22 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="5dp"
                 android:weightSum="1">
-               <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+               <com.infinity.infoway.bmu.CommonCls.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                    android:text="Subject"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="0.75" />
 
-               <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+               <com.infinity.infoway.bmu.CommonCls.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" : "
                     android:textStyle="bold"/>
 
-               <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+               <com.infinity.infoway.bmu.CommonCls.CustomTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="---"
                     android:id="@+id/tvbatch"
                     android:paddingLeft="10dp"
                     android:layout_weight="0.25"/>
@@ -195,23 +193,22 @@
                 android:layout_marginTop="5dp"
                 android:weightSum="1">
 
-               <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+               <com.infinity.infoway.bmu.CommonCls.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Classroom     "
                     android:layout_marginLeft="5dp"
                   />
 
-               <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+               <com.infinity.infoway.bmu.CommonCls.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text=" : "
                     android:textStyle="bold"/>
 
-               <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+               <com.infinity.infoway.bmu.CommonCls.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="---"
                     android:id="@+id/tvclassroom"
                     android:paddingLeft="10dp"
                     />
@@ -226,7 +223,7 @@
                 android:visibility="gone"
             android:weightSum="1">
 
-           <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+           <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Start Time"
@@ -234,13 +231,13 @@
                 android:layout_marginLeft="5dp"
                 android:layout_weight="0.50" />
 
-           <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+           <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" : "
                 android:textStyle="bold"/>
 
-           <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+           <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="---"
@@ -258,7 +255,7 @@
                android:visibility="gone"
             android:layout_marginTop="5dp"
             android:weightSum="1">
-           <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+           <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="End Time"
@@ -266,13 +263,13 @@
                 android:layout_marginLeft="5dp"
                 android:layout_weight="0.50" />
 
-           <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+           <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=" : "
                 android:textStyle="bold"/>
 
-           <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+           <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="---"

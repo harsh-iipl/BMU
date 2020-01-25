@@ -36,7 +36,7 @@
                 android:layout_height="90dp"
                 android:src="@drawable/new_profile" />
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
                 android:layout_height="90dp"
                 android:src="@drawable/new_attendance" />
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
 
                 android:id="@+id/textfee"
                 android:layout_width="80dp"
@@ -91,7 +91,7 @@
                 android:src="@drawable/new_timetable" />
 
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:id="@+id/com.infinity.infoway.agriculture.CommonCls.CustomTextView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -134,11 +134,12 @@
                     android:layout_height="90dp"
                     android:src="@drawable/new_lessionplan" />
 
-                <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                <com.infinity.infoway.bmu.CommonCls.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:lines="2"
+                    android:textSize="13dp"
                     android:text="Lesson Plan"
                     android:textColor="@color/black"
                     android:visibility="visible" />
@@ -161,7 +162,7 @@
                     android:src="@drawable/work_report"
                     android:visibility="visible" />
 
-                <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                <com.infinity.infoway.bmu.CommonCls.CustomTextView
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -187,7 +188,7 @@
                     android:src="@drawable/punch_in"
                     android:visibility="visible" />
 
-                <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                <com.infinity.infoway.bmu.CommonCls.CustomTextView
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -229,7 +230,7 @@
                 android:src="@drawable/new_leave"
                 android:visibility="visible" />
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:id="@+id/txt_placement"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -255,7 +256,7 @@
                 android:src="@drawable/new_announcement"
                 android:visibility="visible" />
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:id="@+id/txt_erning"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -282,7 +283,7 @@
                 android:src="@drawable/new_syallabus"
                 android:visibility="visible" />
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -346,7 +347,7 @@
                 android:layout_height="90dp"
                 android:src="@drawable/new_assignment" />
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -375,7 +376,7 @@
                 android:src="@drawable/new_e_learning"
                 android:visibility="visible" />
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -404,7 +405,7 @@
                 android:layout_height="90dp"
                 android:src="@drawable/new_placement" />
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:id="@+id/textattendence"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -433,7 +434,7 @@
                 android:layout_gravity="center"
                 android:src="@drawable/down_arrow" />
 
-            <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+            <com.infinity.infoway.bmu.CommonCls.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -468,7 +469,7 @@
                     android:gravity="center_horizontal"
                     android:orientation="vertical">
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/txt_receipt"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -494,7 +495,7 @@
                     android:orientation="vertical">
 
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/txt_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -530,7 +531,7 @@
                         android:src="@drawable/assignment"
                         android:visibility="gone" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Class &#10; Work"
@@ -566,7 +567,7 @@
                         android:src="@drawable/news"
                         android:visibility="visible" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/txtnews"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -585,7 +586,7 @@
                     android:orientation="vertical">
 
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:id="@+id/txtfeedback"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -620,7 +621,7 @@
                         android:src="@drawable/activity_icon"
                         android:visibility="gone" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Class &#10; Work"
@@ -655,7 +656,7 @@
                         android:src="@drawable/pendingfeesicon"
                         android:visibility="visible" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Class &#10; Work"
@@ -680,7 +681,7 @@
                         android:src="@drawable/exam_tt"
                         android:visibility="visible" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="MidExamTimeTable"
@@ -705,7 +706,7 @@
                         android:src="@drawable/feecircular"
                         android:visibility="visible" />
 
-                    <com.infinity.infoway.gsfc.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Class &#10; Work"
