@@ -10,6 +10,7 @@ public class Api_Client
     private static final String BASE_URL = "http://bmef.icrp.in/cms/API_Firebase_Notification.asmx/";
     private static Retrofit retrofit = null;
 
+
     public static Retrofit getClient()
     {
         if (retrofit == null)

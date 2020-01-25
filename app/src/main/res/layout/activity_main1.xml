@@ -690,6 +690,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:gravity="center"
+                    android:visibility="gone"
                     android:orientation="horizontal"
                     android:weightSum="2">
 
