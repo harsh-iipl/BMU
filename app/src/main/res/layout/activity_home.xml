@@ -41,15 +41,15 @@
                     android:padding="5dp"
                     android:orientation="horizontal"
                     android:layout_height="wrap_content">
-                    <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text="Today's InTime  :-"
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size"
-                        android:layout_weight="1"></com.infinity.infoway.bmu.CommonCls.CustomBoldTextView>
-                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                        android:layout_weight="1"></com.infinity.infoway.bmef.CommonCls.CustomBoldTextView>
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:text=""
@@ -58,7 +58,7 @@
                         android:layout_gravity="left|center"
                         android:textColor="@color/text"
                         android:textSize="@dimen/text_size"
-                        android:layout_weight="1"></com.infinity.infoway.bmu.CommonCls.CustomTextView>
+                        android:layout_weight="1"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -66,14 +66,14 @@
                     android:padding="5dp"
 
                     android:layout_height="wrap_content">
-                    <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                         android:layout_width="0dp"
                         android:textStyle="bold"
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size"
                         android:layout_height="wrap_content"
                         android:text="Today's OutTime  :-"
-                        android:layout_weight="1"></com.infinity.infoway.bmu.CommonCls.CustomBoldTextView> <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                        android:layout_weight="1"></com.infinity.infoway.bmef.CommonCls.CustomBoldTextView> <com.infinity.infoway.bmef.CommonCls.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text=""
@@ -82,7 +82,7 @@
                     android:id="@+id/tv_todays_out"
                     android:textColor="@color/text"
                     android:textSize="@dimen/text_size"
-                    android:layout_weight="1"></com.infinity.infoway.bmu.CommonCls.CustomTextView>
+                    android:layout_weight="1"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
                 </LinearLayout>
 
             </LinearLayout>
@@ -106,7 +106,7 @@
                      android:layout_weight="1"
                      android:layout_width="50dp"
                      android:layout_height="wrap_content">-->
-                <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                     android:id="@+id/tv_leave"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
@@ -137,7 +137,7 @@
                       android:layout_weight="1"
                       android:layout_width="50dp"
                       android:layout_height="wrap_content">-->
-                <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                     android:id="@+id/tv_miss_punch"
                     android:layout_width="50dp"
                     android:layout_height="match_parent"
@@ -207,7 +207,7 @@
                             android:layout_height="70dp"
                             android:src="@drawable/view_leave_final_red" />
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
 
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -256,7 +256,7 @@
                             android:layout_height="70dp"
                             android:src="@drawable/add_leave_final_red" />
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
 
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -276,7 +276,7 @@
                         android:orientation="horizontal"
                         android:weightSum="2">
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                             android:id="@+id/tv_view_leave_gd"
                             android:layout_width="95dp"
                             android:layout_height="110dp"
@@ -289,7 +289,7 @@
                             android:textColor="@color/text"
                             android:textSize="@dimen/text_size_large" />
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                             android:id="@+id/tv_add_leave_gd"
                             android:layout_width="95dp"
                             android:layout_height="110dp"
@@ -350,7 +350,7 @@
                                     android:layout_height="70dp"
                                     android:src="@drawable/leave_balance_final_red" />
 
-                                <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                                <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
 
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -383,7 +383,7 @@
                             android:id="@+id/card_view_cancel_leave"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-                            <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                            <com.infinity.infoway.bmef.CommonCls.CustomTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/tv_count_view_leave_cancel"
@@ -411,7 +411,7 @@
                             android:layout_height="70dp"
                             android:src="@drawable/view_cancel_leave_final_red" />
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
 
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -457,7 +457,7 @@
                             android:id="@+id/cardleaveapproval"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-                            <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                            <com.infinity.infoway.bmef.CommonCls.CustomTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/tv_count_leave"
@@ -485,7 +485,7 @@
                                     android:layout_height="70dp"
                                     android:src="@drawable/leave_approval_final_red" />
 
-                                <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                                <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
 
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -518,7 +518,7 @@
                             android:id="@+id/card_cancel_leave_approval"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
-                            <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                            <com.infinity.infoway.bmef.CommonCls.CustomTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:id="@+id/tv_count_cancel_leave"
@@ -546,7 +546,7 @@
                                     android:layout_height="70dp"
                                     android:src="@drawable/cancel_leave_approval_final_red" />
 
-                                <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                                <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
 
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -579,7 +579,7 @@
                         android:orientation="horizontal"
                         android:weightSum="2">
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                             android:id="@+id/tv_leave_balance_gd"
                             android:layout_width="95dp"
                             android:layout_height="110dp"
@@ -592,7 +592,7 @@
                             android:textColor="@color/text"
                             android:textSize="@dimen/text_size_large" />
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                             android:id="@+id/tv_cancel_leave"
                             android:layout_width="95dp"
                             android:layout_height="110dp"
@@ -625,7 +625,7 @@
                         android:orientation="horizontal"
                         android:weightSum="2">
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                             android:id="@+id/tv_leave_approval_gd"
                             android:layout_width="95dp"
                             android:layout_height="110dp"
@@ -636,7 +636,7 @@
                             android:text="Leave \nApproval"
                             android:textColor="@color/text"
                             android:textSize="@dimen/text_size_large" />
-                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                             android:id="@+id/tv_view_cancel_leave_approve"
                             android:layout_width="95dp"
                             android:layout_height="110dp"
@@ -670,7 +670,7 @@
                         android:orientation="horizontal"
                         android:weightSum="2">
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                             android:id="@+id/tv_appluy_cancel_leave_gd"
                             android:layout_width="95dp"
                             android:layout_height="110dp"
@@ -682,7 +682,7 @@
                             android:text="Apply \nCancel Leave"
                             android:textColor="@color/text"
                             android:textSize="@dimen/text_size_large" />
-                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                             android:id="@+id/tv_apply_cancel_leave_gd"
                             android:layout_width="95dp"
                             android:layout_height="110dp"
@@ -767,7 +767,7 @@
                                     android:layout_height="70dp"
                                     android:src="@drawable/vew_miss_punch_final_red" />
 
-                                <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                                <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
 
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -814,7 +814,7 @@
                                     android:layout_height="70dp"
                                     android:src="@drawable/add_miss_punch_final_red" />
 
-                                <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                                <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
 
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
@@ -843,7 +843,7 @@
                         android:orientation="horizontal"
                         android:weightSum="2">
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                             android:id="@+id/tv_view_miss_punch_gd"
                             android:layout_width="95dp"
                             android:layout_height="110dp"
@@ -856,7 +856,7 @@
                             android:textColor="@color/text"
                             android:textSize="@dimen/text_size_large" />
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                             android:id="@+id/tv_add_miss_punch_gd"
                             android:layout_width="95dp"
                             android:layout_height="110dp"
@@ -906,7 +906,7 @@
                                 card_view:elevation="36dp"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
-                                <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                                <com.infinity.infoway.bmef.CommonCls.CustomTextView
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:id="@+id/tv_count_view_miss_punch"
@@ -933,7 +933,7 @@
                                         android:layout_height="70dp"
                                         android:src="@drawable/miss_punch_approve_final_red" />
 
-                                    <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                                    <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
 
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -978,7 +978,7 @@
                                         android:layout_height="70dp"
                                         android:src="@drawable/vew_miss_punch_final_red" />
 
-                                    <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                                    <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
 
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
@@ -992,7 +992,7 @@
                                 </LinearLayout>
                             </android.support.v7.widget.CardView>
                         </LinearLayout>
-                      <!--  <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                      <!--  <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                             android:id="@+id/tv_miss_punch_approval_gd"
                             android:layout_width="95dp"
                             android:layout_height="110dp"
@@ -1005,7 +1005,7 @@
                             android:textColor="@color/text"
                             android:textSize="@dimen/text_size_large" />
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                             android:layout_width="95dp"
                             android:layout_height="110dp"
                             android:layout_margin="5dp"

@@ -36,7 +36,7 @@
                     android:background="@color/white"
                     android:gravity="center_vertical">
 
-                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:id="@+id/title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -73,7 +73,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                             android:id="@+id/tv_gp_name"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -115,7 +115,7 @@
                         android:visibility="gone"
                         android:layout_marginTop="10dp">
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                             android:id="@+id/tv_grp_type"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
                         android:orientation="horizontal"
                         android:weightSum="2">
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomEditText
+                        <com.infinity.infoway.bmef.CommonCls.CustomEditText
                             android:id="@+id/edt_upload_file"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -153,7 +153,7 @@
                             android:padding="10dp"
                             android:textSize="@dimen/text_size_u" />
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomButton
+                        <com.infinity.infoway.bmef.CommonCls.CustomButton
                             android:id="@+id/btn_upload_file"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
@@ -170,7 +170,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp">
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                             android:id="@+id/tv_desc"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -190,7 +190,7 @@
 
                     </RelativeLayout>
 
-                    <com.infinity.infoway.bmu.CommonCls.CustomEditText
+                    <com.infinity.infoway.bmef.CommonCls.CustomEditText
                         android:id="@+id/edt_desc_e_lerning"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -205,7 +205,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp">
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                             android:id="@+id/tv_date"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -233,7 +233,7 @@
                         android:orientation="horizontal"
                         android:weightSum="2">
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomEditText
+                        <com.infinity.infoway.bmef.CommonCls.CustomEditText
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.5"
@@ -260,7 +260,7 @@
 
             </ScrollView>
 
-            <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                 android:id="@+id/tv_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

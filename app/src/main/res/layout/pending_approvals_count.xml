@@ -8,7 +8,7 @@
 
     android:padding="10dp">
 
-    <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+    <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
         android:id="@+id/tv_titile"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -36,7 +36,7 @@
             android:id="@+id/ll_leave_approval_count"
             android:orientation="horizontal"
             android:layout_height="wrap_content">
-            <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Pending Leave Approval Count  :-"
@@ -44,8 +44,8 @@
                 android:lines="2"
                 android:textColor="@color/black"
                 android:textSize="@dimen/text_size"
-                android:layout_weight="1.5"></com.infinity.infoway.bmu.CommonCls.CustomBoldTextView>
-            <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                android:layout_weight="1.5"></com.infinity.infoway.bmef.CommonCls.CustomBoldTextView>
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text=""
@@ -54,7 +54,7 @@
                 android:layout_gravity="left|center"
                 android:textColor="@color/text"
                 android:textSize="@dimen/text_size"
-                android:layout_weight=".5"></com.infinity.infoway.bmu.CommonCls.CustomTextView>
+                android:layout_weight=".5"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -63,7 +63,7 @@
 
             android:id="@+id/ll_cancel_leave_approval_count"
             android:layout_height="wrap_content">
-            <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                 android:layout_width="0dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -71,8 +71,8 @@
                 android:textSize="@dimen/text_size"
                 android:layout_height="wrap_content"
                 android:text="Pending Cancel Leave Approval Count  :-"
-                android:layout_weight="1.5"></com.infinity.infoway.bmu.CommonCls.CustomBoldTextView>
-            <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                android:layout_weight="1.5"></com.infinity.infoway.bmef.CommonCls.CustomBoldTextView>
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text=""
@@ -81,7 +81,7 @@
             android:id="@+id/tv_cancel_leave_approval_count"
             android:textColor="@color/text"
             android:textSize="@dimen/text_size"
-            android:layout_weight=".5"></com.infinity.infoway.bmu.CommonCls.CustomTextView>
+            android:layout_weight=".5"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -89,7 +89,7 @@
             android:padding="5dp"
                 android:id="@+id/ll_miss_punch_aaproval_count"
             android:layout_height="wrap_content">
-            <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                 android:layout_width="0dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -97,7 +97,7 @@
                 android:textSize="@dimen/text_size"
                 android:layout_height="wrap_content"
                 android:text="Pending Miss Punch Approval Count  :-"
-                android:layout_weight="1.5"></com.infinity.infoway.bmu.CommonCls.CustomBoldTextView> <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                android:layout_weight="1.5"></com.infinity.infoway.bmef.CommonCls.CustomBoldTextView> <com.infinity.infoway.bmef.CommonCls.CustomTextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text=""
@@ -106,7 +106,7 @@
             android:id="@+id/tv_pending_miss_punch_approval_count"
             android:textColor="@color/text"
             android:textSize="@dimen/text_size"
-            android:layout_weight=".5"></com.infinity.infoway.bmu.CommonCls.CustomTextView>
+            android:layout_weight=".5"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
         </LinearLayout>
 
     </LinearLayout>

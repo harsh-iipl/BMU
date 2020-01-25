@@ -13,7 +13,7 @@
         android:padding="5dp"
         android:orientation="vertical">
 
-            <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"

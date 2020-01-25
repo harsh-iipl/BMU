@@ -58,7 +58,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1.5">
-                                    <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                                    <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Last In"
@@ -72,7 +72,7 @@
                                     android:layout_height="wrap_content"
 
                                     android:layout_weight="3.5">
-                                    <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                                    <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textColor="@color/text"
@@ -104,7 +104,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1.5">
-                                    <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                                    <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:text="Last Out"
@@ -118,7 +118,7 @@
                                     android:layout_height="wrap_content"
 
                                     android:layout_weight="3.5">
-                                    <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                                    <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textColor="@color/text"

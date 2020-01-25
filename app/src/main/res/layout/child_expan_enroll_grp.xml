@@ -19,7 +19,7 @@
             android:padding="2dp"
             android:orientation="horizontal">
 
-            <com.infinity.infoway.bmu.CommonCls.CustomTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -27,7 +27,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/Font_size_large" />
 
-            <com.infinity.infoway.bmu.CommonCls.CustomTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
                 android:id="@+id/tv_desc_enroll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
             android:orientation="horizontal"
             android:weightSum="2">
 
-            <com.infinity.infoway.bmu.CommonCls.CustomTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
                 android:id="@+id/tv_click_enroll"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,7 +56,7 @@
                 android:textColor="@color/pink"
                 android:textSize="@dimen/Font_size_large" />
 
-            <com.infinity.infoway.bmu.CommonCls.CustomTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
                 android:id="@+id/tv_click_decline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

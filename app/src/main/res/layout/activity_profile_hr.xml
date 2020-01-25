@@ -51,7 +51,7 @@
                     android:src="@drawable/user_profile" />
 
             </RelativeLayout>
-            <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                 android:layout_width="match_parent"
                 android:text="fhjdhfjdhfjdh"
 
@@ -127,7 +127,7 @@
                                 android:orientation="vertical"
                                 android:weightSum="2">
 
-                                <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                                <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -187,7 +187,7 @@
                                 android:orientation="vertical"
                                 android:weightSum="2">
 
-                                <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                                <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -248,7 +248,7 @@
                                 android:orientation="vertical"
                                 android:weightSum="2">
 
-                                <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                                <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -308,7 +308,7 @@
                                 android:orientation="vertical"
                                 android:weightSum="2">
 
-                                <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                                <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -367,7 +367,7 @@
                                 android:orientation="vertical"
                                 android:weightSum="2">
 
-                                <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                                <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -427,7 +427,7 @@
                                 android:orientation="vertical"
                                 android:weightSum="2">
 
-                                <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                                <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
@@ -460,7 +460,7 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp">
 
-                            <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                            <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                                 android:id="@+id/txt_profile_submit"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"

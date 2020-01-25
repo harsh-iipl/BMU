@@ -25,7 +25,7 @@
                 android:background="@drawable/miss_punch_bg"
                >
 
-                <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -33,7 +33,7 @@
                     android:gravity="center"
                     android:text="Statistics"
                     android:textColor="@color/white"
-                    android:textSize="@dimen/text_size"></com.infinity.infoway.bmu.CommonCls.CustomBoldTextView>
+                    android:textSize="@dimen/text_size"></com.infinity.infoway.bmef.CommonCls.CustomBoldTextView>
 
 
             </LinearLayout>
@@ -55,7 +55,7 @@
 
 
 
-                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1.2"
@@ -64,13 +64,13 @@
                         android:text=""
                         android:id="@+id/tv_name"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/text_size"></com.infinity.infoway.bmu.CommonCls.CustomTextView>
+                        android:textSize="@dimen/text_size"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
                     <View
                         android:layout_width="2dp"
                         android:layout_height="match_parent"
                         android:padding="15dp"
                         android:background="@color/levave_balance" />
-                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -82,7 +82,7 @@
                         android:paddingLeft="15dp"
                         android:layout_marginLeft="15dp"
                         android:textColor="@color/black"
-                        android:textSize="@dimen/text_size"></com.infinity.infoway.bmu.CommonCls.CustomTextView>
+                        android:textSize="@dimen/text_size"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
 
                 </LinearLayout>
 

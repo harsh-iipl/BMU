@@ -7,7 +7,7 @@
     android:gravity="center_horizontal"
     android:padding="10dp">
 
-    <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+    <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
         android:id="@+id/tv_titile"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -21,7 +21,7 @@
         android:textSize="@dimen/text_size" />
 
 
-    <com.infinity.infoway.bmu.CommonCls.CustomEditText
+    <com.infinity.infoway.bmef.CommonCls.CustomEditText
 
         android:id="@+id/edt_reason"
         android:layout_width="fill_parent"
@@ -36,7 +36,7 @@
         android:textColor="@color/black"
         android:textSize="@dimen/text_size" />
 
-    <com.infinity.infoway.bmu.CommonCls.CustomTextView
+    <com.infinity.infoway.bmef.CommonCls.CustomTextView
 
         android:id="@+id/tv_msg_guj"
         android:layout_width="fill_parent"
@@ -51,7 +51,7 @@
         android:textSize="@dimen/text_size"
         android:visibility="gone" />
 
-    <com.infinity.infoway.bmu.CommonCls.CustomButton
+    <com.infinity.infoway.bmef.CommonCls.CustomButton
         android:id="@+id/dialogButtonOK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
         android:textColor="@color/white"
         android:textSize="@dimen/text_size" />
 
-    <com.infinity.infoway.bmu.CommonCls.CustomButton
+    <com.infinity.infoway.bmef.CommonCls.CustomButton
         android:id="@+id/dialogButtonCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

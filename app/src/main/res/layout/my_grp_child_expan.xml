@@ -13,7 +13,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.infinity.infoway.bmu.CommonCls.CustomTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
                 android:id="@+id/tv_desc_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -53,7 +53,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1.8">
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomTextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|top"
@@ -62,7 +62,7 @@
                             android:textColor="@color/black"
                             android:textSize="@dimen/Font_size" />
 
-                        <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                        <com.infinity.infoway.bmef.CommonCls.CustomTextView
                             android:id="@+id/dec_chid_tv"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -92,7 +92,7 @@
 
                     android:weightSum="2">
 
-                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -102,7 +102,7 @@
 
                         android:textSize="@dimen/Font_size" />
 
-                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:id="@+id/tv_date_child"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"

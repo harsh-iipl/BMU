@@ -8,7 +8,7 @@
     android:background="@color/white"
     android:gravity="center_horizontal">
 
-    <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+    <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
         android:id="@+id/tv_titile"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -22,7 +22,7 @@
         android:textSize="@dimen/text_size_u" />
 
     <!--https://stackoverflow.com/questions/9290651/make-a-hyperlink-textview-in-android-->
-    <com.infinity.infoway.bmu.CommonCls.CustomTextView
+    <com.infinity.infoway.bmef.CommonCls.CustomTextView
 
         android:id="@+id/tv_msg"
         android:layout_width="fill_parent"
@@ -82,7 +82,7 @@ android:checked="true"
 
     </LinearLayout>
 
-    <com.infinity.infoway.bmu.CommonCls.CustomButton
+    <com.infinity.infoway.bmef.CommonCls.CustomButton
         android:id="@+id/dialogButtonOK"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -100,7 +100,7 @@ android:checked="true"
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_u" />
 
-    <com.infinity.infoway.bmu.CommonCls.CustomButton
+    <com.infinity.infoway.bmef.CommonCls.CustomButton
         android:id="@+id/dialogButtonCancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -107,7 +107,7 @@
                         android:layout_centerVertical="true"
                         android:src="@drawable/ic_back"
                         android:visibility="visible" />
-                    <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+                    <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                         android:id="@+id/iv_brainZorg"
                         android:layout_width="wrap_content"
                         android:layout_height="35dp"

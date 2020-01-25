@@ -18,7 +18,7 @@
              android:layout_height="150dp"
              android:layout_margin="5dp">
 
-             <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+             <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                  android:layout_width="match_parent"
                  android:layout_height="match_parent"
                  android:background="@drawable/view_leave_border"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp">
 
-            <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/view_leave_border"

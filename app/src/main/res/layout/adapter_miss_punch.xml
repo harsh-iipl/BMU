@@ -18,7 +18,7 @@
         android:weightSum="3">
 
 
-        <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+        <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
             android:id="@+id/txt_enroll_no"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -51,16 +51,16 @@
 
 
 
-            <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Status"
-                android:textColor="@color/black"></com.infinity.infoway.bmu.CommonCls.CustomBoldTextView>
+                android:textColor="@color/black"></com.infinity.infoway.bmef.CommonCls.CustomBoldTextView>
 
-            <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -68,9 +68,9 @@
                 android:gravity="center"
                 android:text="In Time"
                 android:textColor="@color/black"
-                android:textSize="@dimen/text_size"></com.infinity.infoway.bmu.CommonCls.CustomBoldTextView>
+                android:textSize="@dimen/text_size"></com.infinity.infoway.bmef.CommonCls.CustomBoldTextView>
 
-            <com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -78,7 +78,7 @@
                 android:gravity="center"
                 android:text="Out Time"
                 android:textColor="@color/black"
-                android:textSize="@dimen/text_size"></com.infinity.infoway.bmu.CommonCls.CustomBoldTextView>
+                android:textSize="@dimen/text_size"></com.infinity.infoway.bmef.CommonCls.CustomBoldTextView>
         </LinearLayout>
 
         <LinearLayout
@@ -90,7 +90,7 @@
             android:orientation="horizontal"
             android:weightSum="3">
 
-            <com.infinity.infoway.bmu.CommonCls.CustomTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
                 android:id="@+id/tv_status"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -100,9 +100,9 @@
                 android:gravity="center"
                 android:text=""
                 android:textColor="@color/text"
-                android:typeface="monospace"></com.infinity.infoway.bmu.CommonCls.CustomTextView>
+                android:typeface="monospace"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
 
-            <com.infinity.infoway.bmu.CommonCls.CustomTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
                 android:id="@+id/tv_in_time"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -113,9 +113,9 @@
                 android:text=""
                 android:textColor="@color/text"
                 android:textSize="@dimen/text_size"
-                android:typeface="monospace"></com.infinity.infoway.bmu.CommonCls.CustomTextView>
+                android:typeface="monospace"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
 
-            <com.infinity.infoway.bmu.CommonCls.CustomTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
                 android:id="@+id/tv_out_time"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -126,7 +126,7 @@
                 android:text=""
                 android:textColor="@color/text"
                 android:textSize="@dimen/text_size"
-                android:typeface="monospace"></com.infinity.infoway.bmu.CommonCls.CustomTextView>
+                android:typeface="monospace"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
 
         </LinearLayout>
         <View
@@ -148,16 +148,16 @@
 
 
 
-            <com.infinity.infoway.bmu.CommonCls.CustomTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Approved"
-                android:textColor="@color/text"></com.infinity.infoway.bmu.CommonCls.CustomTextView>
+                android:textColor="@color/text"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
 
-            <com.infinity.infoway.bmu.CommonCls.CustomTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -165,9 +165,9 @@
                 android:gravity="center"
                 android:text="01/08/2018 \n(09:00 AM)"
                 android:textColor="@color/text"
-                android:textSize="@dimen/text_size"></com.infinity.infoway.bmu.CommonCls.CustomTextView>
+                android:textSize="@dimen/text_size"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
 
-            <com.infinity.infoway.bmu.CommonCls.CustomTextView
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -175,7 +175,7 @@
                 android:gravity="center"
                 android:text="01/08/2018 \n(09:00 AM)"
                 android:textColor="@color/text"
-                android:textSize="@dimen/text_size"></com.infinity.infoway.bmu.CommonCls.CustomTextView>
+                android:textSize="@dimen/text_size"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
 
         </LinearLayout>
 

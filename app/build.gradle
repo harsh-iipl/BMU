@@ -8,8 +8,9 @@ android
 //            buildToolsVersion "26.0.1"
             defaultConfig
                     {
-//                        applicationId "com.infinity.infoway.bmu"
-                        applicationId "com.infinity.infoway.bmu"
+//                        applicationId "com.infinity.infoway.bmef"
+                       // applicationId "com.infinity.infoway.bmef"
+                        applicationId "com.infinity.infoway.bmef"
                         //  minSdkVersion 16
                         minSdkVersion 19
                         targetSdkVersion 29

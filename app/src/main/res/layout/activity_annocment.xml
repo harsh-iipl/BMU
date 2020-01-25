@@ -42,7 +42,7 @@
                     android:background="@color/white"
                     android:gravity="center_vertical">
 
-                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:id="@+id/title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -82,7 +82,7 @@
                     android:padding="7dp"
                     android:visibility="visible">
 
-                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:padding="3dp"
@@ -114,10 +114,10 @@
                     android:id="@+id/lll_lv"
                     android:layout_height="wrap_content">
 
-                    <com.infinity.infoway.bmu.activity.ExpandableHeightListView
+                    <com.infinity.infoway.bmef.activity.ExpandableHeightListView
                         android:id="@+id/lv_announcement_stud"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"></com.infinity.infoway.bmu.activity.ExpandableHeightListView>
+                        android:layout_height="match_parent"></com.infinity.infoway.bmef.activity.ExpandableHeightListView>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -128,14 +128,14 @@
                     android:background="@color/white"
                     android:layout_height="match_parent">
 
-                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:id="@+id/tv_no_records"
                         android:text="No Records Found"
                         android:layout_gravity="center"
                         android:gravity="center"
                         android:textColor="@color/black"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"></com.infinity.infoway.bmu.CommonCls.CustomTextView>
+                        android:layout_height="match_parent"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
                 </LinearLayout>
             </LinearLayout>
 

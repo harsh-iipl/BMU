@@ -29,7 +29,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="3">
-                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="2dp"
@@ -37,7 +37,7 @@
                         android:textColor="@color/black"
                         android:textSize="@dimen/text_size_u" />
 
-                    <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:id="@+id/tv_tv0"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
                 android:orientation="horizontal"
                 android:padding="2dp">
 
-                <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="2dp"
@@ -78,7 +78,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_size_u" />
 
-                <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
                     android:id="@+id/tv_tv1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -94,7 +94,7 @@
 
                 android:padding="2dp">
 
-                <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
                     android:textColor="@color/black"
                     android:textSize="@dimen/text_size_u" />
 
-                <com.infinity.infoway.bmu.CommonCls.CustomTextView
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
                     android:id="@+id/tv_tv2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

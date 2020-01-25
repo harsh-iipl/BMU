@@ -7,7 +7,7 @@
     android:background="@color/light_yello"
 
     android:orientation="vertical">
-<com.infinity.infoway.bmu.CommonCls.CustomBoldTextView
+<com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
     android:layout_width="match_parent"
     android:visibility="gone"
     android:gravity="center"
