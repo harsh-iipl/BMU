@@ -185,6 +185,7 @@ public class Timetable extends AppCompatActivity
                         }
                         else
                             {
+
                             Toast.makeText(Timetable.this, "No Records Found", Toast.LENGTH_LONG).show();
                         }
                     }
@@ -253,7 +254,7 @@ public class Timetable extends AppCompatActivity
                     }
                     else
                         {
-                        Toast.makeText(Timetable.this, "Plese Try Again Later", Toast.LENGTH_LONG).show();
+                        Toast.makeText(Timetable.this, "Please Try Again Later", Toast.LENGTH_LONG).show();
                     }
                 }
 

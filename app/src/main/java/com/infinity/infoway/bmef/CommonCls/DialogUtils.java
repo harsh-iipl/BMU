@@ -51,6 +51,29 @@ public class DialogUtils
         m_Dialog.show();
         return m_Dialog;
     }
+
+    public static ProgressDialog showProgressDialog_(Context context, String text) {
+        m_Dialog = new ProgressDialog(context);
+        text = "Please Wait... ";
+// m_Dialog.setProgressDrawable(R.drawable.progress_round);
+
+
+// progressDrawable.setBounds(downloadingBar.getProgressDrawable().getBounds());
+
+// m_Dialog.setProgressDrawable(progressDrawable);
+
+        SpannableString spannableString = new SpannableString(text);
+        Typeface typefaceSpan = Validations.setTypeface(context);
+        spannableString.setSpan(typefaceSpan, 0, text.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        m_Dialog.setMessage(spannableString);
+
+// m_Dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        m_Dialog.setCancelable(false);
+        m_Dialog.show();
+        return m_Dialog;
+    }
+
+
     public static ProgressDialog showProgressDialogNotCancelable(Context context, String text)
     {
         m_Dialog = new ProgressDialog(context, R.style.MyAlertDialogStyle);
@@ -143,7 +166,51 @@ public class DialogUtils
             }
         });
     }
+    public static void showDialog(final Context context, String title, String message, final DailogCallBackOkButtonClick dailogCallBackOkButtonClick) {
+        title = title + "";
+        if (title.contentEquals("")) {
+            title = context.getResources().getString(R.string.app_name);
+        }
+        LayoutInflater inflater = LayoutInflater.from(context);
+        final View dialogView = inflater.inflate(R.layout.aommoncls_dialogbox_redblack_guj, null);
+        TextView titileTextView = (TextView) dialogView.findViewById(R.id.tv_titile);
+        CustomTextView msgTextView = (CustomTextView) dialogView.findViewById(R.id.tv_msg);
+        CustomTextView tv_msg_guj = (CustomTextView) dialogView.findViewById(R.id.tv_msg_guj);
+        CustomButton dialogButtonOKButton = (CustomButton) dialogView.findViewById(R.id.dialogButtonOK);
+        CustomButton dialogButtonCancel = (CustomButton) dialogView.findViewById(R.id.dialogButtonCancel);
+        dialogButtonCancel.setTypeface(Validations.setTypeface(context));
+        titileTextView.setTypeface(Validations.setTypeface(context));
+        titileTextView.setText(title + "");
+        msgTextView.setTypeface(Validations.setTypeface(context));
+        tv_msg_guj.setTypeface(Validations.setTypeface(context));
+        dialogButtonCancel.setVisibility(View.INVISIBLE);
+        dialogButtonOKButton.setTypeface(Validations.setTypeface(context));
+        msgTextView.setText(message + "");
+        //    if()
+        tv_msg_guj.setTextColor(context.getResources().getColor(R.color.colorAccent));
+//        tv_msg_guj.setText(context.getResources().getString(R.string.ADD_MEMBER) + "");
+        final AlertDialog.Builder builder = new AlertDialog.Builder(context);
 
+        //  final AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(getActivity(), R.style.myDialog));
+        final AlertDialog b = builder.create();
+        //  builder.setTitle("Material Style Dialog");
+        builder.setCancelable(false);
+        builder.setView(dialogView);
+        b.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+        final AlertDialog show = builder.show();
+        dialogButtonOKButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                show.dismiss();
+                if (dailogCallBackOkButtonClick != null)
+                    dailogCallBackOkButtonClick.onDialogOkButtonClicked();
+            }
+        });
+
+
+    }
     public static void showDialog4YNo(final Context context, String title, String message, String link,final DailogCallBackOkButtonClick dailogCallBackOkButtonClick, final DailogCallBackCancelButtonClick dailogCallBackCancelButtonClick)
     {
         title = title + "";

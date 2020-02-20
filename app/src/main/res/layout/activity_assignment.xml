@@ -108,16 +108,42 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:gravity="center"
             android:background="@drawable/background">
 
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:id="@+id/txt_records"
+                android:gravity="center"
+                android:visibility="gone"
+                android:text="No Records Found"
+                android:textColor="@color/black"
+                android:textSize="@dimen/Font_size"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
             <ListView
                 android:id="@+id/assignment_listview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:dividerHeight="5dp"
+                android:visibility="visible"
                 android:layout_marginTop="10dp"
                 android:divider="@android:color/transparent"/>
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                android:id="@+id/tv_no_records_leave"
+                android:layout_width="match_parent"
+                android:textSize="@dimen/Font_size"
+                android:visibility="gone"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="No Records Found"
+                android:layout_height="match_parent"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                ></com.infinity.infoway.bmef.CommonCls.CustomTextView>
 
         </LinearLayout>
     </LinearLayout>

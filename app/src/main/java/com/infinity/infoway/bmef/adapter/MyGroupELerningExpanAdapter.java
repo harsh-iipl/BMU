@@ -388,7 +388,7 @@ public class MyGroupELerningExpanAdapter extends BaseExpandableListAdapter {
                 try {
                     _context.startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    DialogUtils.Show_Toast(_context, "No Apps can performs This acttion");
+                    DialogUtils.Show_Toast(_context, "No Apps can perform This Action");
                 }
             } else {
 
@@ -424,7 +424,7 @@ public class MyGroupELerningExpanAdapter extends BaseExpandableListAdapter {
                 try {
                     _context.startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    DialogUtils.Show_Toast(_context, "No Apps can performs This acttion");
+                    DialogUtils.Show_Toast(_context, "No Apps can perform This Action");
 
                 }
 

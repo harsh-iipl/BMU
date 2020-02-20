@@ -113,11 +113,21 @@
                 android:background="@color/orange"
                 android:gravity="center"
                 android:orientation="horizontal">
-
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgcircularprofilera"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/defaultprofile"
+                    app:civ_border_color="@color/white"
+                    app:civ_border_width="2dp"
+                    app:civ_fill_color="@color/white" />
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgcircularprofiler"
                     android:layout_width="90dp"
                     android:layout_height="90dp"
+                    android:visibility="gone"
                     android:layout_gravity="center"
                     android:layout_marginLeft="10dp"
                     android:src="@drawable/defaultprofile"
@@ -1458,7 +1468,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.60"
-                            android:text="Student Quata"
+                            android:text="Student Quota"
                             android:textColor="@color/black" />
 
                        <com.infinity.infoway.bmef.CommonCls.CustomTextView
@@ -1768,7 +1778,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="0.60"
-                            android:text="Father Mobile No."
+                            android:text="Father's Mobile No."
                             android:textColor="@color/black" />
 
                        <com.infinity.infoway.bmef.CommonCls.CustomTextView

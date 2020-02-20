@@ -20,6 +20,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.bmef.CommonCls.CustomBoldTextView;
+import com.infinity.infoway.bmef.CommonCls.CustomTextView;
 import com.infinity.infoway.bmef.CommonCls.DialogUtils;
 import com.infinity.infoway.bmef.CommonCls.EndlessScrollListener;
 import com.infinity.infoway.bmef.CommonCls.MySharedPrefereces;
@@ -42,6 +43,7 @@ public class MissPunchApproval extends AppCompatActivity
     static MySharedPrefereces mySharedPrefereces;
     static Activity activity;
     Switch cb_check;
+    static CustomTextView txt_records;
     static Boolean is_check_API = false;
     static RequestQueue queue;
 
@@ -169,9 +171,11 @@ public class MissPunchApproval extends AppCompatActivity
                         {
                             if (missPunchApprovePojo.getData().get(0) != null)
                             {
+                             //int val =   missPunchApprovePojo.getData().size() = 10;
                                 if (missPunchApprovePojo.getData().size() > 0)
                                 {
-
+                                    txt_records.setVisibility(View.GONE);
+                                    lvmisspunchapproval.setVisibility(View.VISIBLE);
                                     if (lvmisspunchapproval != null)
                                     {
 
@@ -219,6 +223,8 @@ public class MissPunchApproval extends AppCompatActivity
                                 }
                                 else
                                 {
+                                    txt_records.setVisibility(View.VISIBLE);
+                                    lvmisspunchapproval.setVisibility(View.GONE);
                                     System.out.println("call data size is >0 else &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
                                     System.out.println("else  calll ################");
                                     DialogUtils.Show_Toast(activity, "No Records Found");
@@ -231,6 +237,8 @@ public class MissPunchApproval extends AppCompatActivity
                     if (PageNo == 1) {
                         System.out.println("call data size is <5 else &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
                         listall.clear();
+                        txt_records.setVisibility(View.VISIBLE);
+                        lvmisspunchapproval.setVisibility(View.GONE);
                         DialogUtils.Show_Toast(activity, "No Records Found");
                         missPunchapprovalAdapter = new MissPunchapprovalAdapter(activity, missPunchApprovePojo, listall);
                         missPunchapprovalAdapter.notifyDataSetChanged();
@@ -274,7 +282,7 @@ public class MissPunchApproval extends AppCompatActivity
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-
+        txt_records =(CustomTextView)findViewById(R.id.txt_records);
         tv_emp_code = (CustomBoldTextView) findViewById(R.id.tv_emp_code);
         tv_version = (CustomBoldTextView) findViewById(R.id.tv_version);
         tv_version_code = (CustomBoldTextView) findViewById(R.id.tv_version_code);

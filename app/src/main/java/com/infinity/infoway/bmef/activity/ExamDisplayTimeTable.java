@@ -103,7 +103,7 @@ public class ExamDisplayTimeTable extends AppCompatActivity {
                 progressDialog.dismiss();
 
                 //Log.e("Error",t.toString());
-                Toast.makeText(ExamDisplayTimeTable.this, "Plese try again later", Toast.LENGTH_LONG).show();
+                Toast.makeText(ExamDisplayTimeTable.this, "Please try again later", Toast.LENGTH_LONG).show();
 
             }
         });

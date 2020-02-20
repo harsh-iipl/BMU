@@ -1,0 +1,1282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">-->
+
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+
+    <LinearLayout
+        android:id="@+id/layout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/rlbackgroundprofile"
+        android:orientation="vertical"
+       >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/personaldetail">
+
+            <LinearLayout
+                android:id="@+id/llpersonal"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@color/personalimage"
+                android:gravity="center"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/user" />
+            </LinearLayout>
+
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="10dp"
+                android:layout_toEndOf="@+id/llpersonal"
+                android:gravity="center"
+                android:text="Personal Details"
+                android:textColor="@color/white"
+                android:textSize="17sp" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/llstudentpersonaldetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           android:layout_marginBottom="50dp"
+
+            android:orientation="vertical"
+            android:paddingLeft="7dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+android:gravity="center"
+android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <!-- <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />-->
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="SurName"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_u_small" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    android:layout_weight="1.5">
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+
+                    android:backgroundTint="@color/btn_color"
+                    android:focusable="false"
+                    android:textColorHint="@color/silver">
+                <com.infinity.infoway.bmef.CommonCls.CustomEditText
+                    android:id="@+id/edtname"
+                    android:maxLines="1"
+                    android:focusable="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+android:background="@null"
+                    android:paddingLeft="10dp" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/green"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:layout_weight="0.5"
+                    android:textSize="@dimen/text_size_u_small"
+                    android:text="Middle Name"
+                    android:textColor="@color/black" />
+
+               <!-- <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    android:layout_weight="1.5">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+
+                        android:backgroundTint="@color/btn_color"
+                        android:textColorHint="@color/silver">
+                <com.infinity.infoway.bmef.CommonCls.CustomEditText
+                    android:id="@+id/edtmiddlename"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+android:focusable="false"
+                    android:maxLines="1"
+                    android:background="@null"
+                    android:paddingLeft="10dp"
+                     />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/green"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:layout_weight="0.5"
+                    android:textSize="@dimen/text_size_u_small"
+                    android:text="Father's Name"
+                    android:textColor="@color/black" />
+
+                <!-- <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text=" : "
+                     android:textStyle="bold" />-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    android:layout_weight="1.5">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+
+                        android:backgroundTint="@color/btn_color"
+                        android:textColorHint="@color/silver">
+                        <com.infinity.infoway.bmef.CommonCls.CustomEditText
+                            android:id="@+id/edtfathersName"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+
+                            android:maxLines="1"
+                            android:background="@null"
+                            android:paddingLeft="10dp"
+                            />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/green"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:layout_weight="0.5"
+                    android:focusable="false"
+
+                    android:textSize="@dimen/text_size_u_small"
+                    android:text="Father's Occupation"
+                    android:textColor="@color/black" />
+
+                <!-- <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text=" : "
+                     android:textStyle="bold" />-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    android:layout_weight="1.5">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+
+                        android:backgroundTint="@color/btn_color"
+                        android:textColorHint="@color/silver">
+                        <com.infinity.infoway.bmef.CommonCls.CustomEditText
+                            android:id="@+id/edtfathersoccupation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="true"
+                            android:focusableInTouchMode="true"
+                            android:maxLines="1"
+                            android:background="@null"
+                            android:paddingLeft="10dp"
+                            />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/green"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:layout_weight="0.5"
+                    android:textSize="@dimen/text_size_u_small"
+                    android:text="Mother's Name"
+                    android:textColor="@color/black" />
+
+                <!-- <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text=" : "
+                     android:textStyle="bold" />-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    android:layout_weight="1.5">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+
+                        android:backgroundTint="@color/btn_color"
+                        android:textColorHint="@color/silver">
+                        <com.infinity.infoway.bmef.CommonCls.CustomEditText
+                            android:id="@+id/edtmothername"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+
+                            android:maxLines="1"
+                            android:background="@null"
+                            android:paddingLeft="10dp"
+                            />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/green"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:layout_weight="0.5"
+                    android:textSize="@dimen/text_size_u_small"
+                    android:text="Mother's Occupation"
+                    android:textColor="@color/black" />
+
+                <!-- <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:text=" : "
+                     android:textStyle="bold" />-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    android:layout_weight="1.5">
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+                        android:focusable="false"
+                        android:backgroundTint="@color/btn_color"
+                        android:textColorHint="@color/silver">
+
+                        <com.infinity.infoway.bmef.CommonCls.CustomEditText
+                            android:id="@+id/edtmotheroccupation"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+
+                            android:focusableInTouchMode="true"
+
+
+                            android:background="@null"
+
+                            android:maxLines="1"
+                            android:paddingLeft="10dp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/green"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="0.5"
+
+                    android:text="Date of Birth"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_u_small" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    android:layout_weight="1.5">
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+
+                        android:backgroundTint="@color/btn_color"
+                        android:textColorHint="@color/silver">
+
+<!--
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />-->
+
+                <com.infinity.infoway.bmef.CommonCls.CustomEditText
+                    android:id="@+id/edtbirthdate"
+                    android:background="@null"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.40"
+                    android:focusable="false"
+                    android:paddingLeft="10dp"
+                    />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/green"/>
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:textSize="@dimen/text_size_u_small"
+                    android:text="Birth place"
+                    android:textColor="@color/black" />
+
+               <!-- <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />
+
+
+-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    android:layout_weight="1.5">
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+
+                        android:backgroundTint="@color/btn_color"
+                        android:textColorHint="@color/silver">
+
+                <com.infinity.infoway.bmef.CommonCls.CustomEditText
+                    android:id="@+id/edtbirthplace"
+                    android:maxLines="1"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@null"
+
+                    android:paddingLeft="10dp"
+                    />
+
+                    </android.support.design.widget.TextInputLayout>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/green"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.60"
+                    android:textSize="@dimen/text_size_u_small"
+                    android:text="Gender"
+                    android:textColor="@color/black" />
+<!--
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />-->
+
+                <RadioGroup
+                    android:id="@+id/rg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <RadioButton
+                        android:id="@+id/rb_male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Male"
+                        android:textColor="@color/black"
+                        android:theme="@style/RadioButtonStyle" />
+
+                    <RadioButton
+                        android:id="@+id/rb_female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Female"
+                        android:textColor="@color/black"
+                        android:theme="@style/RadioButtonStyle" />
+
+
+
+                </RadioGroup>
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:textSize="@dimen/text_size_u_small"
+                    android:text="Blood group"
+                    android:textColor="@color/black" />
+
+              <!--  <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />-->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    android:layout_weight="1.5">
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/spin_bloodgroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:gravity="center"
+                    android:minHeight="30dp"
+                    android:padding="5dp"></com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/green"/>
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Category"
+                    android:textSize="@dimen/text_size_u_small"
+                    android:textColor="@color/black" />
+
+              <!--  <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />
+
+-->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    android:layout_weight="1.5">
+
+
+
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/spin_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:gravity="center"
+                    android:minHeight="30dp"
+                    android:padding="5dp"></com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/green"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:textSize="@dimen/text_size_u_small"
+
+                    android:text="Adhar Card No."
+                    android:textColor="@color/black" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    android:layout_weight="1.5">
+
+
+                    <android.support.design.widget.TextInputLayout
+                        android:layout_width="match_parent"
+
+                        android:layout_height="wrap_content"
+
+                        android:backgroundTint="@color/btn_color"
+                        android:textColorHint="@color/silver">
+<!--
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />-->
+
+                <com.infinity.infoway.bmef.CommonCls.CustomEditText
+                    android:id="@+id/edtadharno"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+android:inputType="number"
+                    android:maxLines="1"
+                    android:background="@null"
+                    android:paddingLeft="10dp"
+                     />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+
+                        android:background="@color/green"/>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+android:gravity="center"
+                android:weightSum="2">
+
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Nationality"
+                    android:textSize="@dimen/text_size_u_small"
+                    android:textColor="@color/black" />
+
+               <!-- <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />-->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    android:layout_weight="1.5">
+
+
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:id="@+id/edtnationality"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:gravity="center"
+
+                    android:minHeight="30dp"
+                    android:padding="5dp"></com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/green"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:weightSum="2">
+
+
+
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/textView7"
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:text="Religion"
+                android:textSize="@dimen/text_size_u_small"
+                    android:textColor="@color/black" />
+
+               <!-- <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />-->
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="vertical"
+                    android:layout_weight="1.5">
+
+
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                        android:id="@+id/spin_religionpersonal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="3dp"
+                        android:gravity="center"
+                        android:minHeight="30dp"
+                        android:padding="5dp"></com.toptoche.searchablespinnerlibrary.SearchableSpinner>
+
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="2dp"
+                        android:background="@color/green"/>
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+            <com.infinity.infoway.bmef.CommonCls.CustomButton
+                android:id="@+id/btnnext"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+               android:layout_margin="15dp"
+
+
+                android:layout_gravity="right"
+                android:background="@color/btn_color"
+                android:text="Next"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llemppersonaldetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:background="@color/profiledetailbackground"
+            android:orientation="vertical"
+            android:paddingLeft="7dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+
+                android:weightSum="1">
+
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/textView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.60"
+                    android:text="Name"
+                    android:textColor="@color/black" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/txtnameemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.40"
+                    android:paddingLeft="10dp"
+                    android:text="---" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.60"
+                    android:text="Gender"
+                    android:textColor="@color/black" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/txtgenderemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.40"
+
+                    android:paddingLeft="10dp"
+                    android:text="---" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:weightSum="1">
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.60"
+                    android:text="Category"
+                    android:textColor="@color/black" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/txtcategoryemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.40"
+                    android:paddingLeft="10dp"
+                    android:text="---" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:weightSum="1">
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.60"
+                    android:text="Caste"
+                    android:textColor="@color/black" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/txtcasteemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.40"
+
+                    android:paddingLeft="10dp"
+                    android:text="---" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.60"
+                    android:text="Date of Birth"
+                    android:textColor="@color/black" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/txtbirthdateemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.40"
+                    android:paddingLeft="10dp"
+                    android:text="---" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.60"
+                    android:text="Adhar Card No."
+                    android:textColor="@color/black" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/txtadharnoemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.40"
+                    android:paddingLeft="10dp"
+                    android:text="---" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.60"
+                    android:text="PAN Card No."
+                    android:textColor="@color/black" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/txtpannoemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.40"
+                    android:paddingLeft="10dp"
+                    android:text="---" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:weightSum="1">
+
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.60"
+                    android:text="Passport No."
+                    android:textColor="@color/black" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/txtpassportnoemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.40"
+                    android:paddingLeft="10dp"
+                    android:text="---" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:weightSum="1">
+
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.60"
+                    android:text="Driving Licence No."
+                    android:textColor="@color/black" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/txtdrivingnoemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.40"
+                    android:paddingLeft="10dp"
+                    android:text="---" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.60"
+                    android:text="Blood Group"
+                    android:textColor="@color/black" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/txtbloodgroupemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.40"
+                    android:paddingLeft="10dp"
+                    android:text="---" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.60"
+                    android:text="Email"
+                    android:textColor="@color/black" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/txtemailemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.40"
+                    android:paddingLeft="10dp"
+                    android:text="---" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.60"
+                    android:text="Mobile No"
+                    android:textColor="@color/black" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" : "
+                    android:textStyle="bold" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/txtmobilenoemp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.40"
+                    android:paddingLeft="10dp"
+                    android:text="---" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

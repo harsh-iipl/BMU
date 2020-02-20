@@ -120,7 +120,7 @@
                             android:id="@+id/tv_no_records"
                             android:text="No Records Found"
                             android:layout_gravity="center"
-                            android:gravity="center"
+                            android:gravity="center" android:textSize="@dimen/Font_size"
                             android:textColor="@color/black"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
@@ -186,7 +186,7 @@
                             android:id="@+id/tv_no_records_"
                             android:text="No Records Found"
                             android:layout_gravity="center"
-                            android:gravity="center"
+                            android:gravity="center" android:textSize="@dimen/Font_size"
                             android:textColor="@color/black"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"></com.infinity.infoway.bmef.CommonCls.CustomTextView>

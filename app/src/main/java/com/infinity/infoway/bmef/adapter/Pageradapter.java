@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.infinity.infoway.bmef.R;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -44,8 +46,8 @@ public class Pageradapter extends PagerAdapter
         View myImageLayout = inflater.inflate(R.layout.slide, view, false);
         ImageView myImage = (ImageView)myImageLayout.findViewById(R.id.image);
         //Glide.with(context).load("https://" + images.get(position)).fitCenter().diskCacheStrategy(DiskCacheStrategy.ALL).into(myImage);
-        //Glide.with(context).load(images.get(position)).fitCenter().diskCacheStrategy(DiskCacheStrategy.ALL).into(myImage);
-        Picasso.with(context)
+        Glide.with(context).load(images.get(position)).fitCenter().diskCacheStrategy(DiskCacheStrategy.ALL).into(myImage);
+        /*Picasso.with(context)
                 .load(images.get(position) + "")
                 .into(myImage, new Callback() {
                     @Override
@@ -58,7 +60,7 @@ public class Pageradapter extends PagerAdapter
 
 
                     }
-                });
+                });*/
         // myImage.setImageDrawable(context.getResources().getDrawable(images.get(position)));
         view.addView(myImageLayout, 0);
         return myImageLayout;

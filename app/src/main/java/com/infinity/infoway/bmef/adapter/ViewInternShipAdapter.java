@@ -293,7 +293,7 @@ public class ViewInternShipAdapter extends BaseAdapter {
                 try {
                     context.startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    DialogUtils.Show_Toast(context, "No Apps can performs This acttion");
+                    DialogUtils.Show_Toast(context, "No Apps can perform This Action");
                 }
             } else {
 
@@ -313,7 +313,7 @@ public class ViewInternShipAdapter extends BaseAdapter {
                 try {
                     context.startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    DialogUtils.Show_Toast(context, "No Apps can performs This acttion");
+                    DialogUtils.Show_Toast(context, "No Apps can perform This Action");
 
                 }
 

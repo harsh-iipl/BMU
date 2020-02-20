@@ -21,6 +21,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.bmef.CommonCls.CustomBoldTextView;
+import com.infinity.infoway.bmef.CommonCls.CustomTextView;
 import com.infinity.infoway.bmef.CommonCls.DialogUtils;
 import com.infinity.infoway.bmef.CommonCls.EndlessScrollListener;
 import com.infinity.infoway.bmef.CommonCls.MySharedPrefereces;
@@ -76,7 +77,7 @@ public class ViewCancelLeaveActivity extends AppCompatActivity
     RequestQueue queue;
     CustomBoldTextView txt_act;
     MySharedPrefereces mySharedPreferenses;
-
+    CustomTextView txt_records;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -178,6 +179,8 @@ public class ViewCancelLeaveActivity extends AppCompatActivity
                             {
                                 if (cancelLeavePojo.getData().size() > 0)
                                 {
+                                    txt_records.setVisibility(View.GONE);
+                                    lvViewCancelLeave.setVisibility(View.VISIBLE);
 
                                     if (lvViewCancelLeave != null)
                                     {
@@ -217,6 +220,8 @@ public class ViewCancelLeaveActivity extends AppCompatActivity
                                 }
                                 else
                                 {
+                                    txt_records.setVisibility(View.VISIBLE);
+                                    lvViewCancelLeave.setVisibility(View.GONE);
 
                                     System.out.println("else  calll ################");
                                     DialogUtils.Show_Toast(ViewCancelLeaveActivity.this, "No Records Found");
@@ -227,7 +232,8 @@ public class ViewCancelLeaveActivity extends AppCompatActivity
                     }
                 } else {
                     if (PageNo == 1) {
-
+                        txt_records.setVisibility(View.VISIBLE);
+                        lvViewCancelLeave.setVisibility(View.GONE);
                         listall.clear();
                         DialogUtils.Show_Toast(ViewCancelLeaveActivity.this, "No Records Found");
                         cancelLeaveAdapterListing = new CancelLeaveAdapterListing(ViewCancelLeaveActivity.this, cancelLeavePojo, listall);
@@ -252,6 +258,7 @@ public class ViewCancelLeaveActivity extends AppCompatActivity
     }
 
     private void initView() {
+        txt_records =(CustomTextView)findViewById(R.id.txt_records);
         txtEnrollNo = (CustomBoldTextView) findViewById(R.id.txt_enroll_no);
         txtSrNo = (CustomBoldTextView) findViewById(R.id.txt_sr_no);
         cb_check = (Switch) findViewById(R.id.cb_check);

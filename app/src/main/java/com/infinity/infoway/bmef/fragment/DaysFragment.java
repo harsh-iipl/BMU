@@ -76,11 +76,15 @@ public class DaysFragment extends Fragment
             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), mColumnCount));
         }
 
-        if (contentlist == null)
+        if (contentlist == null||contentlist.size()<=0)
         {
             Toast.makeText(getActivity(),"No records found",Toast.LENGTH_LONG).show();
             tvnorecord.setVisibility(View.VISIBLE);
             recyclerView.setVisibility(View.GONE);
+        }
+        else{
+
+            System.out.println("NOT NULL!!!!!!!!!!!!!!!!");
         }
         recyclerView.setAdapter(new MyItemRecyclerViewAdapter(getActivity(), contentlist, mListener));
 

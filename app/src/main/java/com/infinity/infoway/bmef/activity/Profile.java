@@ -26,6 +26,7 @@ import com.infinity.infoway.bmef.model.ProfileResponse;
 import com.infinity.infoway.bmef.rest.ApiClient;
 import com.bumptech.glide.Glide;
 import com.infinity.infoway.bmef.rest.ApiInterface;
+import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
 import java.util.List;
@@ -41,7 +42,7 @@ public class Profile extends AppCompatActivity
 
     Context ctx;
     DataStorage storage;
-    CircleImageView profileimage;
+    CircleImageView profileimage,imgcircularprofilera;
     private CollapsingToolbarLayout collapsingToolbarLayout;
     Toolbar toolbar;
     ImageView imgcollegedetail;
@@ -61,7 +62,7 @@ public class Profile extends AppCompatActivity
 
     //FAmily details
     TextView txtFathername, txtFatherOccupation, txtFatherContactname, txtFatherAddress, txtMothername, txtMotherOccupation, txtSpouseName, txtSpouseOccupation, txtSonDaughterName, txtSonDaughterDateofBirth;
-
+    DataStorage storage1;
     //educational details
     TextView education;
 
@@ -81,6 +82,7 @@ public class Profile extends AppCompatActivity
                 // toolbar.setBackgroundColor(Color.GREEN);
             }
         });
+        storage1 = new DataStorage("Login_Detail", Profile.this);
 
         setSupportActionBar(toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener()
@@ -132,6 +134,7 @@ public class Profile extends AppCompatActivity
 
                     if (response.isSuccessful()) {
                         //Presonal Details
+                        System.out.println("response " + call.request());
                         collapsingToolbarLayout.setTitle(response.body().getName());
                         txtheadername.setText(response.body().getName());
                         txtname.setText(response.body().getName());
@@ -173,10 +176,24 @@ public class Profile extends AppCompatActivity
                         txtaccounttypeemp.setText(response.body().getemp_account_type());
 
                         //family details
+                        Drawable mDefaultBackground = getResources().getDrawable(R.drawable.defaultprofile);
 
+                        System.out.println("im   "+response.body().getStud_photo() );
+                      //  Glide.with(Profile.this).load(response.body().getStud_photo()).fitCenter().error(mDefaultBackground).into(profileimage);
+                       // Glide.with(Profile.this).load("http://bmef.icrp.in/cms/Images/stud_photo/19020406008.jpg").into(imgcircularprofilera);
+                        Picasso.get().load(response.body().getStud_photo()).into(imgcircularprofilera);
+                        Picasso.get().load(response.body().getStud_photo()).into(profileimage);
+                        //Glide.with(context).load(moviesList.get(position).getPh_1()).error(R.drawable.no_image).into(pop_img);
 
-                    } else {
-                        // txtname.setText("Unsuccessfull");
+//                        storage.write("stud_photo", response.body().getStud_photo()+"");
+
+//                        if (!String.valueOf(storage.read("stud_photo", 3)).equals("") || !(String.valueOf(storage.read("stud_photo", 3)) == null)) {
+                      //  Drawable d = getResources().getDrawable(R.drawable.act_nav);
+                      //  Glide.with(Profile.this).load(response.body().getStud_photo()).fitCenter().error(d).into(Main3Activity.imgmenuprofile);
+//                        }
+//                    } else {
+//                        // txtname.setText("Unsuccessfull");
+//                    }
                     }
                 }
 
@@ -294,8 +311,8 @@ public class Profile extends AppCompatActivity
             });
         }
 
-        Drawable mDefaultBackground = getResources().getDrawable(R.drawable.defaultprofile);
-        Glide.with(Profile.this).load(String.valueOf(storage.read("stud_photo", 3))).fitCenter().error(mDefaultBackground).into(profileimage);
+//        Drawable mDefaultBackground = getResources().getDrawable(R.drawable.defaultprofile);
+//        Glide.with(Profile.this).load(String.valueOf(storage.read("stud_photo", 3))).fitCenter().error(mDefaultBackground).into(profileimage);
 
        /* BitmapDrawable menubackground = new BitmapDrawable (BitmapFactory.decodeResource(getResources(),
                 R.drawable.background));
@@ -321,6 +338,7 @@ public class Profile extends AppCompatActivity
         collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         profileimage = (CircleImageView) findViewById(R.id.imgcircularprofiler);
+        imgcircularprofilera = (CircleImageView) findViewById(R.id.imgcircularprofilera);
         profilebackground = (LinearLayout) findViewById(R.id.rlbackgroundprofile);
         llemppersonaldetail = (LinearLayout) findViewById(R.id.llemppersonaldetail);
         llstudentpersonaldetail = (LinearLayout) findViewById(R.id.llstudentpersonaldetail);

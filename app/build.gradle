@@ -9,15 +9,17 @@ android
             defaultConfig
                     {
 //                        applicationId "com.infinity.infoway.bmef"
-                       // applicationId "com.infinity.infoway.bmef"
+                        // applicationId "com.infinity.infoway.bmef"
                         applicationId "com.infinity.infoway.bmef"
                         //  minSdkVersion 16
                         minSdkVersion 19
                         targetSdkVersion 29
 //                        versionCode 18
                         /*first signed version after add update code*/
-                        versionCode 20
-                        versionName "1.1"
+ //                       versionCode 1
+ //                       versionName "1"
+                        versionCode 2
+                        versionName "2"
                         renderscriptTargetApi 25
                         renderscriptSupportModeEnabled true
                         /*for vector images support****** nirali 11 nov 2019*/
@@ -26,16 +28,16 @@ android
                     }
             /*Nirali 25oct 2019 for apk validation */
 
-            /*  signingConfigs
+            signingConfigs
                     {
                         release
                                 {
-                                    storeFile file("D:\key\GSFCKeystore\\gsfc.jks")
+                                    storeFile file("E:\\URP Projects\\00 SIGN DEATILS\\BMEF\\BMEF.jks")
                                     storePassword "Welcome_IIPL"
                                     keyAlias "key0"
                                     keyPassword "Welcome_IIPL"
                                 }
-                    }*/
+                    }
             buildTypes
                     {
                         release
@@ -43,15 +45,15 @@ android
                                     minifyEnabled true
                                     shrinkResources true
                                     proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-                                    /*  android.applicationVariants.all { variant ->
-                                          variant.outputs.all {
-                                              def AppName = "SIMSAPP"
-                                              def date = new Date()
-                                              def formattedDate = date.format('ddMMyyyy')
-                                              def formattedTime = date.format('HHmm')
-                                              outputFileName = AppName + "_prod_v" + "${variant.versionName}" + "_dt" + formattedDate + "_" + formattedTime + ".apk"
-                                          }
-                                      }*/
+                                    android.applicationVariants.all { variant ->
+                                        variant.outputs.all {
+                                            def AppName = "BMEF"
+                                            def date = new Date()
+                                            def formattedDate = date.format('ddMMyyyy')
+                                            def formattedTime = date.format('HHmm')
+                                            outputFileName = AppName + "_prod_v" + "${variant.versionName}" + "_dt" + formattedDate + "_" + formattedTime + ".apk"
+                                        }
+                                    }
                                 }
                     }
             lintOptions {
@@ -80,6 +82,9 @@ dependencies
             implementation 'com.github.simonpercic:oklog3:2.3.0'
             implementation "com.daimajia.swipelayout:library:1.2.0@aar"
             implementation 'com.github.douglasjunior:android-simple-tooltip:0.2.0'
+            // added by harsh 15 2 2020
+            implementation 'com.squareup.picasso:picasso:2.71828'
+            implementation 'id.zelory:compressor:3.0.0'
 
 //            implementation 'com.squareup.retrofit2:retrofit:2.0.2'
             implementation 'com.squareup.retrofit2:retrofit:2.3.0'
@@ -94,6 +99,10 @@ dependencies
 
             /*round imageview (10sept 2019)***** NIRAlI*/
             implementation 'com.makeramen:roundedimageview:2.3.0'
+
+/*round imageview (12feb2020)***** harsh*/
+
+
 
 //            compile 'com.google.firebase:firebase-messaging:15.0.2'
             implementation 'com.google.firebase:firebase-messaging:15.0.2'

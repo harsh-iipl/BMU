@@ -23,6 +23,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.infinity.infoway.bmef.CommonCls.CustomTextView;
 import com.infinity.infoway.bmef.R;
 import com.infinity.infoway.bmef.app.MonthYearPicker;
 
@@ -52,7 +53,7 @@ public class Student_Attendance extends AppCompatActivity implements View.OnClic
     LinearLayout llToDate, llFromDate;
     DataStorage storage;
     Toolbar toolbar;
-
+    CustomTextView txt_records;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -60,6 +61,7 @@ public class Student_Attendance extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_student__attendance);
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        txt_records = (CustomTextView) findViewById(R.id.txt_records);
         toolbar.post(new Runnable()
         {
             @Override
@@ -241,6 +243,7 @@ public class Student_Attendance extends AppCompatActivity implements View.OnClic
     public void init()
     {
         tableLayout.removeAllViews();
+        txt_records.setVisibility(View.GONE);
         HashMap<String, String> params = new HashMap<>();
         params.put("year", String.valueOf(myp.getSelectedYear()));
         Log.d("Year", String.valueOf(myp.getSelectedYear()));
@@ -294,6 +297,7 @@ public class Student_Attendance extends AppCompatActivity implements View.OnClic
                     //Log.d("attlist", String.valueOf(response.body().size()));
                     if (response.body().size() >= 1)
                     {
+
 
                         System.out.println("stud data size ::::::::::"+response.body().size());
                         TableRow tbrow2 = new TableRow(Student_Attendance.this);
@@ -543,6 +547,7 @@ public class Student_Attendance extends AppCompatActivity implements View.OnClic
                         }
                     } else {
                         Toast.makeText(Student_Attendance.this, "No Records Found", Toast.LENGTH_LONG).show();
+                        txt_records.setVisibility(View.VISIBLE);
                     }
                 } else {
                     if (String.valueOf(storage.read("swd_division_id", 3)).equals("0") || String.valueOf(storage.read("swd_batch_id", 3)).equals("0")) {

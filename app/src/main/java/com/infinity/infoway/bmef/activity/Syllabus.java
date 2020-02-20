@@ -31,6 +31,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.infinity.infoway.bmef.CommonCls.CustomTextView;
 import com.infinity.infoway.bmef.CommonCls.URl;
 import com.infinity.infoway.bmef.R;
 import com.infinity.infoway.bmef.app.DataStorage;
@@ -63,12 +64,17 @@ public class Syllabus extends AppCompatActivity {
     DownloadManager downloadManager;
     MarshMallowPermission marshMallowPermission = new MarshMallowPermission(this);
     Toolbar toolbar;
+    /**
+     * No Records Found
+     */
+    private CustomTextView tv_no_records_leave;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_syllabus);
+        initView();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.post(new Runnable() {
@@ -89,7 +95,8 @@ public class Syllabus extends AppCompatActivity {
         });
 
         findviews();
-
+        tv_no_records_leave.setVisibility(View.GONE);
+        listView.setVisibility(View.VISIBLE);
         final ProgressDialog progressDialog = new ProgressDialog(Syllabus.this, R.style.MyTheme1);
         progressDialog.setCancelable(true);
 //        progressDialog.setMessage("Please Wait");
@@ -112,6 +119,8 @@ public class Syllabus extends AppCompatActivity {
                         // Toast.makeText(EmployeeLeave.this, "Record found", Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(Syllabus.this, "No Records found", Toast.LENGTH_LONG).show();
+                        tv_no_records_leave.setVisibility(View.VISIBLE);
+                        listView.setVisibility(View.GONE);
                         //Toast.makeText(Syllabus.this, "You have not allocated batch or division", Toast.LENGTH_LONG).show();
                     }
                 } else {
@@ -121,6 +130,9 @@ public class Syllabus extends AppCompatActivity {
                         Toast.makeText(Syllabus.this, "You have not allocated Batch/Division", Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(Syllabus.this, "No Records Found", Toast.LENGTH_LONG).show();
+                        tv_no_records_leave.setVisibility(View.VISIBLE);
+                        listView.setVisibility(View.GONE);
+
 
                     }
                 }
@@ -139,6 +151,10 @@ public class Syllabus extends AppCompatActivity {
         ctx = this;
         storage = new DataStorage("Login_Detail", Syllabus.this);
         listView = (ListView) findViewById(R.id.listview);
+    }
+
+    private void initView() {
+        tv_no_records_leave = (CustomTextView) findViewById(R.id.tv_no_records_leave);
     }
 
     public class LazyAdapter extends BaseAdapter {
@@ -201,21 +217,17 @@ public class Syllabus extends AppCompatActivity {
 //                Log.d("nameoffile", nameoffile25);
 
 //                 File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "GSFC/" + nameoffile25);
-                 File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME+"/" + nameoffile25);
+                File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME + "/" + nameoffile25);
 //                File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/SIMS/", nameoffile25);
 //                File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/GSFC/" + "/Syllabus/", nameoffile25);
-                if (file.exists())
-                {
+                if (file.exists()) {
                     download.setBackground(getResources().getDrawable(R.drawable.openpdf));
                 }
-                download.setOnClickListener(new View.OnClickListener()
-                {
+                download.setOnClickListener(new View.OnClickListener() {
 
                     @Override
-                    public void onClick(View v)
-                    {
-                        if (!marshMallowPermission.checkPermissionForExternalStorage())
-                        {
+                    public void onClick(View v) {
+                        if (!marshMallowPermission.checkPermissionForExternalStorage()) {
                             marshMallowPermission.requestPermissionForExternalStorage();
                         } else {
                             String file1 = syllabusdetail.get(position).getPdf();
@@ -228,13 +240,13 @@ public class Syllabus extends AppCompatActivity {
                             Log.d("nameoffile2", nameoffile1);
 
 
-                             /*File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "GSFC/" + nameoffile1);*/
-                             File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME+"/" + nameoffile1);
+                            /*File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "GSFC/" + nameoffile1);*/
+                            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME + "/" + nameoffile1);
 //                            File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/GSFC/" + "/Syllabus/", nameoffile1);
                             if (file.exists()) {
-                         /*       File file11 = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "GSFC/" + nameoffile1);*/
+                                /*       File file11 = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "GSFC/" + nameoffile1);*/
 
-                                File file11 = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME+"/" + nameoffile1);
+                                File file11 = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME + "/" + nameoffile1);
 
 
 //                                File file11 = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/GSFC/" + "/Syllabus/", nameoffile1);
@@ -248,13 +260,11 @@ public class Syllabus extends AppCompatActivity {
                                     target.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     target.setDataAndType(uri, "application/pdf");
                                     Intent intent = Intent.createChooser(target, "Open File");
-                                    try
-                                    {
+                                    try {
 
                                         startActivity(intent);
-                                    } catch (ActivityNotFoundException e)
-                                    {
-                                        Toast.makeText(Syllabus.this, "No Apps can performs This acttion", Toast.LENGTH_LONG).show();
+                                    } catch (ActivityNotFoundException e) {
+                                        Toast.makeText(Syllabus.this, "No Apps can perform This Action", Toast.LENGTH_LONG).show();
                                     }
 
                                 } else {
@@ -265,7 +275,7 @@ public class Syllabus extends AppCompatActivity {
                                     try {
                                         startActivity(intent);
                                     } catch (ActivityNotFoundException e) {
-                                        Toast.makeText(Syllabus.this, "No Apps can performs This acttion", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(Syllabus.this, "No Apps can perform This Action", Toast.LENGTH_LONG).show();
                                     }
                                 }
 
@@ -295,8 +305,7 @@ public class Syllabus extends AppCompatActivity {
                 });
 
 
-            }
-            else {
+            } else {
 
                 download.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -371,7 +380,7 @@ public class Syllabus extends AppCompatActivity {
                 File dir = null;
                 /* dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/GSFC"); */
 
-                 dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + URl.FOLDER_NAME+"/");
+                dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + URl.FOLDER_NAME + "/");
               /*  if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.FROYO) {
                     dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS + "/GSFC/" + "/Syllabus");
                 }*/
@@ -386,9 +395,9 @@ public class Syllabus extends AppCompatActivity {
                 InputStream input = new BufferedInputStream(url.openStream());
 
                 // Output stream
-               /* OutputStream output = new FileOutputStream("sdcard/GSFC/" + nameoffile);*/
+                /* OutputStream output = new FileOutputStream("sdcard/GSFC/" + nameoffile);*/
 
-                OutputStream output = new FileOutputStream("sdcard/"+URl.FOLDER_NAME+"/" + nameoffile);
+                OutputStream output = new FileOutputStream("sdcard/" + URl.FOLDER_NAME + "/" + nameoffile);
 
 //                OutputStream output = new FileOutputStream(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/GSFC/" + "/Syllabus/" + nameoffile);
                 byte data[] = new byte[1024];
@@ -437,9 +446,9 @@ public class Syllabus extends AppCompatActivity {
 
             /* File file11 = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "GSFC/" + nameoffile); */
 
-             File file11 = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME+"/" + nameoffile);
+            File file11 = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME + "/" + nameoffile);
 
-           // File file11 = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/GSFC/" + "/Syllabus/", nameoffile);
+            // File file11 = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/GSFC/" + "/Syllabus/", nameoffile);
             Log.d("pathoffile", String.valueOf(file11));
 
             Intent target = new Intent(Intent.ACTION_VIEW);
@@ -458,12 +467,10 @@ public class Syllabus extends AppCompatActivity {
 
 
                 Intent intent = Intent.createChooser(target, "Open File");
-                try
-                {
+                try {
                     startActivity(intent);
-                } catch (ActivityNotFoundException e)
-                {
-                    Toast.makeText(Syllabus.this, "No Apps can performs This acttion", Toast.LENGTH_LONG).show();
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(Syllabus.this, "No Apps can perform This Action", Toast.LENGTH_LONG).show();
                 }
 
             } else {
@@ -480,7 +487,7 @@ public class Syllabus extends AppCompatActivity {
                 try {
                     startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    Toast.makeText(Syllabus.this, "No Apps can performs This acttion", Toast.LENGTH_LONG).show();
+                    Toast.makeText(Syllabus.this, "No Apps can perform This Action", Toast.LENGTH_LONG).show();
 
                 }
             }

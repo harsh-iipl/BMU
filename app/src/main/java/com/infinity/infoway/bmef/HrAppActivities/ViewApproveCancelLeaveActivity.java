@@ -21,6 +21,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.bmef.CommonCls.CustomBoldTextView;
+import com.infinity.infoway.bmef.CommonCls.CustomTextView;
 import com.infinity.infoway.bmef.CommonCls.DialogUtils;
 import com.infinity.infoway.bmef.CommonCls.EndlessScrollListener;
 import com.infinity.infoway.bmef.CommonCls.MySharedPrefereces;
@@ -76,7 +77,7 @@ public class ViewApproveCancelLeaveActivity extends AppCompatActivity
     CustomBoldTextView txt_act;
     RequestQueue queue;
     Boolean is_check_API = false;
-
+    CustomTextView txt_records;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -202,7 +203,8 @@ public class ViewApproveCancelLeaveActivity extends AppCompatActivity
                             if (cancelApproveLPojo.getData().get(0) != null) {
                                 if (cancelApproveLPojo.getData().size() > 0)
                                 {
-
+                                    txt_records.setVisibility(View.GONE);
+                                    lvViewCancelLeaveApprove.setVisibility(View.VISIBLE);
                                     if (lvViewCancelLeaveApprove != null) {
 
                                         if (cancel_app_leave_adapter != null && PageNo > 1)
@@ -240,7 +242,8 @@ public class ViewApproveCancelLeaveActivity extends AppCompatActivity
                                     }
 
                                 } else {
-
+                                    txt_records.setVisibility(View.VISIBLE);
+                                    lvViewCancelLeaveApprove.setVisibility(View.GONE);
                                     System.out.println("else  calll ################");
                                     DialogUtils.Show_Toast(ViewApproveCancelLeaveActivity.this, "No Records Found");
                                 }
@@ -250,7 +253,8 @@ public class ViewApproveCancelLeaveActivity extends AppCompatActivity
                     }
                 } else {
                     if (PageNo == 1) {
-
+                        txt_records.setVisibility(View.VISIBLE);
+                        lvViewCancelLeaveApprove.setVisibility(View.GONE);
                         listall.clear();
                         DialogUtils.Show_Toast(ViewApproveCancelLeaveActivity.this, "No Records Found");
                         cancel_app_leave_adapter = new CancelApproveLeaveAdapter(ViewApproveCancelLeaveActivity.this, cancelApproveLPojo, listall);
@@ -274,6 +278,7 @@ public class ViewApproveCancelLeaveActivity extends AppCompatActivity
     }
 
     private void initView() {
+        txt_records =(CustomTextView)findViewById(R.id.txt_records);
         txtEnrollNo = (CustomBoldTextView) findViewById(R.id.txt_enroll_no);
         txtSrNo = (CustomBoldTextView) findViewById(R.id.txt_sr_no);
         cb_check = (Switch) findViewById(R.id.cb_check);

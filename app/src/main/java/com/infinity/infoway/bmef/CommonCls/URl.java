@@ -14,6 +14,10 @@ public class URl extends Application
 //    public static String GSFC_JAU_URL = "https://admission.gsfcuniversity.ac.in//API_Student_Panel_JSON_Icampus.asmx/";
 
 //    public static String GSFC_JAU_URL = "http://demo1.iipl.info/ierphr.asmx/";
+
+
+    public static String API_STUDENT_RESULT_COMMAN_KEY = "v1d1dRrPaNcg";
+    public static String API_STUDENT_RESULT_COMMAN = "http://bmef.icrp.in/exam/API_Student_Result_Comman.asmx/";
     public static String BMU_STUDENT_URL = "http://bmef.icrp.in/cms/API_Student_Panel_JSON_Icampus.asmx/";
     public static String FOLDER_NAME = "BMEF";
     //************** JAU URL **************
@@ -152,6 +156,57 @@ public class URl extends Application
     public static String Get_Attendance_Method_Configuration_For_Fill_Attendance = BMU_STUDENT_URL + "Get_Attendance_Method_Configuration_For_Fill_Attendance?";
 
     public static String Check_Attendance_Exists_Before_Fill_Attendance = BMU_STUDENT_URL + "Check_Attendance_Exists_Before_Fill_Attendance?";
+
+
+
+    //------------------------- 11/2/2020--- harsh lathigara ----------------------
+//    for get blood group
+    public static String Get_blood_group_master_API = BMU_STUDENT_URL + "Get_Blood_Group_Master_API?";
+
+
+    public static String Get_Category_Master_API = BMU_STUDENT_URL + "Get_Category_Master_API?";
+
+
+        // for getting city details
+
+    public static String Get_City_Master_API = BMU_STUDENT_URL + "Get_City_Master_API?";
+
+
+    public static String Get_District_Master_API = BMU_STUDENT_URL + "Get_District_Master_API?";
+
+
+    public static String Get_State_Master_API = BMU_STUDENT_URL + "Get_State_Master_API?";
+
+
+    public static String Get_Country_Master_API = BMU_STUDENT_URL + "Get_Country_Master_API?";
+
+
+
+    //------------------------- 11/2/2020--- harsh lathigara ----------------------
+
+
+  //  get_student_profile_detail_atmiya
+
+    public static String get_student_profile_detail_atmiya = BMU_STUDENT_URL + "get_student_profile_detail_atmiya?";
+
+
+//Update_Student_Personal_Details_API
+
+    public static String Update_Student_Personal_Details_API = BMU_STUDENT_URL + "Update_Student_Personal_Details_API?";
+
+
+    //Get_Religion_Master_API
+
+
+    public static String Get_Religion_Master_API = BMU_STUDENT_URL + "Get_Religion_Master_API?";
+
+    public static String Get_Student_Result_Marksheet_BMU = API_STUDENT_RESULT_COMMAN + "Get_Student_Result_Marksheet_BMU?";
+
+
+
+
+//
+
 
 
 

@@ -48,7 +48,7 @@
         <com.infinity.infoway.bmef.CommonCls.CustomTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Facutly"
+            android:text="Faculty"
             android:textColor="@color/fees"
             android:layout_marginLeft="5dp"
             android:layout_weight="0.75"

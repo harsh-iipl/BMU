@@ -8,14 +8,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_marginTop="50dp"
         android:layout_marginBottom="40dp"
         android:background="@color/white"
         android:orientation="vertical">
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             card_view:cardCornerRadius="6dp"
             card_view:cardElevation="5dp"
             card_view:cardUseCompatPadding="true"
@@ -23,7 +23,7 @@
             card_view:elevation="36dp">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical">
                 <LinearLayout
                     android:id="@+id/ll_main_approve_headder_leave"
@@ -126,12 +126,22 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:id="@+id/txt_records"
+                        android:gravity="center"
+                        android:visibility="gone"
+                        android:text="No Records Found"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/Font_size"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
                     <ListView
                         android:id="@+id/lv_view_cancel_leave_approve"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="10dp"
+                        android:visibility="visible"
                         android:divider="@null"></ListView>
                 </LinearLayout>
             </LinearLayout>

@@ -79,7 +79,7 @@
                <com.infinity.infoway.bmef.CommonCls.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:text="S:-suspend"
+                    android:text="S:-Suspend"
                     android:textSize="15dp"
                     android:textStyle="bold"
                     android:gravity="center"
@@ -88,7 +88,7 @@
 
                <com.infinity.infoway.bmef.CommonCls.CustomTextView
                     android:layout_width="0dp"
-                    android:text="H:-holiday"
+                    android:text="H:-Holiday"
                     android:textSize="15dp"
                     android:textStyle="bold"
                     android:gravity="center"
@@ -105,7 +105,7 @@
                <com.infinity.infoway.bmef.CommonCls.CustomTextView
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:text="A:-absent"
+                    android:text="A:-Absent"
                     android:textSize="15dp"
                     android:textStyle="bold"
                     android:gravity="center"
@@ -114,7 +114,7 @@
 
                <com.infinity.infoway.bmef.CommonCls.CustomTextView
                     android:layout_width="0dp"
-                    android:text="P:-present"
+                    android:text="P:-Present"
                     android:textSize="15dp"
                     android:textColor="@color/green"
                     android:textStyle="bold"
@@ -135,7 +135,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:paddingLeft="80dp"
-                    android:text="R:-remaining"
+                    android:text="R:-Remaining"
                     android:textColor="@color/green"
                     android:textSize="15dp"
                     android:textStyle="bold" />
@@ -180,8 +180,9 @@
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
                     android:gravity="center"
+
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -242,9 +243,19 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+
             android:layout_below="@+id/lldatepicker"
             android:layout_marginTop="10dp">
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
 
+                android:id="@+id/txt_records"
+         android:gravity="center_horizontal|center_vertical"
+android:visibility="gone"
+                android:text="No Records Found"
+                android:textColor="@color/black"
+                android:textSize="@dimen/Font_size"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
             <TableLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -16,9 +16,9 @@
         android:id="@+id/tvnorecord"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="18sp"
+       android:textSize="@dimen/Font_size"
         android:layout_gravity="center"
         android:gravity="center"
         android:visibility="gone"
-        android:text="No records"/>
+        android:text="No records Found"/>
 </LinearLayout>

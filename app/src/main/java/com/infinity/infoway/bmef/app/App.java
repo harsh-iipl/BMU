@@ -50,9 +50,10 @@ public class App extends Application
 
         intent.setType("message/rfc822");
 
-        intent.putExtra (Intent.EXTRA_EMAIL, new String[] {"scspl.nirali@gmail.com"});
+//        intent.putExtra (Intent.EXTRA_EMAIL, new String[] {"scspl.nirali@gmail.com"});
+        intent.putExtra (Intent.EXTRA_EMAIL, new String[] {"pragnabhatt.iipl@gmail.com"});
 
-        intent.putExtra (Intent.EXTRA_SUBJECT, "Agriculture Junagadh Crash log file");
+        intent.putExtra (Intent.EXTRA_SUBJECT, "BMU Crash log file");
 
         intent.putExtra (Intent.EXTRA_TEXT, stackTrace);
 

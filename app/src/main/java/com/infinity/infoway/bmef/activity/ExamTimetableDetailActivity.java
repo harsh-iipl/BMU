@@ -108,7 +108,7 @@ public class ExamTimetableDetailActivity extends AppCompatActivity
                 progressDialog.dismiss();
 
                 //Log.e("Error",t.toString());
-                Toast.makeText(ExamTimetableDetailActivity.this, "Plese try again later", Toast.LENGTH_LONG).show();
+                Toast.makeText(ExamTimetableDetailActivity.this, "Please try again later", Toast.LENGTH_LONG).show();
 
             }
         });

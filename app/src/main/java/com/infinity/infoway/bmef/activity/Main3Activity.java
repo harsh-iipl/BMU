@@ -51,6 +51,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.infinity.infoway.bmef.CommonCls.CustomTextView;
 import com.infinity.infoway.bmef.CommonCls.DialogUtils;
 import com.infinity.infoway.bmef.CommonCls.MySharedPrefereces;
 import com.infinity.infoway.bmef.HrAppAPI.URLS;
@@ -91,14 +92,15 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
     private static int currentPage = 0;
     private ArrayList<String> XMENArray = new ArrayList<String>();
     private static final int MENU_ADD = 0;
-    ImageView assignment_img, iv_internship_work_report, receipt_img, pending_fees_img, img_home_work, img_dashboard, imgtimetable, imgattendance, imgfees, imgnews, imgfeedback, imgsyllabus, iv_rem_att, imglessionplan, imgexam_tt, img_feecircular, imgprofile, imgprofile_emp, imgattendance_emp, iv_leave_app_emp, imgnews_emp, imgtimetable_emp, img_Moreapp, img_Moreapp_emp;
+    ImageView assignment_img, iv_internship_work_report, receipt_img, pending_fees_img, img_home_work, img_dashboard, imgtimetable, imgattendance, imgfees, imgnews, imgfeedback, imgsyllabus, iv_rem_att, imglessionplan, imgexam_tt, img_feecircular, imgprofile, imgprofile_emp, imgattendance_emp, iv_leave_app_emp, imgnews_emp, imgtimetable_emp, img_Moreapp, img_Moreapp_emp,iv_endsemesterresult;
     TextView nav_profile, nav_change_psw, nav_timetable, nav_attendance, nav_pending_fees, nav_fees, nav_news, nav_feedback, nav_syllabus, nav_lessionplan, nav_share, nav_logout, nav_rec, nav_fee_circular, nav_result, nav_activity, nav_homewrork, nav_assignment, nav_exam_time_table, nav_memberno, nav_version_name, nav_placement, nav_Leave_app, nav_elrning, nav_more, nav_lleave;
     Context ctx;
+    CustomTextView nav_end_sem_result;
     TextView nav_lessionplan_a, nav_feedback_a, nav_news_a, nav_share_a;
     ImageView notification_dashboard, img_result, img_elerning, img_placement, img_leave_app;
     DataStorage storage;
     NavigationView mNavigationView;
-    CircleImageView imgmenuprofile;
+  public static  CircleImageView imgmenuprofile;
     LinearLayout five_ll;
     TextView txtmenuname, txtmenucourse, tvActionNotification, textfee, txtnews, txtfeedback, emp_nav_el;
     LinearLayout studentlayout, ll_view_more, ll_views_hide;
@@ -204,8 +206,8 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         llactionbar = (LinearLayout) findViewById(R.id.llactionbar);
         llactionbar.setOnClickListener(this);
 
-        final Intent in = new Intent(Main3Activity.this, Background_Service.class);
-        startService(in);
+//        final Intent in = new Intent(Main3Activity.this, Background_Service.class);
+//        startService(in);
 
        /* i1.setOnClickListener(new View.OnClickListener()
         {
@@ -389,7 +391,9 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         nav_profile = (TextView) findViewById(R.id.nav_profile);
         nav_profile.setOnClickListener(this);
         nav_timetable = (TextView) findViewById(R.id.nav_timetable);
+        nav_end_sem_result = findViewById(R.id.nav_end_sem_result);
         nav_timetable.setOnClickListener(this);
+        nav_end_sem_result.setOnClickListener(this);
         nav_change_psw = (TextView) findViewById(R.id.nav_change_psw);
         nav_change_psw.setOnClickListener(this);
         nav_attendance = (TextView) findViewById(R.id.nav_attendance);
@@ -502,7 +506,10 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         img_Moreapp = (ImageView) findViewById(R.id.img_Moreapp);
         img_Moreapp.setOnClickListener(this);
         img_Moreapp_emp = (ImageView) findViewById(R.id.img_Moreapp_emp);
+        iv_endsemesterresult = findViewById(R.id.iv_endsemesterresult);
         img_Moreapp_emp.setOnClickListener(this);
+        iv_endsemesterresult.setOnClickListener(this);
+
 
 
         if (storage.CheckLogin("stud_id", ctx)) {
@@ -532,10 +539,10 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
             //nav_news.setVisibility(View.GONE);
            nav_fees.setText("Remaining Attendance");
         }*/
-        if (!String.valueOf(storage.read("stud_photo", 3)).equals("") || !(String.valueOf(storage.read("stud_photo", 3)) == null)) {
-            Drawable mDefaultBackground = getResources().getDrawable(R.drawable.defaultprofile);
-            Glide.with(Main3Activity.this).load(String.valueOf(storage.read("stud_photo", 3))).fitCenter().error(mDefaultBackground).into(imgmenuprofile);
-        }
+//        if (!String.valueOf(storage.read("stud_photo", 3)).equals("") || !(String.valueOf(storage.read("stud_photo", 3)) == null)) {
+//            Drawable mDefaultBackground = getResources().getDrawable(R.drawable.defaultprofile);
+//            Glide.with(Main3Activity.this).load(String.valueOf(storage.read("stud_photo", 3))).fitCenter().error(mDefaultBackground).into(imgmenuprofile);
+//        }
     }
 
     public void findviews()
@@ -705,8 +712,8 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
 
 
         } else if (storage.CheckLogin("stud_id", this)) {
-            this.nav_internship_work_rpt.setVisibility(View.VISIBLE);
-            this.nav_punch_in_out.setVisibility(View.VISIBLE);
+         //   this.nav_internship_work_rpt.setVisibility(View.VISIBLE);
+//            this.nav_punch_in_out.setVisibility(View.VISIBLE);
             this.iv_payroll.setVisibility(View.GONE);
         } else {
             nav_logout.setVisibility(View.VISIBLE);
@@ -896,7 +903,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
                 ActivityOptions.makeCustomAnimation(Main3Activity.this, R.anim.righttoleft, R.anim.righttoleft);
 //                        ActivityOptions.makeCustomAnimation(Main3Activity.this, R.anim.bounce, R.anim.bounce);
                 //   startActivity(intent, options.toBundle());
-
+                System.out.println("test!!!!!!!!!!!");
                 startActivity(intent);
                 overridePendingTransition(R.anim.enter, R.anim.exit);
                 break;
@@ -1112,6 +1119,13 @@ Student Link: http://online.jau.in/mobileapp/students/index.php?uid=2010457852*/
                 }
 
                 break;*/
+
+            case R.id.iv_endsemesterresult:
+//                Intent intent_leave_app = new Intent(Main3Activity.this, Leaveapplication.class);
+                Intent intent_new_pro = new Intent(Main3Activity.this, End_Semester_Result.class);
+                startActivity(intent_new_pro);
+                overridePendingTransition(R.anim.enter, R.anim.exit);
+                break;
 
 //            case R.id.img_leave_app:
 //                Intent intent_leave_app = new Intent(Main3Activity.this, Leaveapplication.class);
@@ -1524,6 +1538,13 @@ Student Link: http://online.jau.in/mobileapp/students/index.php?uid=2010457852*/
                 overridePendingTransition(R.anim.slide_up, R.anim.blink);
                 break;
 
+
+            case R.id.nav_end_sem_result:
+                Intent intentmenutimetable1 = new Intent(Main3Activity.this, End_Semester_Result.class);
+                startActivity(intentmenutimetable1);
+                overridePendingTransition(R.anim.slide_up, R.anim.blink);
+                break;
+
             case R.id.nav_attendance:
                 if (storage.CheckLogin("stud_id", Main3Activity.this)) {
                     intentattendance = new Intent(Main3Activity.this, Student_Attendance.class);
@@ -1851,7 +1872,8 @@ Student Link: http://online.jau.in/mobileapp/students/index.php?uid=2010457852*/
 */
 
 
-    private void init() {
+    private void init()
+    {
 
 
         final long DELAY_MS = 600;//delay in milliseconds before task is to be executed
@@ -1859,12 +1881,15 @@ Student Link: http://online.jau.in/mobileapp/students/index.php?uid=2010457852*/
 
         final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<LoginResponse> call = apiService.getSliderImages(String.valueOf(storage.read("im_domain_name", 3)), String.valueOf(storage.read("intitute_id", 3)));
-        call.enqueue(new Callback<LoginResponse>() {
+        call.enqueue(new Callback<LoginResponse>()
+        {
             @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                System.out.println("Request "+call.request()+"");
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response)
+            {
+                System.out.println("Request slider !!!!!!!!!!!!!!"+call.request()+"");
                 // Toast.makeText(MainActivity.this,  "products found", Toast.LENGTH_LONG).show();
-                if (response.isSuccessful()) {
+                if (response.isSuccessful())
+                {
                     ArrayList<String> resp = response.body().geturl();
                     for (int i = 0; i < resp.size(); i++)
                         XMENArray.add(resp.get(i));

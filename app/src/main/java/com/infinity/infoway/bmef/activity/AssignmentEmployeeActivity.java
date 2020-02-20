@@ -27,7 +27,7 @@ public class AssignmentEmployeeActivity extends AppCompatActivity {
     private CustomTextView title;
     private Toolbar toolbar;
     private ListView lvassignmentfact;
-
+    CustomTextView txt_records;
     RequestQueue queue;
     DataStorage storage;
 
@@ -89,7 +89,8 @@ public class AssignmentEmployeeActivity extends AppCompatActivity {
                             if (assignView != null && assignView.getAssignment().size() > 0)
 
                             {
-
+                                txt_records.setVisibility(View.GONE);
+                                lvassignmentfact.setVisibility(View.VISIBLE);
 
                                 AssignmentViewAdapter assignmentViewAdapter = new AssignmentViewAdapter(AssignmentEmployeeActivity.this, AssignmentEmployeeActivity.this, assignView);
 
@@ -100,6 +101,8 @@ public class AssignmentEmployeeActivity extends AppCompatActivity {
 
                             else
                             {
+                                txt_records.setVisibility(View.VISIBLE);
+                                lvassignmentfact.setVisibility(View.GONE);
                                 DialogUtils.Show_Toast(AssignmentEmployeeActivity.this,"No Records Found");
                             }
                         }
@@ -121,6 +124,7 @@ public class AssignmentEmployeeActivity extends AppCompatActivity {
     private void INIT() {
         queue = Volley.newRequestQueue(AssignmentEmployeeActivity.this);
         storage = new DataStorage("Login_Detail", this);
+        txt_records =(CustomTextView)findViewById(R.id.txt_records);
         this.lvassignmentfact = (ListView) findViewById(R.id.lv_assignment_fact);
         this.toolbar = (Toolbar) findViewById(R.id.toolbar);
         this.title = (CustomTextView) findViewById(R.id.title);

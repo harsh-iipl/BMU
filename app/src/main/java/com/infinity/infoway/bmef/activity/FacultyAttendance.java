@@ -14,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.infinity.infoway.bmef.CommonCls.CustomTextView;
 import com.infinity.infoway.bmef.CommonCls.DialogUtils;
 import com.infinity.infoway.bmef.CommonCls.URl;
 import com.infinity.infoway.bmef.R;
@@ -25,7 +26,7 @@ public class FacultyAttendance extends AppCompatActivity {
     Toolbar toolbar;
     ListView lv_faculty_attendance;
     DataStorage storage;
-
+    CustomTextView txt_records;
     RequestQueue queue;
 
 
@@ -79,7 +80,7 @@ public class FacultyAttendance extends AppCompatActivity {
         queue = Volley.newRequestQueue(this);
 
         storage = new DataStorage("Login_Detail", FacultyAttendance.this);
-
+        txt_records =(CustomTextView)findViewById(R.id.txt_records);
         lv_faculty_attendance = (ListView) findViewById(R.id.lv_faculty_attendance);
     }
 
@@ -94,6 +95,7 @@ public class FacultyAttendance extends AppCompatActivity {
                 new com.android.volley.Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
+
                         //DialogUtils.hideProgressDialog();
                         response = response + "";
                        // System.out.println("THIS IS faculty_bind_api RESPONSE      " + response + "");
@@ -108,11 +110,17 @@ public class FacultyAttendance extends AppCompatActivity {
 
 
                             facultyPojo = gson.fromJson(response, FacultyPojo.class);
-                            if (facultyPojo != null && facultyPojo.getTable().size() > 0) {
-
+                            if (facultyPojo != null && facultyPojo.getTable().size() > 0)
+                            {
+                                txt_records.setVisibility(View.GONE);
+                                lv_faculty_attendance.setVisibility(View.VISIBLE);
                                 FacultyPendingAttendanceAdapter adapter = new FacultyPendingAttendanceAdapter(FacultyAttendance.this, facultyPojo);
                                 lv_faculty_attendance.setAdapter(adapter);
-                            } else {
+                            }
+                            else
+                                {
+                                txt_records.setVisibility(View.VISIBLE);
+                                lv_faculty_attendance.setVisibility(View.GONE);
                                 DialogUtils.Show_Toast(FacultyAttendance.this, "No Records Found");
                             }
 

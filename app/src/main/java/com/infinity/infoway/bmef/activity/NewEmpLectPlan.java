@@ -19,6 +19,8 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.infinity.infoway.bmef.CommonCls.CustomTextView;
 import com.infinity.infoway.bmef.R;
 import com.infinity.infoway.bmef.adapter.EmployeeLEcturePlanAdapter;
 import com.infinity.infoway.bmef.app.DataStorage;
@@ -44,6 +46,7 @@ public class NewEmpLectPlan extends AppCompatActivity
     ArrayList<String> a1;
     DataStorage storage;
     Toolbar toolbar;
+    CustomTextView txt_records;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -73,6 +76,7 @@ public class NewEmpLectPlan extends AppCompatActivity
             }
         });
         storage = new DataStorage("Login_Detail", NewEmpLectPlan.this);
+        txt_records =(CustomTextView)findViewById(R.id.txt_records);
         listview = (ListView) findViewById(R.id.list_item1);
         expListView = (ExpandableListView)findViewById(R.id.lvExp);
         lectureplanlist = new ArrayList<>();
@@ -112,7 +116,8 @@ public class NewEmpLectPlan extends AppCompatActivity
 
                     if (response.body().size() >= 1)
                     {
-
+                        txt_records.setVisibility(View.GONE);
+                        listview.setVisibility(View.VISIBLE);
                         for (int i = 0; i < response.body().size(); i++)
                         {
 
@@ -127,6 +132,8 @@ public class NewEmpLectPlan extends AppCompatActivity
                     }
                     else
                     {
+                        txt_records.setVisibility(View.VISIBLE);
+                        listview.setVisibility(View.GONE);
                         Toast.makeText(NewEmpLectPlan.this, "No Records Found", Toast.LENGTH_LONG).show();
                     }
 

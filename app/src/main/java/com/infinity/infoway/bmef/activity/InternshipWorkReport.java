@@ -133,19 +133,24 @@ public class InternshipWorkReport extends AppCompatActivity implements View.OnCl
                         response = "{\"Data\":" + response + "}";
 
                         System.out.println("THIS IS Bind_assign_intenship_to_student_API RESPONSE    " + response + "");
-
-                        if (response.length() >5) {
+                        InternshipList = new ArrayList<>();
+                        InternshipIDList = new ArrayList<>();
+                        InternshipList.add("Select Internship Name");
+                        InternshipIDList.add("0");
+                       /* if (response.length() >5)
+                        {*/
                             Gson gson = new Gson();
-                            InternshipList = new ArrayList<>();
-                            InternshipIDList = new ArrayList<>();
+                           /* InternshipList = new ArrayList<>();
+                            InternshipIDList = new ArrayList<>();*/
                             InternshipNamePojo internshipNamePojo = gson.fromJson(response, InternshipNamePojo.class);
 
-                            if (internshipNamePojo != null && internshipNamePojo.getData().size() > 0)
+
+                        /*    if (internshipNamePojo != null && internshipNamePojo.getData().size() > 0)
                             {
-
-                                InternshipList.add("Select Internship Name");
+*/
+                              /*  InternshipList.add("Select Internship Name");
                                 InternshipIDList.add("0");
-
+*/
 
                                 for (int i = 0; i < internshipNamePojo.getData().size(); i++)
                                 {
@@ -170,12 +175,14 @@ public class InternshipWorkReport extends AppCompatActivity implements View.OnCl
 
                                     }
                                 });
-                            }
+                          //  }
 
 
-                        } else {
+                       // }
+                       /* else
+                            {
                             //  DialogUtils.Show_Toast(ViewLeaveApplication.this,"No")
-                        }
+                        }*/
 
 
                     }

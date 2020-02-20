@@ -18,6 +18,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.bmef.CommonCls.CustomBoldTextView;
+import com.infinity.infoway.bmef.CommonCls.CustomTextView;
 import com.infinity.infoway.bmef.CommonCls.DialogUtils;
 import com.infinity.infoway.bmef.CommonCls.MySharedPrefereces;
 import com.infinity.infoway.bmef.HrAppAPI.URLS;
@@ -38,7 +39,7 @@ public class MyMissPunchActivity extends AppCompatActivity
     CustomBoldTextView tv_emp_code, tv_version, tv_version_code;
     MySharedPrefereces mySharedPrefereces;
     RequestQueue queue;
-
+    static CustomTextView txt_records;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -98,7 +99,8 @@ public class MyMissPunchActivity extends AppCompatActivity
                             {
                                 if (missPunchListPojo.getData().size() > 0)
                                 {
-
+                                    txt_records.setVisibility(View.GONE);
+                                    lvmisspunch.setVisibility(View.VISIBLE);
                                     if (lvmisspunch != null)
                                     {
 
@@ -130,7 +132,8 @@ public class MyMissPunchActivity extends AppCompatActivity
                                 }
                                 else
                                 {
-
+                                    txt_records.setVisibility(View.VISIBLE);
+                                    lvmisspunch.setVisibility(View.GONE);
                                     System.out.println("else  calll ################");
                                     DialogUtils.Show_Toast(MyMissPunchActivity.this, "No Records Found");
                                 }
@@ -143,8 +146,10 @@ public class MyMissPunchActivity extends AppCompatActivity
                 {
                     if (PageNo == 1)
                     {
-
                         listall.clear();
+                        txt_records.setVisibility(View.VISIBLE);
+                        lvmisspunch.setVisibility(View.GONE);
+
                         DialogUtils.Show_Toast(MyMissPunchActivity.this, "No Records Found");
                         myMissPunchAdapter = new MyMissPunchAdapter(MyMissPunchActivity.this, missPunchListPojo, listall);
                         myMissPunchAdapter.notifyDataSetChanged();
@@ -170,7 +175,7 @@ public class MyMissPunchActivity extends AppCompatActivity
         queue = Volley.newRequestQueue(MyMissPunchActivity.this);
         listall = new ArrayList<>();
         lvmisspunch = (ListView) findViewById(R.id.lv_miss_punch);
-
+        txt_records =(CustomTextView)findViewById(R.id.txt_records);
         mySharedPrefereces = new MySharedPrefereces(getApplicationContext());
         PackageInfo pInfo = null;
         assert pInfo != null;

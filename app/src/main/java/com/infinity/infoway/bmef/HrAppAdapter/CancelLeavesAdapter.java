@@ -42,8 +42,7 @@ import com.infinity.infoway.bmef.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CancelLeavesAdapter extends BaseSwipeAdapter
-{
+public class CancelLeavesAdapter extends BaseSwipeAdapter {
     Context ctx;
     MySharedPrefereces mySharedPrefereces;
 
@@ -79,10 +78,12 @@ public class CancelLeavesAdapter extends BaseSwipeAdapter
     ViewHolder viewHolder;
 
     @Override
-    public int getCount() {
+    public int getCount()
+    {
         // return college.getTable().size();
 
         return listall.size();
+
     }
 
     @Override
@@ -96,7 +97,8 @@ public class CancelLeavesAdapter extends BaseSwipeAdapter
     }
 
     @Override
-    public int getSwipeLayoutResourceId(int position) {
+    public int getSwipeLayoutResourceId(int position)
+    {
         //  if (Isc) {
         return R.id.swipe;
         //  } else {
@@ -105,7 +107,8 @@ public class CancelLeavesAdapter extends BaseSwipeAdapter
     }
 
     @Override
-    public View generateView(int position, ViewGroup parent) {
+    public View generateView(int position, ViewGroup parent)
+    {
         return LayoutInflater.from(ctx).inflate(R.layout.adapter_cancel_leaves, null);
     }
 
@@ -193,11 +196,10 @@ public class CancelLeavesAdapter extends BaseSwipeAdapter
             }
         });
 
-        String approve_by = listall.get(position).getApprovedby()+"";
+        String approve_by = listall.get(position).getApprovedby() + "";
         tv_emp_name.setText(listall.get(position).getEla_emp_name() + "");
-        if (approve_by==null || approve_by.compareToIgnoreCase("null")==0)
-        {
-            approve_by ="";
+        if (approve_by == null || approve_by.compareToIgnoreCase("null") == 0) {
+            approve_by = "";
         }
         tv_status.setText(listall.get(position).getEla_is_approve_value() + "\n"+approve_by);
         tv_from_date.setText(listall.get(position).getEla_from_dnt() + "");
@@ -246,7 +248,6 @@ public class CancelLeavesAdapter extends BaseSwipeAdapter
             }
         });
     }
-
 
 
     public void showDialog1(final Context context, LeaveTypePojo leaveTypePojo, String leave_ID, String leave_id_final, final int pos) {
@@ -323,7 +324,7 @@ public class CancelLeavesAdapter extends BaseSwipeAdapter
 //                    iddd = iddd.replace("]","");
 //                }
 
-                ApproveLeave(iddd, show,pos);
+                ApproveLeave(iddd, show, pos);
             }
         });
     }
@@ -353,7 +354,7 @@ public class CancelLeavesAdapter extends BaseSwipeAdapter
 
                             leaveTypePojo = gson.fromJson(response, LeaveTypePojo.class);
 
-                            showDialog1(ctx,leaveTypePojo,listall.get(pos).getId(),listall.get(pos).getleavetype_id(),pos);
+                            showDialog1(ctx, leaveTypePojo, listall.get(pos).getId(), listall.get(pos).getleavetype_id(), pos);
 
                         }
 
@@ -428,7 +429,7 @@ public class CancelLeavesAdapter extends BaseSwipeAdapter
 
     private void ApproveMailSend(int pos) {
 
-       // DialogUtils.showProgressDialog(ctx, "");
+        // DialogUtils.showProgressDialog(ctx, "");
         String url = URLS.employee_leave_application_approval_mail + "&id=" + listall.get(pos).getId() + "";
         System.out.println("employee_leave_application_approval_mail URL " + url + "");
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
@@ -462,11 +463,11 @@ public class CancelLeavesAdapter extends BaseSwipeAdapter
 
                     if (addMissPunchPojo != null) {
 
-                       // DialogUtils.Show_Toast(ctx, addMissPunchPojo.getData().get(0).getMsg());
+                        // DialogUtils.Show_Toast(ctx, addMissPunchPojo.getData().get(0).getMsg());
                         ApproveLeaveActivity.listall = new ArrayList<>();
                         ApproveLeaveActivity.listall.clear();
                         ApproveLeaveActivity.leaveApproveLPojo = new LeaveApproveLPojo();
-                        ApproveLeaveActivity.ApprovleaveListingAPICall(1,false);
+                        ApproveLeaveActivity.ApprovleaveListingAPICall(1, false);
                         //AproveMailSend();
                         Intent intent = new Intent(ctx, MainActivity.class);
                         ctx.startActivity(intent);
@@ -480,7 +481,7 @@ public class CancelLeavesAdapter extends BaseSwipeAdapter
             @Override
             public void onErrorResponse(VolleyError error) {
                 DialogUtils.Show_Toast(ctx, "Please Try Again Later");
-               // DialogUtils.hideProgressDialog();
+                // DialogUtils.hideProgressDialog();
                 System.out.println("errorrrrrrrrrr " + error);
                 System.out.println("errorrrrrrrrrr in api" + error.networkResponse);
             }
@@ -554,17 +555,14 @@ public class CancelLeavesAdapter extends BaseSwipeAdapter
 
     }
 
-    private void RejectleaveMAilSend(int pos)
-    {
-      //  DialogUtils.showProgressDialog(ctx, "");
+    private void RejectleaveMAilSend(int pos) {
+        //  DialogUtils.showProgressDialog(ctx, "");
         String url = URLS.employee_leave_application_reject_mail + "&id=" + listall.get(pos).getId() + "";
         System.out.println("employee_leave_application_reject_mail URL " + url + "");
-        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>()
-        {
+        StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>() {
             @Override
-            public void onResponse(String response)
-            {
-               // DialogUtils.hideProgressDialog();
+            public void onResponse(String response) {
+                // DialogUtils.hideProgressDialog();
 
                 //  System.out.println("response of employee_cancel_leave_application_approve !!!!!!!!!!! " + response);
                 response = response + "";
@@ -578,10 +576,8 @@ public class CancelLeavesAdapter extends BaseSwipeAdapter
 
                     AddMissPunchPojo addMissPunchPojo = gson.fromJson(response, AddMissPunchPojo.class);
 
-                    if (addMissPunchPojo != null)
-                    {
-                        if (addMissPunchPojo.getData().size() > 0)
-                        {
+                    if (addMissPunchPojo != null) {
+                        if (addMissPunchPojo.getData().size() > 0) {
                             //DialogUtils.Show_Toast(ctx, addMissPunchPojo.getData().get(0).getMsg());
 
                             //AproveMailSend();
@@ -589,10 +585,10 @@ public class CancelLeavesAdapter extends BaseSwipeAdapter
 //                            startActivity(intent);
 
                             ApproveLeaveActivity.leaveApproveLPojo = new LeaveApproveLPojo();
-                            ApproveLeaveActivity.listall =new ArrayList<>();
+                            ApproveLeaveActivity.listall = new ArrayList<>();
                             ApproveLeaveActivity.listall.clear();
 
-                            ApproveLeaveActivity.ApprovleaveListingAPICall(1,false);
+                            ApproveLeaveActivity.ApprovleaveListingAPICall(1, false);
 
                             Intent intent = new Intent(ctx, MainActivity.class);
                             ctx.startActivity(intent);
@@ -608,7 +604,7 @@ public class CancelLeavesAdapter extends BaseSwipeAdapter
             @Override
             public void onErrorResponse(VolleyError error) {
                 DialogUtils.Show_Toast(ctx, "Please Try Again Later");
-               // DialogUtils.hideProgressDialog();
+                // DialogUtils.hideProgressDialog();
                 System.out.println("errorrrrrrrrrr " + error);
                 System.out.println("errorrrrrrrrrr in api" + error.networkResponse);
             }

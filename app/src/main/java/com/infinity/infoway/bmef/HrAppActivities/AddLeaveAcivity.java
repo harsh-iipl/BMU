@@ -288,8 +288,11 @@ public class AddLeaveAcivity extends AppCompatActivity implements View.OnClickLi
                             if (inOutTimePojo.getData().size() > 0)
                             {
 
-                                String intimeAPI = inOutTimePojo.getData().get(0).getEla_from_dnt();
-                                String outtimeAPI = inOutTimePojo.getData().get(0).getEla_to_dnt();
+                                String intimeAPI ="",outtimeAPI="";
+                                 intimeAPI = inOutTimePojo.getData().get(0).getEla_from_dnt()+"";
+
+                                System.out.println("intimeAPI !!!!!!!!!!!!!!!!! "+intimeAPI);
+                                 outtimeAPI = inOutTimePojo.getData().get(0).getEla_to_dnt()+"";
 
                                 if (intimeAPI.contains("-"))
                                 {
@@ -309,26 +312,32 @@ public class AddLeaveAcivity extends AppCompatActivity implements View.OnClickLi
                                 edtday.setText("1");
 
 
-                                if (inOutTimePojo.getData().get(0).getEla_from_dnt() != null && !inOutTimePojo.getData().get(0).getEla_from_dnt().contentEquals("")) {
-                                    if (inOutTimePojo.getData().get(0).getEla_to_dnt() != null && !inOutTimePojo.getData().get(0).getEla_to_dnt().contentEquals("")) {
+                                if (inOutTimePojo.getData().get(0).getEla_from_dnt() != null && !inOutTimePojo.getData().get(0).getEla_from_dnt().contentEquals(""))
+                                {
+                                    if (inOutTimePojo.getData().get(0).getEla_to_dnt() != null && !inOutTimePojo.getData().get(0).getEla_to_dnt().contentEquals(""))
+                                    {
                                         in_time_dafault = inOutTimePojo.getData().get(0).getFrom_time();
                                         in_time = inOutTimePojo.getData().get(0).getFrom_time();
                                         out_time_dafault = inOutTimePojo.getData().get(0).getTo_time();
                                         out_time = inOutTimePojo.getData().get(0).getTo_time();
 
                                         System.out.println("out_time_dafault :::::: " + out_time_dafault);
-                                        if (in_time_dafault.contains("AM")) {
+                                        if (in_time_dafault.contains("AM"))
+                                        {
                                             in_time_dafault = in_time_dafault.replace("AM", "");
                                         }
 
-                                        if (in_time_dafault.contains("PM")) {
+                                        if (in_time_dafault.contains("PM"))
+                                        {
                                             in_time_dafault = in_time_dafault.replace("PM", "");
                                         }
 
-                                        if (out_time_dafault.contains("PM")) {
+                                        if (out_time_dafault.contains("PM"))
+                                        {
                                             out_time_dafault = out_time_dafault.replace("PM", "");
                                         }
-                                        if (out_time_dafault.contains("AM")) {
+                                        if (out_time_dafault.contains("AM"))
+                                        {
                                             out_time_dafault = out_time_dafault.replace("AM", "");
                                         }
 

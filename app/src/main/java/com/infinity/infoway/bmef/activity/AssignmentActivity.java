@@ -10,15 +10,14 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
-
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Environment;
 import android.support.v4.content.FileProvider;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -34,6 +33,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.infinity.infoway.bmef.BuildConfig;
+import com.infinity.infoway.bmef.CommonCls.CustomTextView;
 import com.infinity.infoway.bmef.CommonCls.URl;
 import com.infinity.infoway.bmef.R;
 import com.infinity.infoway.bmef.app.DataStorage;
@@ -71,11 +71,17 @@ public class AssignmentActivity extends AppCompatActivity {
     MarshMallowPermission marshMallowPermission = new MarshMallowPermission(this);
     Toolbar toolbar;
     private ProgressDialog mProgressDialog;
+    CustomTextView txt_records;
+    /**
+     * No Records Found
+     */
+    private CustomTextView mTxtRecords;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_assignment);
+        initView();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.post(new Runnable() {
@@ -103,8 +109,7 @@ public class AssignmentActivity extends AppCompatActivity {
     }
 
 
-    public void findviews()
-    {
+    public void findviews() {
         ctx = this;
         storage = new DataStorage("Login_Detail", AssignmentActivity.this);
         l2 = (LinearLayout) findViewById(R.id.l2);
@@ -117,11 +122,12 @@ public class AssignmentActivity extends AppCompatActivity {
         // Progress dialog message
         mProgressDialog.setMessage("Please wait, downloading  file...");
         listView_assgnment = (ListView) findViewById(R.id.assignment_listview);
+
+        txt_records = (CustomTextView) findViewById(R.id.txt_records);
     }
 
 
-    public void Api_call_assignment()
-    {
+    public void Api_call_assignment() {
         final ProgressDialog progressDialog = new ProgressDialog(AssignmentActivity.this, R.style.MyTheme1);
         progressDialog.setCancelable(true);
         //progressDialog.setMessage("Please Wait");
@@ -131,36 +137,35 @@ public class AssignmentActivity extends AppCompatActivity {
         final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<ArrayList<assignment_response>> call = apiService.get_student_assignment_detail(String.valueOf(storage.read("stud_id", 3)), String.valueOf(storage.read("swd_year_id", 3)));
 
-        System.out.println("assignment response :::::: "+call.request());
+        System.out.println("assignment response :::::: " + call.request());
 
-        call.enqueue(new Callback<ArrayList<assignment_response>>()
-        {
+        call.enqueue(new Callback<ArrayList<assignment_response>>() {
             @Override
-            public void onResponse(Call<ArrayList<assignment_response>> call, Response<ArrayList<assignment_response>> response)
-            {
+            public void onResponse(Call<ArrayList<assignment_response>> call, Response<ArrayList<assignment_response>> response) {
                 progressDialog.dismiss();
-                if (response.isSuccessful())
-                {
+                if (response.isSuccessful()) {
                     l2.setVisibility(View.VISIBLE);
                     Log.d("attlist", String.valueOf(response.body().size()));
-                    if (response.body().size() >=1)
-                    {
+                    if (response.body().size() >= 1) {
+                        // txt_records.setVisibility(View.GONE);
+                        //  listView_assgnment.setVisibility(View.VISIBLE);
                         ArrayList<assignment_response> assignment = response.body();
                         Log.d("syllabus", String.valueOf(assignment));
                         syAdapter = new AssignmentAdapter(assignment);
                         listView_assgnment.setAdapter(syAdapter);
                         // Toast.makeText(EmployeeLeave.this, "Record found", Toast.LENGTH_LONG).show();
-                    }
-                    else
-                    {
+                    } else {
+                        // txt_records.setVisibility(View.VISIBLE);
+                        //listView_assgnment.setVisibility(View.GONE);
                         progressDialog.dismiss();
                         l2.setVisibility(View.GONE);
                         Toast.makeText(AssignmentActivity.this, "No Records found", Toast.LENGTH_LONG).show();
+                        mTxtRecords.setVisibility(View.VISIBLE);
+                        listView_assgnment.setVisibility(View.GONE);
+
                         //Toast.makeText(Syllabus.this, "You have not allocated batch or division", Toast.LENGTH_LONG).show();
                     }
-                }
-                else
-                {
+                } else {
                     progressDialog.dismiss();
                     l2.setVisibility(View.GONE);
                     Toast.makeText(AssignmentActivity.this, "Please try again later", Toast.LENGTH_LONG).show();
@@ -170,13 +175,16 @@ public class AssignmentActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<ArrayList<assignment_response>> call, Throwable t)
-            {
+            public void onFailure(Call<ArrayList<assignment_response>> call, Throwable t) {
                 progressDialog.dismiss();
                 //  Log.e("employeeattendancerespo", t.toString());
             }
         });
 
+    }
+
+    private void initView() {
+        mTxtRecords = (CustomTextView) findViewById(R.id.txt_records);
     }
 
 
@@ -242,7 +250,7 @@ public class AssignmentActivity extends AppCompatActivity {
                 String nameoffile25 = result24;
 //                Log.d("nameoffile", nameoffile25);
 
-                File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME+"/" + nameoffile25);
+                File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME + "/" + nameoffile25);
 //                File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/GSFC/"+"/Assignment/", nameoffile25);
                 if (file.exists()) {
                     download.setBackground(getResources().getDrawable(R.drawable.openpdf));
@@ -262,7 +270,7 @@ public class AssignmentActivity extends AppCompatActivity {
                             Log.d("result1", result1);
                             String nameoffile1 = result1;
                             Log.d("nameoffile2", nameoffile1);
-                            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME+"/" + nameoffile1);
+                            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME + "/" + nameoffile1);
 //                            File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/SIMS/", nameoffile1);
 //                            File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/GSFC/"+"/Assignment/", nameoffile1);
 
@@ -271,7 +279,7 @@ public class AssignmentActivity extends AppCompatActivity {
                                 download.setBackground(getResources().getDrawable(R.drawable.openpdf));
 
 
-                                File file11 = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME+"/" + nameoffile1);
+                                File file11 = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME + "/" + nameoffile1);
 
 //                                File file11 = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/SIMS/", nameoffile1);
 //                                File file11 = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/GSFC/"+"/Assignment/", nameoffile1);
@@ -292,7 +300,7 @@ public class AssignmentActivity extends AppCompatActivity {
                                     try {
                                         startActivity(intent);
                                     } catch (ActivityNotFoundException e) {
-                                        Toast.makeText(AssignmentActivity.this, "No Apps can performs This acttion", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(AssignmentActivity.this, "No Apps can perform This Action", Toast.LENGTH_LONG).show();
                                     }
                                 } else {
                                     target.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -302,7 +310,7 @@ public class AssignmentActivity extends AppCompatActivity {
                                     try {
                                         startActivity(intent);
                                     } catch (ActivityNotFoundException e) {
-                                        Toast.makeText(AssignmentActivity.this, "No Apps can performs This acttion", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(AssignmentActivity.this, "No Apps can perform This Action", Toast.LENGTH_LONG).show();
                                     }
 
                                 }
@@ -320,9 +328,8 @@ public class AssignmentActivity extends AppCompatActivity {
 
                             } else {
 //                                String url = "https://" + assignment_response.get(position).getPDF_URL()+"";
-                                String url =  assignment_response.get(position).getPDF_URL()+"";
-                                if (url!=null && url.length()>8)
-                                {
+                                String url = assignment_response.get(position).getPDF_URL() + "";
+                                if (url != null && url.length() > 8) {
                                     //Log.d("syllabuspdfurl", syllabusdetail.get(position).getPdf());
                                     String extention = url.substring(url.lastIndexOf("."), url.length());
                                     System.out.println("EXTENSION:::::::::::::::::::::" + extention);
@@ -342,9 +349,7 @@ public class AssignmentActivity extends AppCompatActivity {
 //
 //                            }
 
-                        } else
-
-                        {
+                        } else {
                             String file1 = assignment_response.get(position).getPDF_URL();
                             Log.d("file1", file1);
                             String[] file2 = file1.split("/");
@@ -353,7 +358,7 @@ public class AssignmentActivity extends AppCompatActivity {
                             Log.d("result1", result1);
                             String nameoffile1 = result1;
                             Log.d("nameoffile2", nameoffile1);
-                            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME+"/" + nameoffile1);
+                            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME + "/" + nameoffile1);
 //                            File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/SIMS/", nameoffile1);
 //                            File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/GSFC/"+"/Assignment/", nameoffile1);
 
@@ -362,7 +367,7 @@ public class AssignmentActivity extends AppCompatActivity {
 
                                 download.setBackground(getResources().getDrawable(R.drawable.openpdf));
 
-                                File file11 = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME+"/" + nameoffile1);
+                                File file11 = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME + "/" + nameoffile1);
 //                                File file11 = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/SIMS/", nameoffile1);
 //                                File file11 = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/GSFC/"+"/Assignment/", nameoffile1);
 
@@ -382,7 +387,7 @@ public class AssignmentActivity extends AppCompatActivity {
                                     try {
                                         startActivity(intent);
                                     } catch (ActivityNotFoundException e) {
-                                        Toast.makeText(AssignmentActivity.this, "No Apps can performs This acttion", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(AssignmentActivity.this, "No Apps can perform This Action", Toast.LENGTH_LONG).show();
                                     }
                                 } else {
                                     target.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -392,7 +397,7 @@ public class AssignmentActivity extends AppCompatActivity {
                                     try {
                                         startActivity(intent);
                                     } catch (ActivityNotFoundException e) {
-                                        Toast.makeText(AssignmentActivity.this, "No Apps can performs This acttion", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(AssignmentActivity.this, "No Apps can perform This Action", Toast.LENGTH_LONG).show();
                                     }
 
 
@@ -401,9 +406,9 @@ public class AssignmentActivity extends AppCompatActivity {
 
                             } else {
 //                                String url = "https://" + assignment_response.get(position).getPDF_URL();
-                                String url =  assignment_response.get(position).getPDF_URL();
-                                Log.d("assignment_image_url", assignment_response.get(position).getPDF_URL()+"");
-                                if (url!=null && url.length()>8) {
+                                String url = assignment_response.get(position).getPDF_URL();
+                                Log.d("assignment_image_url", assignment_response.get(position).getPDF_URL() + "");
+                                if (url != null && url.length() > 8) {
                                     String extention = url.substring(url.lastIndexOf("."), url.length());
                                     System.out.println("EXTENSION:::::::::::::::::::::" + extention);
                                     new DownloadFileFromURL(extention).execute(url);
@@ -437,8 +442,8 @@ public class AssignmentActivity extends AppCompatActivity {
                 });
             }
 
-            subname.setText(assignment_response.get(position).getSub_fullname()+"");
-            asn.setText(assignment_response.get(position).getAm_name()+"");
+            subname.setText(assignment_response.get(position).getSub_fullname() + "");
+            asn.setText(assignment_response.get(position).getAm_name() + "");
 
 
 //            subname.setText(assignment_response.get(position).getSub_fullname() + "                         " + assignment_response.get(position).getAm_name());
@@ -492,7 +497,7 @@ public class AssignmentActivity extends AppCompatActivity {
                 URLConnection conection = url.openConnection();
                 conection.connect();
 
-                    File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/"+URl.FOLDER_NAME);
+                File dir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + URl.FOLDER_NAME);
 //                File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS + "/SIMS");
 //                File dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS + "/GSFC/"+"/Assignment");
                 dir.mkdirs();
@@ -505,7 +510,7 @@ public class AssignmentActivity extends AppCompatActivity {
                 InputStream input = new BufferedInputStream(url.openStream());
 
                 // Output stream
-                    OutputStream output = new FileOutputStream("sdcard/"+URl.FOLDER_NAME+"/" + nameoffile);
+                OutputStream output = new FileOutputStream("sdcard/" + URl.FOLDER_NAME + "/" + nameoffile);
 //                OutputStream output = new FileOutputStream(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/GSFC/"+"/Assignment/" + nameoffile);
                 byte data[] = new byte[1024];
                 long total = 0;
@@ -553,7 +558,7 @@ public class AssignmentActivity extends AppCompatActivity {
             //String imagePath = Environment.getExternalStorageDirectory().toString() + "Agriculture/" + nameoffile;
 
 
-            File file11 = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME+"/" + nameoffile);
+            File file11 = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), URl.FOLDER_NAME + "/" + nameoffile);
 //            File file11 = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + "/GSFC/"+"/Assignment/", nameoffile);
 
             Log.d("pathoffile", String.valueOf(file11));
@@ -572,7 +577,7 @@ public class AssignmentActivity extends AppCompatActivity {
 
                 if (Extension.compareToIgnoreCase(".pdf") == 0 && Extension.compareToIgnoreCase("pdf") == 0) {
                     target.setDataAndType(uri, "application/pdf");
-                } else if (Extension.compareToIgnoreCase(".png") == 0 || Extension.compareToIgnoreCase("png") == 0 ||Extension.compareToIgnoreCase(".jpeg") == 0 || Extension.compareToIgnoreCase("jpeg") == 0 || Extension.compareToIgnoreCase(".jpg") == 0 || Extension.compareToIgnoreCase("jpg") == 0) {
+                } else if (Extension.compareToIgnoreCase(".png") == 0 || Extension.compareToIgnoreCase("png") == 0 || Extension.compareToIgnoreCase(".jpeg") == 0 || Extension.compareToIgnoreCase("jpeg") == 0 || Extension.compareToIgnoreCase(".jpg") == 0 || Extension.compareToIgnoreCase("jpg") == 0) {
                     target.setDataAndType(uri, "image/*");
                 }
                /* else if ( Extension.compareToIgnoreCase(".jpeg") == 0 || Extension.compareToIgnoreCase("jpeg") == 0 || Extension.compareToIgnoreCase(".jpg") == 0 || Extension.compareToIgnoreCase("jpg") == 0){
@@ -583,7 +588,7 @@ public class AssignmentActivity extends AppCompatActivity {
                 try {
                     startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    Toast.makeText(AssignmentActivity.this, "No Apps can performs This acttion", Toast.LENGTH_LONG).show();
+                    Toast.makeText(AssignmentActivity.this, "No Apps can perform This Action", Toast.LENGTH_LONG).show();
                 }
             } else {
                 target.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -598,7 +603,7 @@ public class AssignmentActivity extends AppCompatActivity {
                 try {
                     startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    Toast.makeText(AssignmentActivity.this, "No Apps can performs This acttion", Toast.LENGTH_LONG).show();
+                    Toast.makeText(AssignmentActivity.this, "No Apps can perform This Action", Toast.LENGTH_LONG).show();
                 }
 
 
@@ -688,9 +693,7 @@ public class AssignmentActivity extends AppCompatActivity {
             Toast.makeText(ctx, "Download Completed Successfully and file save to internal storage", Toast.LENGTH_LONG).show();
 
 
-            if (result != null)
-
-            {
+            if (result != null) {
                 File file11 = new File(Environment.getExternalStorageDirectory().getAbsolutePath(), "Agriculture/" + nameoffile);
 
 
@@ -711,7 +714,7 @@ public class AssignmentActivity extends AppCompatActivity {
                     try {
                         startActivity(intent);
                     } catch (ActivityNotFoundException e) {
-                        Toast.makeText(AssignmentActivity.this, "No Apps can performs This acttion", Toast.LENGTH_LONG).show();
+                        Toast.makeText(AssignmentActivity.this, "No Apps can perform This Action", Toast.LENGTH_LONG).show();
                     }
                 } else {
                     target.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
@@ -723,7 +726,7 @@ public class AssignmentActivity extends AppCompatActivity {
                     try {
                         startActivity(intent);
                     } catch (ActivityNotFoundException e) {
-                        Toast.makeText(AssignmentActivity.this, "No Apps can performs This acttion", Toast.LENGTH_LONG).show();
+                        Toast.makeText(AssignmentActivity.this, "No Apps can perform This Action", Toast.LENGTH_LONG).show();
                     }
 
 

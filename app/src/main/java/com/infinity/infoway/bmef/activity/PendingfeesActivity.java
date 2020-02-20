@@ -159,7 +159,7 @@ public class PendingfeesActivity extends AppCompatActivity
                                 }
                                 catch (ActivityNotFoundException e)
                                 {
-                                    Toast.makeText(PendingfeesActivity.this,"No Apps can performs This acttion",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(PendingfeesActivity.this,"No Apps can perform This Action",Toast.LENGTH_LONG).show();
                                 }
                             }
 
@@ -175,7 +175,7 @@ public class PendingfeesActivity extends AppCompatActivity
                                 }
                                 catch (ActivityNotFoundException e)
                                 {
-                                    Toast.makeText(PendingfeesActivity.this,"No Apps can performs This acttion",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(PendingfeesActivity.this,"No Apps can perform This Action",Toast.LENGTH_LONG).show();
                                 }
 
 
@@ -239,7 +239,7 @@ public class PendingfeesActivity extends AppCompatActivity
                                 }
                                 catch (ActivityNotFoundException e)
                                 {
-                                    Toast.makeText(PendingfeesActivity.this,"No Apps can performs This acttion",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(PendingfeesActivity.this,"No Apps can perform This Action",Toast.LENGTH_LONG).show();
                                 }
                             }
 
@@ -255,7 +255,7 @@ public class PendingfeesActivity extends AppCompatActivity
                                 }
                                 catch (ActivityNotFoundException e)
                                 {
-                                    Toast.makeText(PendingfeesActivity.this,"No Apps can performs This acttion",Toast.LENGTH_LONG).show();
+                                    Toast.makeText(PendingfeesActivity.this,"No Apps can perform This Action",Toast.LENGTH_LONG).show();
                                 }
 
 

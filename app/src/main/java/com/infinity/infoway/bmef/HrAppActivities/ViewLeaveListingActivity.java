@@ -21,6 +21,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.bmef.CommonCls.CustomBoldTextView;
+import com.infinity.infoway.bmef.CommonCls.CustomTextView;
 import com.infinity.infoway.bmef.CommonCls.DialogUtils;
 import com.infinity.infoway.bmef.CommonCls.EndlessScrollListener;
 import com.infinity.infoway.bmef.CommonCls.MySharedPrefereces;
@@ -47,7 +48,7 @@ public class ViewLeaveListingActivity extends AppCompatActivity {
     FloatingActionButton fab;
     Switch cb_check;
     CustomBoldTextView tv_emp_code, tv_version, tv_version_code;
-
+    CustomTextView txt_records;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -151,7 +152,8 @@ public class ViewLeaveListingActivity extends AppCompatActivity {
                             {
                                 if (leave_list_pojo.getData().size() > 0)
                                 {
-
+                                    txt_records.setVisibility(View.GONE);
+                                    lvviewleave.setVisibility(View.VISIBLE);
                                     if (lvviewleave != null)
                                     {
 
@@ -195,7 +197,8 @@ public class ViewLeaveListingActivity extends AppCompatActivity {
                                 }
                                 else
                                 {
-
+                                    txt_records.setVisibility(View.VISIBLE);
+                                    lvviewleave.setVisibility(View.GONE);
                                     System.out.println("else  calll ################");
                                     DialogUtils.Show_Toast(ViewLeaveListingActivity.this, "No Records Found");
                                 }
@@ -206,9 +209,12 @@ public class ViewLeaveListingActivity extends AppCompatActivity {
                 }
                 else
                 {
+
+
                     if (PageNo == 1)
                     {
-
+                        txt_records.setVisibility(View.VISIBLE);
+                        lvviewleave.setVisibility(View.GONE);
                         listall.clear();
                         DialogUtils.Show_Toast(ViewLeaveListingActivity.this, "No Records Found");
                         viewLeaveListingAdapter = new ViewLeaveListingAdapter(ViewLeaveListingActivity.this, leave_list_pojo, listall);
@@ -244,7 +250,7 @@ public class ViewLeaveListingActivity extends AppCompatActivity {
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
-
+        txt_records =(CustomTextView)findViewById(R.id.txt_records);
         tv_emp_code = (CustomBoldTextView) findViewById(R.id.tv_emp_code);
         tv_version = (CustomBoldTextView) findViewById(R.id.tv_version);
         tv_version_code = (CustomBoldTextView) findViewById(R.id.tv_version_code);

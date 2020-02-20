@@ -38,6 +38,8 @@ public class LoginResponse {
     private String stud_admission_no;
     @SerializedName("stud_photo")
     private String stud_photo;
+
+
     @SerializedName("swd_batch_id")
     private String swd_batch_id;
     @SerializedName("fc_file")

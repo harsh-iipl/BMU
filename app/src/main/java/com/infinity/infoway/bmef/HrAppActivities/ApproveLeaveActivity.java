@@ -21,6 +21,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.bmef.CommonCls.CustomBoldTextView;
+import com.infinity.infoway.bmef.CommonCls.CustomTextView;
 import com.infinity.infoway.bmef.CommonCls.DialogUtils;
 import com.infinity.infoway.bmef.CommonCls.EndlessScrollListener;
 import com.infinity.infoway.bmef.CommonCls.MySharedPrefereces;
@@ -52,7 +53,7 @@ public class ApproveLeaveActivity extends AppCompatActivity
     static Activity activity;
 
     static int PAGE_NUMBER;
-
+    static  CustomTextView txt_records;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -188,7 +189,8 @@ public class ApproveLeaveActivity extends AppCompatActivity
                             {
                                 if (leaveApproveLPojo.getData().size() > 0)
                                 {
-
+                                    txt_records.setVisibility(View.GONE);
+                                    lvapproveleave.setVisibility(View.VISIBLE);
                                     if (lvapproveleave != null)
                                     {
 
@@ -245,14 +247,21 @@ public class ApproveLeaveActivity extends AppCompatActivity
                                     lvapproveleave.setAdapter(cancelLeavesAdapter);
                                     System.out.println("else  calll ################");
                                     DialogUtils.Show_Toast(activity, "No Records Found");
+                                    txt_records.setVisibility(View.VISIBLE);
+                                    lvapproveleave.setVisibility(View.GONE);
                                 }
 
                             }
                         }
                     }
-                } else {
-                    if (PageNo == 1) {
-
+                }
+                else
+                    {
+                    if (PageNo == 1)
+                    {
+                        System.out.println("call this !!!!");
+                        txt_records.setVisibility(View.VISIBLE);
+                        lvapproveleave.setVisibility(View.GONE);
                         listall.clear();
                         DialogUtils.Show_Toast(activity, "No Records Found");
                         cancelLeavesAdapter = new CancelLeavesAdapter(activity, leaveApproveLPojo, listall, Isc);
@@ -263,9 +272,11 @@ public class ApproveLeaveActivity extends AppCompatActivity
                 }
 
             }
-        }, new Response.ErrorListener() {
+        }, new Response.ErrorListener()
+        {
             @Override
-            public void onErrorResponse(VolleyError error) {
+            public void onErrorResponse(VolleyError error)
+            {
                 DialogUtils.Show_Toast(activity, "Please Try Again Later");
 //                DialogUtils.hideProgressDialog();
                 System.out.println("errorrrrrrrrrr " + error);
@@ -278,6 +289,7 @@ public class ApproveLeaveActivity extends AppCompatActivity
     }
 
     private void initView() {
+        txt_records =(CustomTextView)findViewById(R.id.txt_records);
         queue = Volley.newRequestQueue(this);
         mySharedPrefereces = new MySharedPrefereces(getApplicationContext());
         lvapproveleave = (ListView) findViewById(R.id.lv_approve_leave);

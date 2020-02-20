@@ -354,7 +354,8 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                     String lectname = mValues.get(position).getLab_array().get(0).getlect_name();
 //               String lectname1=mValues.get(position+1).getlect_name();
                     //String lect2=mValues.get(position+1).getlect_name();
-                    holder.tvLectureNo.setText(lectname + "/" + String.valueOf((Integer.parseInt(lectname.substring(lectname.length() - 1)) + 1)));
+//                    holder.tvLectureNo.setText(lectname + "/" + String.valueOf((Integer.parseInt(lectname.substring(lectname.length() - 1)) + 1)));
+                    holder.tvLectureNo.setText(lectname + "-" + String.valueOf((Integer.parseInt(lectname.substring(lectname.length() - 1)) + 1)));
                     holder.lllecture.setVisibility(View.GONE);
                     holder.lldivision.setVisibility(View.VISIBLE);
                     holder.tvhdivision.setText("Batch");

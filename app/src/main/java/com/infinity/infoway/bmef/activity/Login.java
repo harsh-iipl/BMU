@@ -14,6 +14,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -33,6 +34,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.bmef.CommonCls.DialogUtils;
 import com.infinity.infoway.bmef.CommonCls.URl;
+import com.infinity.infoway.bmef.HrAppPojo.StudenDetailsPojo;
 import com.infinity.infoway.bmef.R;
 import com.infinity.infoway.bmef.app.DataStorage;
 import com.infinity.infoway.bmef.app.Login_Master;
@@ -42,6 +44,7 @@ import com.infinity.infoway.bmef.model.LoginResponse;
 import com.infinity.infoway.bmef.model.Login_Email_Pojo;
 import com.infinity.infoway.bmef.rest.ApiClient;
 import com.infinity.infoway.bmef.rest.ApiInterface;
+import com.infinity.infoway.bmef.service.Background_Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -74,15 +77,17 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        try {
+            final Intent in = new Intent(Login.this, Background_Service.class);
+            startService(in);
+        } catch (Exception e) {
+            System.out.println(
+                    "error in reg activity!!!!!!"
+            );
+        }
         findviews();
 
         DataStorage cstorage = new DataStorage("Login_Detail", this);
-        if (cstorage.CheckLogin("stud_id", this)) {
-            Intent intent = new Intent(Login.this, Main3Activity.class);
-            startActivity(intent);
-            finish();
-        }
 
 
         if (String.valueOf(login_master.read("Master_String", 3)).equals("") || String.valueOf(login_master.read("Master_String", 3)).equals(null)) {
@@ -175,15 +180,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 //            }
 //
 //        }
-        if (cstorage.CheckLogin("emp_id", this))
-        {
-            if (cstorage.read("is_director", 3).equals("1"))
-            {
+        if (cstorage.CheckLogin("emp_id", this)) {
+            if (cstorage.read("is_director", 3).equals("1")) {
                 startActivity(new Intent(Login.this, DirectivePageActivity.class));
                 finish();
-            }
-            else
-                {
+            } else {
 
                 Intent intent = new Intent(Login.this, Main3Activity.class);
                 startActivity(intent);
@@ -202,13 +203,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private static final int MY_PERMISSIONS_REQUEST_READ_WRITE_STATE = 100;
     private final String[] RunTimePerMissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
 
-    private static boolean hasPermissions(Context context, String... permissions)
-    {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null)
-        {
+    private static boolean hasPermissions(Context context, String... permissions) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && context != null && permissions != null) {
             for (String permission : permissions) {
-                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED)
-                {
+                if (ActivityCompat.checkSelfPermission(context, permission) != PackageManager.PERMISSION_GRANTED) {
                     return false;
                 }
             }
@@ -220,6 +218,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
         System.out.println("onRequestPermissionsResult!!!!!!!!!!!!!!!!!!!");
+
 
         if (requestCode == MY_PERMISSIONS_REQUEST_READ_WRITE_STATE) {
             // Received permission result for READ_PHONE_STATE permission.est.");
@@ -443,6 +442,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                 String user_ID_storage;
                                 String user_name_storage;
 
+
                                 if (String.valueOf(login_master.read("Master_String", 3)).equals("") || String.valueOf(login_master.read("Master_String", 3)).equals(null)) {
 
                                     user_ID = ID;
@@ -451,6 +451,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                 } else {
 
                                     user_ID_storage = String.valueOf(login_master.read("Master_String", 3));
+
+
 //arraylist
                                     String str[] = user_ID_storage.split(",");
                                     List<String> al;
@@ -521,6 +523,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                 storage.write("name", response.body().getname());
                                 storage.write("stud_admission_no", response.body().getstud_admission_no());
                                 storage.write("stud_photo", response.body().getstud_photo());
+
                                 storage.write("swd_batch_id", response.body().getswd_batch_id());
                                 storage.write("shift_id", response.body().getshift_id());
                                 storage.write("swd_division_id", response.body().getswd_division_id());
@@ -531,10 +534,13 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                 storage.write("seen", "0");
 
 
-                                // Toast.makeText(Login.this, "You are succesfully login", Toast.LENGTH_LONG).show();
-                                Intent intent = new Intent(Login.this, Main3Activity.class);
-                                startActivity(intent);
-                                finish();
+//                                // Toast.makeText(Login.this, "You are succesfully login", Toast.LENGTH_LONG).show();
+//                                Intent intent = new Intent(Login.this, Main3Activity.class);
+//                                startActivity(intent);
+//                                finish();
+
+
+                                Profile_API_call(etusername.getText().toString().trim(), etpassword.getText().toString().trim() + "");
 
                             } else {
 
@@ -559,8 +565,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                                 if (response.body().getIs_director().equals("0")) {
                                                     progressDialog.dismiss();
 
-                                                    storage.write("emp_id", response.body().getemp_id());
-                                                    storage.write("emp_main_school_id", response.body().getemp_main_school_id());
+                                                    storage.write("emp_id", response.body().getemp_id() + "");
+                                                    storage.write("emp_main_school_id", response.body().getemp_main_school_id() + "");
                                                     storage.write("emp_username", response.body().getemp_username());
                                                     storage.write("emp_password", response.body().getemp_password());
                                                     storage.write("ac_full_name", response.body().getac_full_name());
@@ -568,14 +574,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                                     storage.write("name", response.body().getname());
                                                     storage.write("stud_photo", response.body().getstud_photo());
                                                     storage.write("emp_number", response.body().getEmp_number());
-                                                    storage.write("ac_code", response.body().getAc_code());
+                                                    storage.write("ac_code", response.body().getAc_code() + "");
                                                     storage.write("is_director", response.body().getIs_director());
                                                     storage.write("seen", "0");
-                                                    storage.write("emp_year_id", response.body().getemp_year_id());
-                                                    storage.write("intitute_id", response.body().getinstitute_id_());
-                                                    storage.write("im_domain_name", response.body().getim_domain_name());
-                                                    storage.write("emp_permenant_college", response.body().getemp_permenant_college());
-                                                    storage.write("emp_department_id", response.body().getemp_department_id());
+                                                    storage.write("emp_year_id", response.body().getemp_year_id() + "");
+                                                    storage.write("intitute_id", response.body().getinstitute_id_() + "");
+                                                    storage.write("im_domain_name", response.body().getim_domain_name() + "");
+                                                    storage.write("emp_permenant_college", response.body().getemp_permenant_college() + "");
+                                                    storage.write("emp_department_id", response.body().getemp_department_id() + "");
 
                                                     emp_id = response.body().getemp_id();
 
@@ -652,6 +658,77 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             }
 
         }
+    }
+
+    StudenDetailsPojo studenDetailsPojo;
+
+    private void Profile_API_call(final String uname, final String pwd) {
+
+
+        queue = Volley.newRequestQueue(Login.this);
+        String URLs = URl.get_student_profile_detail_atmiya + "&stud_id=" + String.valueOf(storage.read("stud_id", 3)) +
+                "&year_id=" +
+                String.valueOf(storage.read("swd_year_id", 3)) +
+
+                "&school_id=" +
+
+                String.valueOf(storage.read("ac_id", 3)) + "";
+
+        URLs = URLs.replace(" ", "%20");
+        System.out.println("get_student_profile_detail_atmiya_api    " + URLs + "");
+
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, URLs, new com.android.volley.Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.e("thisstudentresponse", response.toString());
+
+                if (response.length() > 5) {
+
+                    Gson gson = new Gson();
+
+                    studenDetailsPojo = gson.fromJson(response, StudenDetailsPojo.class);
+                    if (studenDetailsPojo != null) {
+                        if (studenDetailsPojo.getProfile_completed().compareToIgnoreCase("1") != 0) {
+                            if (uname.compareToIgnoreCase(pwd) == 0) {
+                                Intent intent = new Intent(Login.this, ChangePasswordActivity.class);
+                                startActivity(intent);
+                                // finish();
+                            } else {
+
+                                // Toast.makeText(Login.this, "You are succesfully login", Toast.LENGTH_LONG).show();
+                                Intent intent = new Intent(Login.this, Main3Activity.class);
+                                startActivity(intent);
+                                finish();
+                            }
+
+
+                        } else {
+                            Intent intent = new Intent(Login.this, NewProfileActivity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    }
+
+
+                }
+
+
+            }
+        }, new com.android.volley.Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+
+        queue.add(stringRequest);
+
+
+//            Intent intent = new Intent(Login.this, NewProfileActivity.class);
+//            startActivity(intent);
+//            finish();
+
     }
 
 

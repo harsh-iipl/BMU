@@ -1,5 +1,6 @@
 <com.sothree.slidinguppanel.SlidingUpPanelLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:sothree="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/sliding_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -15,14 +16,12 @@
 
     <!-- MAIN CONTENT -->
 
-    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/mainimagelayout">
 
-        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
+        <RelativeLayout
             android:id="@+id/content_studentmenu_home"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -76,7 +75,6 @@
                 </ViewFlipper>
 
             </LinearLayout>
-
 
 
             <include
@@ -242,6 +240,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="70dp"
                 android:fillViewport="true"
+
                 android:visibility="visible">
 
                 <LinearLayout
@@ -275,6 +274,7 @@
                         android:drawablePadding="15dp"
                         android:gravity="center_vertical"
                         android:padding="7dp"
+                        android:visibility="gone"
                         android:text="Fees"
                         android:textColor="@color/white"
                         android:textSize="16dp" />
@@ -288,6 +288,7 @@
                         android:drawablePadding="15dp"
                         android:gravity="center_vertical"
                         android:padding="7dp"
+                        android:visibility="gone"
                         android:paddingBottom="3dp"
                         android:text="Fee Receipt"
                         android:textColor="@color/white"
@@ -303,12 +304,23 @@
                         android:gravity="center_vertical"
                         android:padding="7dp"
                         android:visibility="visible"
-                        android:text="My Attendance"
+                        android:text="Attendance"
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
 
-
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                        android:id="@+id/nav_timetable"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:drawableLeft="@mipmap/time_table"
+                        android:drawablePadding="15dp"
+                        android:gravity="center_vertical"
+                        android:padding="7dp"
+                        android:text="Time Table"
+                        android:textColor="@color/white"
+                        android:textSize="16dp" />
 
                     <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:id="@+id/nav_lessionplan"
@@ -326,6 +338,7 @@
                     <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:id="@+id/nav_internship_work_rpt"
                         android:layout_width="match_parent"
+
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
                         android:drawableLeft="@drawable/internship_work_report"
@@ -382,18 +395,19 @@
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
-                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
-                        android:id="@+id/nav_Leave_app"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:drawableLeft="@drawable/nav_leave_app"
-                        android:drawablePadding="15dp"
-                        android:gravity="center_vertical"
-                        android:padding="7dp"
-                        android:text="Leave Application"
-                        android:textColor="@color/white"
-                        android:textSize="16dp" />
+                                        <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                                            android:id="@+id/nav_Leave_app"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_gravity="center_vertical"
+                                            android:drawableLeft="@drawable/nav_leave_app"
+                                            android:drawablePadding="15dp"
+                                            android:gravity="center_vertical"
+                                            android:padding="7dp"
+                                            android:visibility="gone"
+                                            android:text="Leave Application"
+                                            android:textColor="@color/white"
+                                            android:textSize="16dp" />
 
                     <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:id="@+id/nav_news"
@@ -407,6 +421,18 @@
                         android:text="Announcement"
                         android:textColor="@color/white"
                         android:textSize="16dp" />
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                        android:id="@+id/nav_end_sem_result"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:drawableLeft="@mipmap/profile"
+                        android:drawablePadding="15dp"
+                        android:gravity="center_vertical"
+                        android:padding="7dp"
+                        android:text="Results"
+                        android:textColor="@color/white"
+                        android:textSize="16dp" />
 
                     <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:id="@+id/nav_acivity"
@@ -418,6 +444,7 @@
                         android:gravity="center_vertical"
                         android:padding="7dp"
                         android:text="Activity"
+                        android:visibility="gone"
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
@@ -430,6 +457,7 @@
                         android:drawablePadding="15dp"
                         android:gravity="center_vertical"
                         android:padding="7dp"
+                        android:visibility="gone"
                         android:text="Homework"
                         android:textColor="@color/white"
                         android:textSize="16dp" />
@@ -444,7 +472,7 @@
                         android:drawablePadding="15dp"
                         android:gravity="center_vertical"
                         android:padding="7dp"
-                        android:text="Syllabus"
+                        android:text="Syllabus"   android:visibility="gone"
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
@@ -457,7 +485,7 @@
                         android:drawablePadding="15dp"
                         android:gravity="center_vertical"
                         android:padding="7dp"
-                        android:text="Result"
+                        android:text="Result"   android:visibility="gone"
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
@@ -487,24 +515,13 @@
                         android:drawablePadding="15dp"
                         android:gravity="center_vertical"
                         android:padding="7dp"
-                        android:text="Assignment"
+                        android:text="Assignment"   android:visibility="gone"
                         android:textColor="@color/white"
                         android:textSize="16dp"
-                        android:visibility="visible" />
+                        />
 
 
-                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
-                        android:id="@+id/nav_timetable"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:drawableLeft="@mipmap/time_table"
-                        android:drawablePadding="15dp"
-                        android:gravity="center_vertical"
-                        android:padding="7dp"
-                        android:text="Time Table"
-                        android:textColor="@color/white"
-                        android:textSize="16dp" />
+
 
                     <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:id="@+id/nav_exam_TT"
@@ -517,8 +534,9 @@
                         android:padding="7dp"
                         android:text="Exam TimeTable"
                         android:textColor="@color/white"
+                        android:visibility="gone"
                         android:textSize="16dp"
-                        android:visibility="gone" />
+                        />
 
                     <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:id="@+id/nav_fee_circular"
@@ -558,7 +576,7 @@
                         android:gravity="center_vertical"
                         android:padding="7dp"
                         android:text="Feedback"
-
+                        android:visibility="gone"
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
@@ -642,13 +660,13 @@
                         android:gravity="center_vertical"
                         android:padding="7dp"
                         android:text="Share"
+                        android:visibility="gone"
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
 
                 </LinearLayout>
             </ScrollView>
-
 
         </LinearLayout>
 

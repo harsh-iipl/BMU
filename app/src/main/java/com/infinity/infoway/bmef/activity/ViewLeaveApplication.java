@@ -39,7 +39,7 @@ public class ViewLeaveApplication extends AppCompatActivity
     Context ctx;
     DataStorage storage;
     RequestQueue queue;
-    CustomBoldTextView tv_no_records_leave;
+    CustomTextView tv_no_records_leave;
     SwipeRefreshLayout swipe_refresh;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState)
@@ -51,7 +51,7 @@ public class ViewLeaveApplication extends AppCompatActivity
         queue = Volley.newRequestQueue(ViewLeaveApplication.this);
         this.llelerning = (RelativeLayout) findViewById(R.id.ll_elerning);
         this.fab = (FloatingActionButton) findViewById(R.id.fab);
-        this.tv_no_records_leave = (CustomBoldTextView) findViewById(R.id.tv_no_records_leave);
+        this.tv_no_records_leave = (CustomTextView) findViewById(R.id.tv_no_records_leave);
         this.list = (ListView) findViewById(R.id.list);
         this.toolbar = (Toolbar) findViewById(R.id.toolbar);
         this.title = (CustomTextView) findViewById(R.id.title);

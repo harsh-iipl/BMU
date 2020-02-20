@@ -231,7 +231,7 @@ public class Receipt_Activity extends AppCompatActivity {
                                                 }
                                                 catch (ActivityNotFoundException e)
                                                 {
-                                                    Toast.makeText(Receipt_Activity.this,"No Apps can performs This acttion",Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(Receipt_Activity.this,"No Apps can perform This Action",Toast.LENGTH_LONG).show();
                                                 }
                                             }
 
@@ -247,7 +247,7 @@ public class Receipt_Activity extends AppCompatActivity {
                                                 }
                                                 catch (ActivityNotFoundException e)
                                                 {
-                                                    Toast.makeText(Receipt_Activity.this,"No Apps can performs This acttion",Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(Receipt_Activity.this,"No Apps can perform This Action",Toast.LENGTH_LONG).show();
                                                 }
 
 
@@ -298,7 +298,7 @@ public class Receipt_Activity extends AppCompatActivity {
                                                     }
                                                     catch (ActivityNotFoundException e)
                                                     {
-                                                        Toast.makeText(Receipt_Activity.this,"No Apps can performs This acttion",Toast.LENGTH_LONG).show();
+                                                        Toast.makeText(Receipt_Activity.this,"No Apps can perform This Action",Toast.LENGTH_LONG).show();
                                                     }
                                                 }
 
@@ -314,7 +314,7 @@ public class Receipt_Activity extends AppCompatActivity {
                                                     }
                                                     catch (ActivityNotFoundException e)
                                                     {
-                                                        Toast.makeText(Receipt_Activity.this,"No Apps can performs This acttion",Toast.LENGTH_LONG).show();
+                                                        Toast.makeText(Receipt_Activity.this,"No Apps can perform This Action",Toast.LENGTH_LONG).show();
                                                     }
 
 

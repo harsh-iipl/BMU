@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+   <!-- <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:background="@color/white"
+
+        card_view:cardCornerRadius="6dp">-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:orientation="vertical"
+            android:paddingRight="2dp"
+            android:paddingLeft="2dp"
+
+            >
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:weightSum="2">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.6">
+
+                    <ImageView
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/cal_" />
+
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                        android:id="@+id/date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="@color/calendar"
+                        android:textSize="@dimen/Font_size" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|right"
+                    android:layout_weight=".4"
+                    android:gravity="right|center">
+
+                    <ImageView
+                        android:id="@+id/iv_file"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/doc" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+
+          <!--  <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:elevation="10dp"
+                card_view:cardCornerRadius="15dp"
+                card_view:cardElevation="5dp"
+                android:id="@+id/card_view"
+                card_view:cardUseCompatPadding="true"
+                card_view:contentPadding="3dp">-->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="5dp"
+android:background="@color/light_yello"
+            android:id="@+id/lin1"
+
+            android:layout_marginBottom="20dp"
+          >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="2dp"
+                android:weightSum="2">
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+
+                    android:text="Name :"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/Font_size" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_weight="1"
+                    android:text=""
+
+                    android:textColor="@color/footer_"
+                    android:textSize="@dimen/Font_size" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="2dp"
+                android:weightSum="2">
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+
+                    android:text="Enrollment No :"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/Font_size" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/tv_enrollmentsnumber"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="@color/footer_"
+                    android:textSize="@dimen/Font_size" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="2dp"
+                android:weightSum="2">
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+
+                    android:text="Semester Name :"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/Font_size" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/tv_semestername"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="@color/footer_"
+                    android:textSize="@dimen/Font_size" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="2dp"
+                android:weightSum="2">
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+
+                    android:text="Term Name :"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/Font_size" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/tv_termName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="@color/footer_"
+                    android:textSize="@dimen/Font_size" />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="2dp"
+                android:weightSum="2">
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+
+                    android:text="Credits :"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/Font_size" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/tv_ssrd_sgpa_credit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="@color/footer_"
+                    android:textSize="@dimen/Font_size" />
+            </LinearLayout>
+           <View
+               android:layout_marginTop="5dp"
+               android:layout_marginBottom="5dp"
+               android:visibility="gone"
+               android:layout_width="match_parent"
+               android:background="@color/black"
+               android:layout_height="1dp"></View>
+            <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="2dp"
+            android:weightSum="2">
+
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+
+                android:text="Earned Grade Points :"
+                android:textColor="@color/black"
+                android:textSize="@dimen/Font_size" />
+
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                android:id="@+id/tv_ssrd_sgpa_earned_grade_point"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:text=""
+                android:textColor="@color/footer_"
+                android:textSize="@dimen/Font_size" />
+        </LinearLayout><LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="2dp"
+            android:weightSum="2">
+
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+
+                android:text="SPI :"
+                android:textColor="@color/black"
+                android:textSize="@dimen/Font_size" />
+
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                android:id="@+id/tv_SPI"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:text=""
+                android:textColor="@color/footer_"
+                android:textSize="@dimen/Font_size" />
+        </LinearLayout><LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="2dp"
+            android:weightSum="2">
+
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+
+                android:text="Total Credits	 :"
+                android:textColor="@color/black"
+                android:textSize="@dimen/Font_size" />
+
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                android:id="@+id/tv_Total_Credits"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:text=""
+                android:textColor="@color/footer_"
+                android:textSize="@dimen/Font_size" />
+        </LinearLayout><LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="2dp"
+
+            android:weightSum="2">
+
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+
+                android:text="Earned Grade Points :"
+                android:textColor="@color/black"
+                android:textSize="@dimen/Font_size" />
+
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                android:id="@+id/tv_EarnedGradePoints"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:text=""
+                android:textColor="@color/footer_"
+                android:textSize="@dimen/Font_size" />
+        </LinearLayout><LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="2dp"
+            android:weightSum="2">
+
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+
+                android:text="CPI :"
+                android:textColor="@color/black"
+                android:textSize="@dimen/Font_size" />
+
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                android:id="@+id/tv_CPI"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:text=""
+                android:textColor="@color/footer_"
+                android:textSize="@dimen/Font_size" />
+        </LinearLayout><LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="2dp"
+            android:weightSum="2">
+
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+
+                android:text="Result :"
+                android:textColor="@color/black"
+                android:textSize="@dimen/Font_size" />
+
+            <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                android:id="@+id/tv_Result"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="2dp"
+                android:layout_weight="1"
+                android:text=""
+                android:textColor="@color/footer_"
+                android:textSize="@dimen/Font_size" />
+        </LinearLayout>
+
+
+
+        </LinearLayout>
+           <!-- </android.support.v7.widget.CardView>-->
+
+
+
+
+
+
+
+
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="2dp"
+            android:id="@+id/lin_header"
+            android:weightSum="6.2">
+            <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:text="Subject Name "
+                android:textColor="@color/black"
+                android:textSize="@dimen/Font_size" />
+            <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="Sub. Credit(Ci) "
+                android:textColor="@color/black"
+                android:textSize="@dimen/Font_size" />
+            <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="Credit Point(Gi) "
+                android:textColor="@color/black"
+                android:textSize="@dimen/Font_size" />
+            <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:layout_weight="1"
+android:visibility="gone"
+                android:text="Grade Point "
+                android:textColor="@color/black"
+                android:textSize="@dimen/Font_size" />
+            <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="Letter
+                Grade"
+                android:textColor="@color/black"
+                android:textSize="@dimen/Font_size" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1.2"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1.2"
+                    android:textAlignment="center"
+                    android:text="Backlog"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/Font_size" />
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+android:weightSum="1.2"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                        android:id="@+id/backee"
+
+                        android:layout_width="0dp"
+                        android:layout_weight="0.3"
+                        android:layout_height="wrap_content"
+
+
+                        android:text="E" android:textAlignment="center"
+                        android:textColor="@color/footer_"
+                        android:textSize="@dimen/Font_size" />
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                        android:id="@+id/backem"
+                        android:layout_width="0dp"
+
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="0.3"
+                        android:text="M" android:textAlignment="center"
+                        android:textColor="@color/footer_"
+                        android:textSize="@dimen/Font_size" />
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                        android:id="@+id/backii"
+                        android:layout_width="0dp"
+
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="0.3"
+                        android:text="I" android:textAlignment="center"
+                        android:textColor="@color/footer_"
+                        android:textSize="@dimen/Font_size" />
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                        android:id="@+id/backev"
+                        android:layout_width="0dp"
+
+                        android:layout_height="wrap_content"
+
+                        android:layout_weight="0.3"
+                        android:text="V" android:textAlignment="center"
+                        android:textColor="@color/footer_"
+                        android:textSize="@dimen/Font_size" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+
+<!--
+            <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="1"
+                android:textAlignment="center"
+                android:text="Backlog"
+                android:textColor="@color/black"
+                android:textSize="@dimen/Font_size" />-->
+
+
+        </LinearLayout>
+            <android.support.v7.widget.CardView
+                android:id="@+id/card_view11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@color/white"
+
+                card_view:cardCornerRadius="2dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="1dp"
+                    android:orientation="vertical"
+                    android:padding="1dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+android:gravity="center"
+                android:weightSum="6.2">
+
+               <!-- <com.infinity.infoway.bmef.CommonCls.CustomTextView
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    
+                    android:text="Subject Code :"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/Font_size" />-->
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/tv_an"
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="hh"
+                    android:textAlignment="textStart"
+
+                    android:textColor="@color/footer_"
+                    android:textSize="@dimen/Font_size" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/tv_course"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+                    android:text="" android:textAlignment="center"
+android:visibility="gone"
+                    android:textColor="@color/footer_"
+                    android:textSize="@dimen/Font_size" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/tv_sem"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+
+                    android:text="4"
+                    android:textAlignment="center"
+                    android:textColor="@color/footer_"
+                    android:textSize="@dimen/Font_size" />
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/tv_div"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+                    android:text="3"
+                    android:textAlignment="center"
+                    android:textColor="@color/footer_"
+                    android:textSize="@dimen/Font_size" />
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/tv_final_credit"
+                    android:layout_width="0dp"
+                    android:visibility="gone"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1" android:textAlignment="center"
+                    android:text=""
+                    android:textColor="@color/footer_"
+                    android:textSize="@dimen/Font_size" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/tv_srd_Grade_sub"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="1"
+                    android:text="AB"
+                    android:textAlignment="center"
+                    android:textColor="@color/footer_"
+                    android:textSize="@dimen/Font_size" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/backe"
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="0.3"
+                    android:text="-"
+                    android:textAlignment="center"
+                    android:textColor="@color/footer_"
+                    android:textSize="@dimen/Font_size" />
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/backm"
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="0.3"
+                    android:text="-"
+                    android:textAlignment="center"
+                    android:textColor="@color/footer_"
+                    android:textSize="@dimen/Font_size" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/backi"
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="0.3"
+                    android:text="-"
+                    android:textAlignment="center"
+                    android:textColor="@color/footer_"
+                    android:textSize="@dimen/Font_size" />
+
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/backv"
+                    android:layout_width="0dp"
+
+                    android:layout_height="wrap_content"
+
+                    android:layout_weight="0.3"
+                    android:text="-" android:textAlignment="center"
+                    android:textColor="@color/footer_"
+                    android:textSize="@dimen/Font_size" />
+
+            </LinearLayout>
+
+
+
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+          <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/lin_view"
+              android:gravity="center"
+              android:layout_marginTop="10dp"
+                android:padding="2dp"
+             >
+
+            <!--    <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.3"
+
+                    android:text="Subject :"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/Font_size"
+                    android:visibility="invisible" />&ndash;&gt;-->
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/tv_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="3dp"
+                    android:layout_marginLeft="2dp"
+
+                    android:background="@color/btn_color"
+                   android:layout_gravity="center"
+
+android:padding="5dp"
+                    android:text="   Download Pdf  	 "
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_u" />
+          </LinearLayout>
+        </LinearLayout>
+
+    <!--</android.support.v7.widget.CardView>-->
+
+</LinearLayout>

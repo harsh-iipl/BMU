@@ -22,6 +22,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.infinity.infoway.bmef.CommonCls.CustomBoldTextView;
+import com.infinity.infoway.bmef.CommonCls.CustomTextView;
 import com.infinity.infoway.bmef.CommonCls.DialogUtils;
 import com.infinity.infoway.bmef.CommonCls.MySharedPrefereces;
 import com.infinity.infoway.bmef.HrAppAPI.URLS;
@@ -59,7 +60,7 @@ public class SlarySlipActivity extends AppCompatActivity {
 
     Activity activity;
     RequestQueue queue;
-
+    CustomTextView txt_records;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,7 +115,8 @@ public class SlarySlipActivity extends AppCompatActivity {
                         if (salarySlipPojo.getData() != null) {
                             if (salarySlipPojo.getData().get(0) != null) {
                                 if (salarySlipPojo.getData().size() > 0) {
-
+                                    txt_records.setVisibility(View.GONE);
+                                    lv_salary_slip.setVisibility(View.VISIBLE);
                                     if (lv_salary_slip != null) {
 
 
@@ -125,7 +127,9 @@ public class SlarySlipActivity extends AppCompatActivity {
                                     }
 
                                 } else {
-                                    ll_main_.setVisibility(View.GONE);
+                                   // ll_main_.setVisibility(View.GONE);
+                                    txt_records.setVisibility(View.VISIBLE);
+                                    lv_salary_slip.setVisibility(View.GONE);
                                     DialogUtils.Show_Toast(SlarySlipActivity.this,"No Records Found");
 
                                     System.out.println("call data size is >0 else &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&");
@@ -139,7 +143,9 @@ public class SlarySlipActivity extends AppCompatActivity {
                 }
                 else
                 {
-                    ll_main_.setVisibility(View.GONE);
+                 //   ll_main_.setVisibility(View.GONE);
+                    txt_records.setVisibility(View.VISIBLE);
+                    lv_salary_slip.setVisibility(View.GONE);
                     DialogUtils.Show_Toast(SlarySlipActivity.this,"No Records Found");
                 }
 
@@ -161,6 +167,7 @@ public class SlarySlipActivity extends AppCompatActivity {
 
     private void initView() {
         queue = Volley.newRequestQueue(this);
+        txt_records = (CustomTextView) findViewById(R.id.txt_records);
         ll_main_heder = (LinearLayout) findViewById(R.id.ll_main_heder);
         ll_main_ = (LinearLayout) findViewById(R.id.ll_main_);
         lv_salary_slip = (ListView) findViewById(R.id.lv_salary_slip);

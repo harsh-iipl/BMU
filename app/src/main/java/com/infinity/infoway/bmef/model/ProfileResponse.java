@@ -63,7 +63,7 @@ public class ProfileResponse
 
     @SerializedName("Stud_Address")
     private String Stud_Address;
-
+     
     @SerializedName("Stud_Address1")
     private String Stud_Address1;
 
@@ -81,6 +81,17 @@ public class ProfileResponse
 
     @SerializedName("Stud_mobile_no")
     private String Stud_mobile_no;
+
+    public String getStud_photo() {
+        return Stud_photo;
+    }
+
+    public void setStud_photo(String stud_photo) {
+        Stud_photo = stud_photo;
+    }
+
+    @SerializedName("Stud_photo")
+    private String Stud_photo;
 
     @SerializedName("Stud_email")
     private String Stud_email;

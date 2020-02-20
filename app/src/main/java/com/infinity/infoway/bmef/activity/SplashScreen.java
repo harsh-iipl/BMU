@@ -239,6 +239,8 @@ public class SplashScreen extends Activity {
                 DialogUtils.hideProgressDialog();
                 // }
                 System.out.println("this is response!!!!!!!!!!! " + response + "");
+
+
                 if ((!TextUtils.isEmpty(response.toString())) && response.isSuccessful()) {
 
 
@@ -412,7 +414,7 @@ public class SplashScreen extends Activity {
         protected void onPreExecute() {
 
             try {
-
+                Toast.makeText(SplashScreen.this,"Please Wait... ",Toast.LENGTH_LONG).show();
                 DialogUtils.showProgressDialogNotCancelable(SplashScreen.this, "");
             } catch (Exception ignored) {
 
@@ -422,10 +424,10 @@ public class SplashScreen extends Activity {
 
         protected void onProgressUpdate(String... progress) {
             // setting progress percentage
-            try {
-                DialogUtils.hideProgressDialog();
-            } catch (Exception ex) {
-            }
+//            try {
+//                DialogUtils.hideProgressDialog();
+//            } catch (Exception ex) {
+//            }
 
         }
 
@@ -505,6 +507,10 @@ public class SplashScreen extends Activity {
                 DialogUtils.hideProgressDialog();
             } catch (Exception ignored) {
 
+            }
+            try {
+                DialogUtils.hideProgressDialog();
+            } catch (Exception ex) {
             }
 
             String filepath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/"+URl.FOLDER_NAME+"/" + filename;

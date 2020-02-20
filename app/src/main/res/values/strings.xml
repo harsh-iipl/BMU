@@ -1,6 +1,6 @@
 <resources>
     <!--<string name="app_name">JAU</string>-->
-<!--    <string name="app_name">GSFC University</string>-->
+    <!--    <string name="app_name">GSFC University</string>-->
     <string name="app_name">B.M.E.F</string>
     <string name="title_activity_main">MainActivity</string>
 
@@ -59,5 +59,7 @@
     <string name="title_not_now">Not Now</string>
     <string name="default_notification_channel_id">my_channel_02</string>
     <string name="tap_back_again_to_exit">Tap back again to exit</string>
+    <string name="End_Semester_Result">Results</string>
+
 
 </resources>

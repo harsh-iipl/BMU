@@ -150,4 +150,10 @@
         <!-- inactive track color (30% transparency) -->
         <item name="android:colorForeground">@color/orange_attendance</item>
     </style>
+<!--harsh lathigara added number picker 12-2-2020-->
+    <style name="NumberPickerStyle">
+        <item name="android:textSize">22dp</item>
+        <item name="android:textColorPrimary">@color/colorAccent</item>
+
+    </style>
 </resources>

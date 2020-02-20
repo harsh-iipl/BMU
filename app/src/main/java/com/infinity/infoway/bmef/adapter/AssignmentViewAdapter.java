@@ -278,7 +278,7 @@ public class AssignmentViewAdapter extends BaseAdapter
                 try {
                     ctx.startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    DialogUtils.Show_Toast(ctx, "No Apps can performs This acttion");
+                    DialogUtils.Show_Toast(ctx, "No Apps can perform This Action");
                 }
             } else {
 
@@ -298,7 +298,7 @@ public class AssignmentViewAdapter extends BaseAdapter
                 try {
                     ctx.startActivity(intent);
                 } catch (ActivityNotFoundException e) {
-                    DialogUtils.Show_Toast(ctx, "No Apps can performs This acttion");
+                    DialogUtils.Show_Toast(ctx, "No Apps can perform This Action");
 
                 }
 

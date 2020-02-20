@@ -43,11 +43,23 @@
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
+
+    <com.infinity.infoway.bmef.CommonCls.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:id="@+id/txt_records"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="No Records Found"
+        android:textColor="@color/black"
+        android:textSize="@dimen/Font_size"></com.infinity.infoway.bmef.CommonCls.CustomTextView>
     <ListView
         android:id="@+id/list_item1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:dividerHeight="5dp"
+        android:visibility="visible"
         android:layout_marginTop="45dp"
         android:divider="@android:color/transparent"
         android:background="@drawable/background"

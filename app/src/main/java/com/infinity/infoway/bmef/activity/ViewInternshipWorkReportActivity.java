@@ -45,7 +45,7 @@ public class ViewInternshipWorkReportActivity extends AppCompatActivity implemen
     private ArrayList<String> permissions = new ArrayList<>();
     public static final int ALL_PERMISSIONS_RESULT = 101;
 
-    CustomBoldTextView tv_no_records_leave;
+    CustomTextView tv_no_records_leave;
     RequestQueue queue;
     DataStorage storage;
     SwipeRefreshLayout swipe_refresh;
@@ -254,7 +254,7 @@ public class ViewInternshipWorkReportActivity extends AppCompatActivity implemen
                 swipe_refresh.setRefreshing(false);
             }
         });
-        tv_no_records_leave =(CustomBoldTextView)findViewById(R.id.tv_no_records_leave);
+        tv_no_records_leave =(CustomTextView)findViewById(R.id.tv_no_records_leave);
         title = (CustomTextView) findViewById(R.id.title);
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(ViewInternshipWorkReportActivity.this);

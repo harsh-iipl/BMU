@@ -20,6 +20,7 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
+        android:name=".app.App"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@drawable/logo_b"
@@ -29,15 +30,27 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
-        <activity android:name="com.infinity.infoway.bmef.activity.Student_attendance_backup"></activity>
+        <activity android:name=".activity.NewProfileActivity"
+
+            ></activity> <activity android:name=".activity.Fill_Form_Activity"
+
+            ></activity> <activity android:name=".activity.Fill_Form_Contact_detail"
+
+            ></activity> <activity android:name=".activity.Fill_Form_Photo"
+
+            ></activity>
+        <activity android:name=".activity.End_Semester_Result"></activity>
+        <activity android:name=".activity.End_Sem_Get_Student_Result_Marksheet_BMU"></activity>
+
+        <activity android:name=".activity.Student_attendance_backup" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.E_Learning"
+            android:name=".activity.E_Learning"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.E_Learning_PostList"
+            android:name=".activity.E_Learning_PostList"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.E_LearningAddPost"
+            android:name=".activity.E_LearningAddPost"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
 
         <provider
@@ -49,7 +62,7 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/provider_paths" />
         </provider> <!-- <activity android:name=".activity.SplashScreen"> -->
-        <activity android:name="com.infinity.infoway.bmef.activity.Acollspan">
+        <activity android:name=".activity.Acollspan">
 
             <!--
             <intent-filter>
@@ -60,9 +73,9 @@
             -->
         </activity>
         <activity
-            android:name="com.infinity.infoway.bmef.activity.EmployeeFillAttendanceActivity_configuration"
+            android:name=".activity.EmployeeFillAttendanceActivity_configuration"
             android:windowSoftInputMode="stateAlwaysHidden|adjustPan" />
-        <activity android:name="com.infinity.infoway.bmef.activity.SplashScreen">
+        <activity android:name=".activity.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -79,98 +92,98 @@
         </activity>
         -->
         <activity
-            android:name="com.infinity.infoway.bmef.activity.Main3Activity"
+            android:name=".activity.Main3Activity"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.AnnouncementFaculty"
+            android:name=".activity.AnnouncementFaculty"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.AnnouncementStudentActiivty"
+            android:name=".activity.AnnouncementStudentActiivty"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.AssignmentEmployeeActivity"
+            android:name=".activity.AssignmentEmployeeActivity"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.AssignmentActivity"
+            android:name=".activity.AssignmentActivity"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.DirectivePageActivity"
+            android:name=".activity.DirectivePageActivity"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.E_Learning_List"
+            android:name=".activity.E_Learning_List"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.EmployeeFillAttendanceActivity"
+            android:name=".activity.EmployeeFillAttendanceActivity"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.FacultyAttendance"
+            android:name=".activity.FacultyAttendance"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.FillAttendanceActivityfaculty"
+            android:name=".activity.FillAttendanceActivityfaculty"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.HomeworkActivity"
+            android:name=".activity.HomeworkActivity"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.InternshipWorkReport"
+            android:name=".activity.InternshipWorkReport"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.Leave_emp"
+            android:name=".activity.Leave_emp"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.LeaveStudentApply"
+            android:name=".activity.LeaveStudentApply"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.NewEmpLectPlan"
+            android:name=".activity.NewEmpLectPlan"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.NewEmpLecturePlanDetail"
+            android:name=".activity.NewEmpLecturePlanDetail"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.NewsGroupWise"
+            android:name=".activity.NewsGroupWise"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.Notification_Activity"
+            android:name=".activity.Notification_Activity"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.PendingfeesActivity"
+            android:name=".activity.PendingfeesActivity"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.PlacementActivity"
+            android:name=".activity.PlacementActivity"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.Profile"
+            android:name=".activity.Profile"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.PunchInPunchOutActivity"
+            android:name=".activity.PunchInPunchOutActivity"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.ViewInternshipWorkReportActivity"
+            android:name=".activity.ViewInternshipWorkReportActivity"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.Employee_Attendance"
+            android:name=".activity.Employee_Attendance"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.Remaining_Attendance"
+            android:name=".activity.Remaining_Attendance"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.ForgotPassword"
+            android:name=".activity.ForgotPassword"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.EmployeeLeave"
+            android:name=".activity.EmployeeLeave"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.Student_Attendance"
+            android:name=".activity.Student_Attendance"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.Syllabus"
+            android:name=".activity.Syllabus"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.testi"
+            android:name=".activity.testi"
             android:theme="@style/MyMaterialTheme.Base" />
 
         <service
-            android:name="com.infinity.infoway.bmef.service.MyFirebaseInstanceIDService"
+            android:name=".service.MyFirebaseInstanceIDService"
             android:enabled="true"
             android:exported="true">
             <intent-filter>
@@ -178,7 +191,7 @@
             </intent-filter>
         </service>
         <service
-            android:name="com.infinity.infoway.bmef.service.MyFirebaseMessagingServicee"
+            android:name=".service.MyFirebaseMessagingServicee"
             android:enabled="true"
             android:exported="true"
             android:permission="com.google.android.c2dm.permission.SEND"
@@ -246,71 +259,73 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name="com.infinity.infoway.bmef.activity.Login" />
-        <!--<activity
+        <activity android:name=".activity.Login" />
+        <!--
+<activity
             android:name=".activity.MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar" />-->
+            android:theme="@style/AppTheme.NoActionBar" />
+        -->
         <activity
-            android:name="com.infinity.infoway.bmef.activity.Lectureplan_Detail"
+            android:name=".activity.Lectureplan_Detail"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.Fees_Activity"
+            android:name=".activity.Fees_Activity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.FeedBack"
+            android:name=".activity.FeedBack"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.FeePayment"
+            android:name=".activity.FeePayment"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.Receipt_Activity"
+            android:name=".activity.Receipt_Activity"
             android:theme="@style/MyMaterialTheme.Base" />
-        <activity android:name="com.infinity.infoway.bmef.activity.CircularActivity" />
-        <activity android:name="com.infinity.infoway.bmef.activity.Employee_news" />
-        <activity android:name="com.infinity.infoway.bmef.activity.EmployeeAttendance" />
+        <activity android:name=".activity.CircularActivity" />
+        <activity android:name=".activity.Employee_news" />
+        <activity android:name=".activity.EmployeeAttendance" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.Student_Main_Activity"
+            android:name=".activity.Student_Main_Activity"
             android:theme="@style/MyMaterialTheme.Base" />
-        <activity android:name="com.infinity.infoway.bmef.activity.ChangePasswordActivity" />
+        <activity android:name=".activity.ChangePasswordActivity" android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.ExamDisplayTimeTable"
-            android:theme="@style/MyMaterialTheme.Base" />
-        <activity
-            android:name="com.infinity.infoway.bmef.activity.ExamTimetableDetailActivity"
+            android:name=".activity.ExamDisplayTimeTable"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.Timetable"
+            android:name=".activity.ExamTimetableDetailActivity"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.Timetable_employee"
+            android:name=".activity.Timetable"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.ViewLeaveApplication"
+            android:name=".activity.Timetable_employee"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.webViewDemo"
+            android:name=".activity.ViewLeaveApplication"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.FeeCircularActivity"
+            android:name=".activity.webViewDemo"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.Leaveapplication"
+            android:name=".activity.FeeCircularActivity"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.ELearningActivity"
+            android:name=".activity.Leaveapplication"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.AssignmentStudentActiivty"
+            android:name=".activity.ELearningActivity"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.ResultActivity"
+            android:name=".activity.AssignmentStudentActiivty"
+            android:theme="@style/MyMaterialTheme.Base" />
+        <activity
+            android:name=".activity.ResultActivity"
             android:configChanges="screenSize|orientation"
             android:theme="@style/MyMaterialTheme.Base" />
         <activity
-            android:name="com.infinity.infoway.bmef.activity.ELerningStudentActivity"
+            android:name=".activity.ELerningStudentActivity"
             android:configChanges="screenSize|orientation"
             android:theme="@style/MyMaterialTheme.Base">
 
@@ -321,112 +336,108 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             -->
-        </activity>
-
-
-
-
-        <!--activities of hr app-->
-        <activity android:name="com.infinity.infoway.bmef.HrAppActivities.StatisticsActivity"
+        </activity> <!-- activities of hr app -->
+        <activity
+            android:name=".HrAppActivities.StatisticsActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan"></activity>
-
-       <!-- <meta-data
+            android:windowSoftInputMode="adjustPan" />
+        <!--
+ <meta-data
             android:name="com.google.firebase.messaging.default_notification_icon"
-            android:resource="@drawable/notify_launcher" />-->
-
+            android:resource="@drawable/notify_launcher" />
+        -->
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.CoffDetailActivity"
+            android:name=".HrAppActivities.CoffDetailActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.COffLeaveApprovalActitivty"
+            android:name=".HrAppActivities.COffLeaveApprovalActitivty"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.ForgotpasswordActivity"
+            android:name=".HrAppActivities.ForgotpasswordActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.ChangePasswordActivity"
+            android:name=".HrAppActivities.ChangePasswordActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.AttendanceReportActivity"
+            android:name=".HrAppActivities.AttendanceReportActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.SlarySlipActivity"
+            android:name=".HrAppActivities.SlarySlipActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.ApplyCancelLeaveActivity"
+            android:name=".HrAppActivities.ApplyCancelLeaveActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.ViewCancelLeaveDetailsOnly"
+            android:name=".HrAppActivities.ViewCancelLeaveDetailsOnly"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.LeaveApplicationApproveReject"
+            android:name=".HrAppActivities.LeaveApplicationApproveReject"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.ViewCancelLeaveActivity"
+            android:name=".HrAppActivities.ViewCancelLeaveActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.ViewApproveCancelLeaveActivity"
+            android:name=".HrAppActivities.ViewApproveCancelLeaveActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.ViewLeaveListingActivity"
+            android:name=".HrAppActivities.ViewLeaveListingActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.MissPunchApprovedActivity"
+            android:name=".HrAppActivities.MissPunchApprovedActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.AddMissPunchActivity"
+            android:name=".HrAppActivities.AddMissPunchActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.MissPunchUpdateActivity"
+            android:name=".HrAppActivities.MissPunchUpdateActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.CancelLeaveApproveRejectActivity"
+            android:name=".HrAppActivities.CancelLeaveApproveRejectActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.MissPunchApproval"
+            android:name=".HrAppActivities.MissPunchApproval"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.MyMissPunchActivity"
+            android:name=".HrAppActivities.MyMissPunchActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.LeaveBalanceActivity"
+            android:name=".HrAppActivities.LeaveBalanceActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
@@ -438,31 +449,32 @@
             android:windowSoftInputMode="adjustPan" />
         -->
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.ViewAllLeavePunchInOut"
+            android:name=".HrAppActivities.ViewAllLeavePunchInOut"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.ApproveLeaveActivity"
+            android:name=".HrAppActivities.ApproveLeaveActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.AddLeaveAcivity"
+            android:name=".HrAppActivities.AddLeaveAcivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.ViewLeaveActivity"
+            android:name=".HrAppActivities.ViewLeaveActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.ProfileActivity"
+            android:name=".HrAppActivities.ProfileActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
-      <!--  <activity
+        <!--
+  <activity
             android:name=".HrAppActivities.SplashActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar">
@@ -471,9 +483,10 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>-->
+        </activity>
+        -->
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.LoginActivity"
+            android:name=".HrAppActivities.LoginActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
@@ -485,7 +498,7 @@
                 </intent-filter>
         -->
         <activity
-            android:name="com.infinity.infoway.bmef.HrAppActivities.MainActivity"
+            android:name=".HrAppActivities.MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
             android:launchMode="singleTop"
             android:theme="@style/AppTheme.NoActionBar">
@@ -503,7 +516,7 @@
             -->
         </activity> <!-- Firebase Notifications -->
         <service
-            android:name="com.infinity.infoway.bmef.HrService.MyFirebaseMessagingService"
+            android:name=".HrService.MyFirebaseMessagingService"
             android:exported="false">
 
             <!--
@@ -517,7 +530,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name="com.infinity.infoway.bmef.HrService.MyFirebaseInstanceIDService">
+        <service android:name=".HrService.MyFirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
