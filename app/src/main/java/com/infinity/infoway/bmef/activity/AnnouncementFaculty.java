@@ -28,6 +28,7 @@ import com.infinity.infoway.bmef.model.AnnouncePojo;
 
 public class AnnouncementFaculty extends AppCompatActivity {
 
+
     private CustomTextView title;
     private Toolbar toolbar;
     private CustomTextView tvtitleann;
