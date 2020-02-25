@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Trace;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AlertDialog;
@@ -180,7 +181,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 //            }
 //
 //        }
-        if (cstorage.CheckLogin("emp_id", this)) {
+//        if (cstorage.CheckLogin("emp_id", this)) {
+//        System.out.println("TEST!!!!!!!!!!!!!!!!!! "+String.valueOf(storage.read("emp_id", 3)+""));
+        if (cstorage.CheckLogin("emp_id", this)&& (!String.valueOf(storage.read("emp_id", 3)).contentEquals(""))) {
             if (cstorage.read("is_director", 3).equals("1")) {
                 startActivity(new Intent(Login.this, DirectivePageActivity.class));
                 finish();
@@ -190,6 +193,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 startActivity(intent);
                 finish();
             }
+        }
+        else{
+            System.out.println("BLANK!!!!!!!!!!!!!!!!!!!!!!!!!!");
         }
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -265,6 +271,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         tvforgotpassword = (TextView) findViewById(R.id.tvforgotpassword);
         tvforgotpassword.setOnClickListener(this);
         lv_login = (ListView) findViewById(R.id.lv_login);
+//        lv_login.setExpanded(true);
     }
 
 
@@ -395,10 +402,10 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         } else {
             if (TextUtils.isEmpty(etusername.getText().toString()) || TextUtils.isEmpty(etpassword.getText().toString())) {
                 if (TextUtils.isEmpty(etusername.getText().toString())) {
-                    etusername.setError("enter User name");
+                    etusername.setError("Enter User Name");
                 }
                 if (TextUtils.isEmpty(etpassword.getText().toString())) {
-                    etpassword.setError("enter Password");
+                    etpassword.setError("Enter Password");
                 }
             } else {
                 final ProgressDialog progressDialog = new ProgressDialog(Login.this, R.style.MyTheme1);
@@ -562,6 +569,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                         progressDialog.dismiss();
                                         if (response.isSuccessful()) {
                                             if (response.body().getstatus().equals("1")) {
+                                                System.out.println("111111111111111111111111111111111111");
                                                 if (response.body().getIs_director().equals("0")) {
                                                     progressDialog.dismiss();
 
@@ -584,7 +592,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                                     storage.write("emp_department_id", response.body().getemp_department_id() + "");
 
                                                     emp_id = response.body().getemp_id();
-
+                                                    System.out.println("main33333333333333333333");
                                                     //Log.d("emp_id", emp_id);
 //
                                                     Intent intent = new Intent(Login.this, Main3Activity.class);
@@ -627,6 +635,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
 
                                         }
+                                        else{
+                                            storage.write("emp_id", "");
+                                        }
 //                                                else
 //                                                    {
 //                                                    Toast.makeText(Login.this,"Invalid Username/Password", Toast.LENGTH_LONG).show();
@@ -638,6 +649,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                     @Override
                                     public void onFailure(Call<LoginResponse> call, Throwable t) {
                                         progressDialog.dismiss();
+                                        storage.write("emp_id", "");
                                         // Log error here since request failed
 
                                         //Log.e("Profile", t.toString());
@@ -689,7 +701,8 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
 
                     studenDetailsPojo = gson.fromJson(response, StudenDetailsPojo.class);
                     if (studenDetailsPojo != null) {
-                        if (studenDetailsPojo.getProfile_completed().compareToIgnoreCase("1") != 0) {
+//                        if (studenDetailsPojo.getProfile_completed().compareToIgnoreCase("1") != 0) {
+                        if (studenDetailsPojo.getProfile_completed().compareToIgnoreCase("1") == 0) {
                             if (uname.compareToIgnoreCase(pwd) == 0) {
                                 Intent intent = new Intent(Login.this, ChangePasswordActivity.class);
                                 startActivity(intent);

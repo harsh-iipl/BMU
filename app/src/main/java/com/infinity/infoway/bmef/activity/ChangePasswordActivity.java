@@ -19,10 +19,12 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+import com.infinity.infoway.bmef.CommonCls.DialogUtils;
 import com.infinity.infoway.bmef.CommonCls.URl;
 import com.infinity.infoway.bmef.HrAppPojo.ChangepswPojo;
 import com.infinity.infoway.bmef.R;
 import com.infinity.infoway.bmef.app.DataStorage;
+import com.infinity.infoway.bmef.model.ChangePwdPojo;
 import com.infinity.infoway.bmef.model.change_psw;
 import com.infinity.infoway.bmef.rest.ApiClient;
 import com.infinity.infoway.bmef.rest.ApiInterface;
@@ -79,7 +81,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 System.out.println("called!!!!!!!!!!!!!!");
-              //  Change_psw_Api_call();
+                //  Change_psw_Api_call();
                 if (TextUtils.isEmpty(old_password.getText().toString())) {
                     old_password.setError("enter old Password.");
                 } else if (TextUtils.isEmpty(new_password.getText().toString())) {
@@ -96,6 +98,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
     }
 
     RequestQueue queue;
+
     void change_pwd() {
 
         final ProgressDialog process = new ProgressDialog(ChangePasswordActivity.this, R.style.MyTheme1);
@@ -105,41 +108,94 @@ public class ChangePasswordActivity extends AppCompatActivity {
         process.setMessage("Please Wait..");
         process.show();
         queue = Volley.newRequestQueue(ChangePasswordActivity.this);
-        String URLs = "http://bmef.icrp.in/cms/API_Student_Panel_JSON_Icampus.asmx/application_change_password?" + "&stud_id=" + String.valueOf(storage.read("stud_id", 3)) +
-                "&user_name=" +
-                String.valueOf(storage.read("stud_admission_no", 3)) +
+        if (storage.CheckLogin("stud_id", ChangePasswordActivity.this)) {
+            System.out.println("this is STUDENT!!!!!!!!!");
+            String URLs = "http://bmef.icrp.in/cms/API_Student_Panel_JSON_Icampus.asmx/application_change_password?" + "&stud_id=" + String.valueOf(storage.read("stud_id", 3)) +
+                    "&user_name=" +
+                    String.valueOf(storage.read("stud_admission_no", 3)) +
 
-                "&new_pass=" +
+                    "&new_pass=" +
 
-                new_password.getText().toString()+"&old_pass="+old_password.getText().toString()+"";
+                    new_password.getText().toString() + "&old_pass=" + old_password.getText().toString() + "";
 
-        URLs = URLs.replace(" ", "%20");
-        System.out.println("change_pwd    " + URLs + "");
-
-
-        StringRequest req=new StringRequest(Request.Method.GET, URLs, new com.android.volley.Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                process.dismiss();
-response=response+"";
-                Gson gson=new Gson();
-                ChangepswPojo pojo=new ChangepswPojo();
-                pojo=gson.fromJson(response,ChangepswPojo.class);
-                storage.clear();
+            URLs = URLs.replace(" ", "%20");
+            System.out.println("change_pwd    " + URLs + "");
 
 
-                Intent it = new Intent(ChangePasswordActivity.this, Login.class);
-                startActivity(it);
-                finish();
-            }
-        }, new com.android.volley.Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                process.dismiss();
-                Toast.makeText(ChangePasswordActivity.this, "Please try again later", Toast.LENGTH_LONG);
-            }
-        });
-        queue.add(req);
+            StringRequest req = new StringRequest(Request.Method.GET, URLs, new com.android.volley.Response.Listener<String>() {
+                @Override
+                public void onResponse(String response) {
+                    process.dismiss();
+                    response = response + "";
+                    Gson gson = new Gson();
+                    ChangePwdPojo pojo = new ChangePwdPojo();
+                    pojo = gson.fromJson(response, ChangePwdPojo.class);
+                    if (pojo != null) {
+                        if (pojo.getTable().get(0).getStatus() == 1) {
+                            storage.clear();
+                            DialogUtils.Show_Toast(ChangePasswordActivity.this, pojo.getTable().get(0).getMessage() + "");
+
+                            Intent it = new Intent(ChangePasswordActivity.this, Login.class);
+                            startActivity(it);
+                            finish();
+                        } else {
+                            DialogUtils.Show_Toast(ChangePasswordActivity.this, pojo.getTable().get(0).getMessage() + "");
+                        }
+                    } else {
+                        DialogUtils.Show_Toast(ChangePasswordActivity.this, "Please try again later");
+                        finish();
+                    }
+
+                }
+            }, new com.android.volley.Response.ErrorListener() {
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    process.dismiss();
+                    Toast.makeText(ChangePasswordActivity.this, "Please try again later", Toast.LENGTH_LONG);
+                    finish();
+                }
+            });
+            queue.add(req);
+        } else {
+            System.out.println("this is employee!!!!!!!!!");
+        }
+
+
+//        String URLs = "http://bmef.icrp.in/cms/API_Student_Panel_JSON_Icampus.asmx/application_change_password?" + "&stud_id=" + String.valueOf(storage.read("stud_id", 3)) +
+//                "&user_name=" +
+//                String.valueOf(storage.read("stud_admission_no", 3)) +
+//
+//                "&new_pass=" +
+//
+//                new_password.getText().toString()+"&old_pass="+old_password.getText().toString()+"";
+//
+//        URLs = URLs.replace(" ", "%20");
+//        System.out.println("change_pwd    " + URLs + "");
+//
+//
+//        StringRequest req=new StringRequest(Request.Method.GET, URLs, new com.android.volley.Response.Listener<String>() {
+//            @Override
+//            public void onResponse(String response) {
+//                process.dismiss();
+//response=response+"";
+//                Gson gson=new Gson();
+//                ChangepswPojo pojo=new ChangepswPojo();
+//                pojo=gson.fromJson(response,ChangepswPojo.class);
+//                storage.clear();
+//
+//
+//                Intent it = new Intent(ChangePasswordActivity.this, Login.class);
+//                startActivity(it);
+//                finish();
+//            }
+//        }, new com.android.volley.Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                process.dismiss();
+//                Toast.makeText(ChangePasswordActivity.this, "Please try again later", Toast.LENGTH_LONG);
+//            }
+//        });
+//        //queue.add(req);
     }
 
     public void Change_psw_Api_call() {

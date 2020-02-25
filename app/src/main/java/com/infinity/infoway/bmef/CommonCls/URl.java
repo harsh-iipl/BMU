@@ -14,7 +14,7 @@ public class URl extends Application
 //    public static String GSFC_JAU_URL = "https://admission.gsfcuniversity.ac.in//API_Student_Panel_JSON_Icampus.asmx/";
 
 //    public static String GSFC_JAU_URL = "http://demo1.iipl.info/ierphr.asmx/";
-
+//http://bmef.icrp.in/cms/API_Student_Panel_JSON_Icampus.asmx/get_employee_timetable_display?emp_id=763&year_id=1
 
     public static String API_STUDENT_RESULT_COMMAN_KEY = "v1d1dRrPaNcg";
     public static String API_STUDENT_RESULT_COMMAN = "http://bmef.icrp.in/exam/API_Student_Result_Comman.asmx/";

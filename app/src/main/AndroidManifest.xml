@@ -30,6 +30,9 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
         <activity android:name=".activity.NewProfileActivity"
 
             ></activity> <activity android:name=".activity.Fill_Form_Activity"

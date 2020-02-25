@@ -10,9 +10,9 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -32,39 +32,36 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.HttpResponse;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
+import com.infinity.infoway.bmef.CommonCls.CustomBoldTextView;
 import com.infinity.infoway.bmef.CommonCls.CustomButton;
 import com.infinity.infoway.bmef.CommonCls.DialogUtils;
 import com.infinity.infoway.bmef.CommonCls.FileUtils;
 import com.infinity.infoway.bmef.CommonCls.URl;
-import com.infinity.infoway.bmef.HrAppPojo.CategoryPojo;
 import com.infinity.infoway.bmef.R;
 import com.infinity.infoway.bmef.activity.ChangePasswordActivity;
-import com.infinity.infoway.bmef.activity.E_Learning_PostList;
 import com.infinity.infoway.bmef.activity.Main3Activity;
 import com.infinity.infoway.bmef.activity.NewProfileActivity;
 import com.infinity.infoway.bmef.app.DataStorage;
 import com.infinity.infoway.bmef.app.MarshMallowPermission;
+import com.infinity.infoway.bmef.app.StorageLogin;
 import com.infinity.infoway.bmef.model.DeletePojo;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.sql.Blob;
 import java.util.HashMap;
 import java.util.Map;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import id.zelory.compressor.Compressor;
 
 import static com.android.volley.VolleyLog.TAG;
 
@@ -84,6 +81,7 @@ public class PhotSignFragment extends Fragment implements View.OnClickListener {
     private String imgByteSign, imgBytePhoto;
     private View view;
     Context ctx;
+    CustomBoldTextView tv_status;
     /**
      * Save
      */
@@ -110,6 +108,7 @@ public class PhotSignFragment extends Fragment implements View.OnClickListener {
         dataStorage = new DataStorage("Login_Detail", getActivity());
         _act = getActivity();
         ctx = getActivity();
+        storageLogin = new StorageLogin("Login", ctx);
         if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy =
                     new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -117,44 +116,51 @@ public class PhotSignFragment extends Fragment implements View.OnClickListener {
         }
         imgbtnselectphot = view.findViewById(R.id.iv_student_image);
         imgbtnsignature = view.findViewById(R.id.iv_student_signaturephoto);
+        tv_status = view.findViewById(R.id.tv_status);
         queue = Volley.newRequestQueue(getActivity().getApplicationContext());
-        Drawable mDefaultBackground = getResources().getDrawable(R.drawable.defaultprofile);
-        Glide.with(getActivity()).load(ProfileFragment.PROFILE_PHOTO).fitCenter().error(mDefaultBackground).into(imgbtnselectphot);
-        Glide.with(getActivity()).load(ProfileFragment.PROFILE_SIGN).fitCenter().error(mDefaultBackground).into(imgbtnsignature);
+//        Drawable mDefaultBackground = getResources().getDrawable(R.drawable.defaultprofile);
+//        Glide.with(getActivity()).load(ProfileFragment.PROFILE_PHOTO).fitCenter().error(mDefaultBackground).into(imgbtnselectphot);
+//        Glide.with(getActivity()).load(ProfileFragment.PROFILE_SIGN).fitCenter().error(mDefaultBackground).into(imgbtnsignature);
 
 
         try {
 //                    getBase64EncodedImage();
-
-            bPhoto = getBitmapFromURL(ProfileFragment.PROFILE_PHOTO);
-            bSign = getBitmapFromURL(ProfileFragment.PROFILE_SIGN);
-            if (bPhoto != null) {
-                System.out.println("bb ");
-                imgBytePhoto = bitmapToBase64(bPhoto);
-                System.out.println("String!!!!!!!!!!!! " + imgBytePhoto + "");
-
-                String ex = ProfileFragment.FILE_PHOTO;
-                String e = ex.substring(ex.lastIndexOf("."), ex.length());
-
-                PHOTO_FILE_NAME = ProfileFragment.ADMISSTION_NO + "" + e + "";
-                System.out.println("PHOTO_FILE_NAME " + PHOTO_FILE_NAME + "");
-
-
-            } else {
-                System.out.println("NUL!!!!!!!!!!!!!!!!!!!!!");
+            if (!ProfileFragment.PROFILE_PHOTO.contentEquals("")) {
+              //  bPhoto = getBitmapFromURL(ProfileFragment.PROFILE_PHOTO);
+                new test(ProfileFragment.PROFILE_PHOTO + "").execute();
+                tv_status.setText("Please wait fetching Photo and Signature");
+//                if (bPhoto != null) {
+//                    System.out.println("bb ");
+//                    imgBytePhoto = bitmapToBase64(bPhoto);
+//                    System.out.println("String!!!!!!!!!!!! " + imgBytePhoto + "");
+//
+//                    String ex = ProfileFragment.FILE_PHOTO;
+//                    String e = ex.substring(ex.lastIndexOf("."), ex.length());
+//
+//                    PHOTO_FILE_NAME = ProfileFragment.ADMISSTION_NO + "" + e + "";
+//                    System.out.println("PHOTO_FILE_NAME " + PHOTO_FILE_NAME + "");
+//
+//
+//                } else {
+//                    System.out.println("NUL!!!!!!!!!!!!!!!!!!!!!");
+//                }
             }
-            if (bSign != null) {
-                System.out.println("bSign ");
-                imgByteSign = bitmapToBase64(bSign);
-                System.out.println("String sign!!!!!!!!!!!! " + imgByteSign + "");
-
-                String ex = ProfileFragment.FILE_SIGN;
-                String e = ex.substring(ex.lastIndexOf("."), ex.length());
-
-                SIGN_FILE_NAME = ProfileFragment.ADMISSTION_NO + "" + e + "";
-            } else {
-                System.out.println("bSign NUL!!!!!!!!!!!!!!!!!!!!!");
-            }
+//            if (!ProfileFragment.PROFILE_SIGN.contentEquals("")) {
+//               // bSign = getBitmapFromURL(ProfileFragment.PROFILE_SIGN);
+//                new test_sign(ProfileFragment.PROFILE_SIGN + "").execute();
+////                if (bSign != null) {
+////                    System.out.println("bSign ");
+////                    imgByteSign = bitmapToBase64(bSign);
+////                    System.out.println("String sign!!!!!!!!!!!! " + imgByteSign + "");
+////
+////                    String ex = ProfileFragment.FILE_SIGN;
+////                    String e = ex.substring(ex.lastIndexOf("."), ex.length());
+////
+////                    SIGN_FILE_NAME = ProfileFragment.ADMISSTION_NO + "" + e + ""; }
+//
+//            } else {
+//                System.out.println("bSign NUL!!!!!!!!!!!!!!!!!!!!!");
+//            }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -165,8 +171,8 @@ public class PhotSignFragment extends Fragment implements View.OnClickListener {
         System.out.println(birth);
         String STUD_RELIGION = ProfileFragment.STUD_RELIGION;
         System.out.println("STUD_RELIGION" + STUD_RELIGION);
-      //  String STUD_NATION = ProfileFragment.STUD_NATION;
-      //  System.out.println("STUD_NATION" + STUD_NATION);
+        //  String STUD_NATION = ProfileFragment.STUD_NATION;
+        //  System.out.println("STUD_NATION" + STUD_NATION);
         String STUD_BDATE = ProfileFragment.STUD_BDATE;
         System.out.println("STUD_BDATE" + STUD_BDATE);
         String STUD_BLOOD = ProfileFragment.STUD_BLOOD;
@@ -202,7 +208,7 @@ public class PhotSignFragment extends Fragment implements View.OnClickListener {
             public void onClick(View view) {
                 photo = true;
                 sig = false;
-
+                tv_status.setText("");
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     if (!hasPermissions(getActivity(), RunTimePerMissions)) {
@@ -225,7 +231,7 @@ public class PhotSignFragment extends Fragment implements View.OnClickListener {
             public void onClick(View view) {
                 photo = false;
                 sig = true;
-
+tv_status.setText("");
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
                     if (!hasPermissions(ctx, RunTimePerMissions)) {
                         ActivityCompat.requestPermissions(getActivity(), RunTimePerMissions, 101);
@@ -262,33 +268,43 @@ public class PhotSignFragment extends Fragment implements View.OnClickListener {
         final CharSequence[] options = {"Choose from Gallery", "Cancel"};
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Add Document");
+        builder.setTitle("Select Photo");
 
         builder.setItems(options, new DialogInterface.OnClickListener() {
 
             @Override
             public void onClick(DialogInterface dialog, int item) {
                 if (options[item].equals("Choose from Gallery")) {
-                    String[] mimeTypes =
-                            {
-                                    "image/jpeg", "image/jpg", "image/png"
-                            };
-                    Intent intent = new Intent(Intent.ACTION_PICK);
-//                        intent.setType("image/*");
-                    // intent.setType("image/jpeg");
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-                        intent.setType(mimeTypes.length == 1 ? mimeTypes[0] : "*/*");
-                        if (mimeTypes.length > 0) {
-                            intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
-                        }
-                    } else {
-                        String mimeTypesStr = "";
-                        for (String mimeType : mimeTypes) {
-                            mimeTypesStr += mimeType + "|";
-                        }
-                        intent.setType(mimeTypesStr.substring(0, mimeTypesStr.length() - 1));
-                    }
-                    startActivityForResult(intent, GALLERY_PICK);//2=> 12,22,32,42
+//                    String[] mimeTypes =
+//                            {
+//                                    "image/jpeg", "image/jpg", "image/png"
+//                            };
+//                    Intent intent = new Intent(Intent.ACTION_PICK);
+////                        intent.setType("image/*");
+//                    // intent.setType("image/jpeg");
+//                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//                        intent.setType(mimeTypes.length == 1 ? mimeTypes[0] : "*/*");
+//                        if (mimeTypes.length > 0) {
+//                            intent.putExtra(Intent.EXTRA_MIME_TYPES, mimeTypes);
+//                        }
+//                    } else {
+//                        String mimeTypesStr = "";
+//                        for (String mimeType : mimeTypes) {
+//                            mimeTypesStr += mimeType + "|";
+//                        }
+//                        intent.setType(mimeTypesStr.substring(0, mimeTypesStr.length() - 1));
+//                    }
+//                    startActivityForResult(intent, GALLERY_PICK);//2=> 12,22,32,42
+
+
+                 //   Intent photoPickerIntent = new Intent(Intent.ACTION_PICK);
+                    Intent photoPickerIntent = new Intent(
+                            Intent.ACTION_PICK,
+                            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                   // photoPickerIntent.setType("image/*");
+                    photoPickerIntent.setType("image/jpeg");
+
+                    startActivityForResult(photoPickerIntent, GALLERY_PICK);
 
                 }
                    /* else if (options[item].equals("Upload Pdf")) {
@@ -311,7 +327,7 @@ public class PhotSignFragment extends Fragment implements View.OnClickListener {
 
     String PHOTO_FILE_NAME = "";
     String SIGN_FILE_NAME = "";
-
+    StorageLogin storageLogin;
 
     // private void sendPhotoToServer(final String data, final String stud_leave_id, final String name) {
     private void Update_Student_Personal_Details_API_updated() {
@@ -356,10 +372,22 @@ public class PhotSignFragment extends Fragment implements View.OnClickListener {
 //                                        Intent i = new Intent(getActivity(), Main3Activity.class);
 //                                        getActivity().finish();
 //                                        ctx.startActivity(i);
-  Intent i = new Intent(getActivity(), ChangePasswordActivity.class);
+
+                                        String         final_username= String.valueOf(storageLogin.read("UserName", 3)+"");
+                                        String         final_Password= String.valueOf(storageLogin.read("Password", 3)+"");
+                                        System.out.println("final_username::::" + final_username);
+                                        System.out.println("final_Password::::" + final_Password);
+                                        if (final_username.compareToIgnoreCase(final_Password) == 0) {
+                                            System.out.println("BOTH SAME===================================");
+                                        Intent i = new Intent(getActivity(), ChangePasswordActivity.class);
                                         getActivity().finish();
                                         ctx.startActivity(i);
-
+                                        }else{
+                                            Intent i = new Intent(getActivity(), Main3Activity.class);
+                                            System.out.println("BOTH NOT SAME===================================");
+                                            getActivity().finish();
+                                            ctx.startActivity(i);
+                                        }
                                         // DialogUtils.Show_Toast(E_Learning_PostList.this, "Post Delete Successfully");
 
 
@@ -377,6 +405,13 @@ public class PhotSignFragment extends Fragment implements View.OnClickListener {
                     public void onErrorResponse(VolleyError error) {
                         //        progressDialog.dismiss();
                         DialogUtils.hideProgressDialog();
+                        try {
+                            Toast.makeText(getActivity(), getString(R.string.something_went_wrong), Toast.LENGTH_LONG).show();
+                        } catch (Exception e1) {
+                            System.out.println("error 222222222");
+                            //  e1.printStackTrace();
+                        }
+
                         System.out.println("errrrrrrrrrrrrrrrrrrr" + error.getMessage());
                         // error
 
@@ -395,6 +430,7 @@ public class PhotSignFragment extends Fragment implements View.OnClickListener {
                 params.put("stud_email", ContactDetailsFragment.STUD_EMAIL + "");
                 params.put("stud_father_mobile", ContactDetailsFragment.STUD_FATHER_MOBILE);
                 params.put("stud_father_occupation", ProfileFragment.Stud_fatherOccupation);
+                params.put("stud_mother_name", ProfileFragment.STUD_MOTHER_NAME+"");
                 params.put("stud_mother_occupation", ProfileFragment.Stud_motherOccupation);
 
                 params.put("stud_address", ContactDetailsFragment.STUD_ADDRESS);
@@ -601,13 +637,15 @@ public class PhotSignFragment extends Fragment implements View.OnClickListener {
     //    Bitmap bitmap = null;
     Bitmap bitmap1 = null;
 
-    @Override
+   /* @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         // chnages add by harsh  for mi phone 18/2/2020
        // if (photSignFragment != null){
            // photSignFragment.onActivityResult(requestCode, resultCode, data);
             if (requestCode == GALLERY_PICK && resultCode == Activity.RESULT_OK && data != null) {
+
+
                 Toast.makeText(getActivity().getApplicationContext(), "Photo Selected", Toast.LENGTH_LONG).show();
                 imagesignatureuri = data.getData();
                 imagephotouri = data.getData();
@@ -745,7 +783,158 @@ public class PhotSignFragment extends Fragment implements View.OnClickListener {
 
 
 
+    }*/
+
+//   public void ImageCropFunction(Uri imagephotouri) {
+//
+//       // Image Crop Code
+//       try {
+//           Intent     CropIntent = new Intent("com.android.camera.action.CROP");
+//
+//           CropIntent.setDataAndType(imagephotouri, "image/*");
+//
+//           CropIntent.putExtra("crop", "true");
+//           CropIntent.putExtra("outputX", 180);
+//           CropIntent.putExtra("outputY", 180);
+//           CropIntent.putExtra("aspectX", 3);
+//           CropIntent.putExtra("aspectY", 4);
+//           CropIntent.putExtra("scaleUpIfNeeded", true);
+//           CropIntent.putExtra("return-data", true);
+//
+//           startActivityForResult(CropIntent, 1);
+//
+//       } catch (Exception e) {
+//
+//       }
+//   }
+    //Image Crop Code End Here
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+
+            imagephotouri = data.getData();
+
+
+
+
+
+
+            if (requestCode == GALLERY_PICK && data != null) {
+                /** ======================================= FOR PHOTO ====================================*/
+
+                if (photo) {
+                    try {
+                        imagephotouri = data.getData();
+
+                        Bitmap bitmaps = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), imagephotouri);
+                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+
+                        bitmaps.compress(Bitmap.CompressFormat.JPEG, 50, stream);
+
+                       /* byte[] byteArray = stream.toByteArray();
+
+                        System.out.println("byarrayyyyyyyyyy:::::" + byteArray.toString());*/
+
+                        String filePath = getRealPathFromURIPath(imagephotouri, getActivity());
+                        System.out.println("file name::::::::::" + filePath);
+                        File file = new File(filePath);
+                        String fileUrl = FileUtils.getPath(getActivity(), data.getData());
+                        Log.d(TAG, "onActivityResult: " + data.getData().getPath() + " file url:" + fileUrl);
+                        file = new File(fileUrl);
+                        Log.d(TAG, "onActivityResult: " + "file is exist:" + file.exists() + " file absolute Path" + file.getAbsolutePath());
+                        if (file.exists() && file.length() > 0) {
+                            byte[] byteImage = readByteFromFile(file);
+                            // imgbtnsignature.setImageBitmap(bitmaps);
+                            imgbtnselectphot.setImageBitmap(bitmaps);
+
+//                            imgByteSign = Base64.encodeToString(byteImage, Base64.DEFAULT);
+                            imgBytePhoto = Base64.encodeToString(byteImage, Base64.DEFAULT);
+                            //   edtuploadfile.setText(file.getName());
+                            System.out.println("FILE NAME!!!!!!!!!!!!!! " + file.getName() + "");
+
+                            //if (isProfilePhotoUpload) {
+                            //    FILE_UPLOADED_OR_NOT = true;
+                            // String file_name = file.getName() + "";
+                            // EXTENTION = file_name.substring(file_name.lastIndexOf("."), file_name.length()) + "";
+                            String ex = file.getName();
+                            String e = ex.substring(ex.lastIndexOf("."), ex.length());
+
+                            //  SIGN_FILE_NAME = ProfileFragment.ADMISSTION_NO + "" + e + "";
+                            PHOTO_FILE_NAME = ProfileFragment.ADMISSTION_NO + "" + e + "";
+                            System.out.println("PHOTO_FILE_NAME " + PHOTO_FILE_NAME + "");
+                            System.out.println("this is extention !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! " + PHOTO_FILE_NAME + "");
+//                            System.out.println("FILE NAME LEN!!!!!!!!!!!!!! " + imgByteSign.length() + "");
+                            System.out.println("FILE NAME LEN!!!!!!!!!!!!!! " + imgBytePhoto.length() + "");
+                            Toast.makeText(getActivity().getApplicationContext(), "Photo Selected", Toast.LENGTH_LONG).show();
+                        }
+                    } catch (Exception e) {
+                        System.out.println("PHOTO selection error !!!!!!!!!!!!!!");
+                        try {
+                            DialogUtils.Show_Toast(getActivity(), "Please Try Again!!");
+                        } catch (Exception e1) {
+
+                        }
+                    }
+
+                }
+/** ======================================= FOR SIGNATURE ====================================*/
+                if (sig) {
+
+                    try {
+                        imagesignatureuri = data.getData();
+                        Bitmap bitmaps = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), imagesignatureuri);
+                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+
+                        bitmaps.compress(Bitmap.CompressFormat.JPEG, 50, stream);
+
+                       /* byte[] byteArray = stream.toByteArray();
+
+                        System.out.println("byarrayyyyyyyyyy:::::" + byteArray.toString());*/
+
+                        String filePath = getRealPathFromURIPath(imagesignatureuri, getActivity());
+                        System.out.println("file name::::::::::" + filePath);
+                        File file = new File(filePath);
+                        String fileUrl = FileUtils.getPath(getActivity(), data.getData());
+                        Log.d(TAG, "onActivityResult: " + data.getData().getPath() + " file url:" + fileUrl);
+                        file = new File(fileUrl);
+                        Log.d(TAG, "onActivityResult: " + "file is exist:" + file.exists() + " file absolute Path" + file.getAbsolutePath());
+                        if (file.exists() && file.length() > 0) {
+                            byte[] byteImage = readByteFromFile(file);
+                            imgbtnsignature.setImageBitmap(bitmaps);
+
+                            imgByteSign = Base64.encodeToString(byteImage, Base64.DEFAULT);
+                            //   edtuploadfile.setText(file.getName());
+                            System.out.println("FILE NAME!!!!!!!!!!!!!! " + file.getName() + "");
+
+                            //if (isProfilePhotoUpload) {
+                            //    FILE_UPLOADED_OR_NOT = true;
+                            String file_name = file.getName() + "";
+                            // EXTENTION = file_name.substring(file_name.lastIndexOf("."), file_name.length()) + "";
+                            String ex = file.getName();
+                            String e = ex.substring(ex.lastIndexOf("."), ex.length());
+
+                            SIGN_FILE_NAME = ProfileFragment.ADMISSTION_NO + "" + e + "";
+                            System.out.println("SIGN_FILE_NAME " + SIGN_FILE_NAME + "");
+                            System.out.println("this is extention !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! " + SIGN_FILE_NAME + "");
+                            System.out.println("FILE NAME LEN!!!!!!!!!!!!!! " + imgByteSign.length() + "");
+                            Toast.makeText(getActivity().getApplicationContext(), "Signature Selected", Toast.LENGTH_LONG).show();
+                        }
+                    } catch (Exception e) {
+                        System.out.println("SIGNATURE selection error !!!!!!!!!!!!!!");
+                        try {
+                            DialogUtils.Show_Toast(getActivity(), "Please Try Again!!");
+                        } catch (Exception e1) {
+
+                        }
+                    }
+                }
+            }
+        } else {
+            System.out.println("something wrong in else!!!!!!!!!!!!");
+        }
     }
+
 
     private String getRealPathFromURIPath(Uri contentURI, Activity activity) {
         Cursor cursor = activity.getContentResolver().query(contentURI, null, null, null, null);
@@ -799,7 +988,7 @@ public class PhotSignFragment extends Fragment implements View.OnClickListener {
                 String STUD_RELIGION = ProfileFragment.STUD_RELIGION;
                 System.out.println("STUD_RELIGION" + STUD_RELIGION);
                 String STUD_NATION = ProfileFragment.STUD_NATION;
-                System.out.println("STUD_NATION" + STUD_NATION+"");
+                System.out.println("STUD_NATION" + STUD_NATION + "");
                 String STUD_BDATE = ProfileFragment.STUD_BDATE;
                 System.out.println("STUD_BDATE" + STUD_BDATE);
                 String STUD_BLOOD = ProfileFragment.STUD_BLOOD;
@@ -871,6 +1060,175 @@ public class PhotSignFragment extends Fragment implements View.OnClickListener {
         } catch (IOException e) {
             e.printStackTrace();
             return null;
+        }
+    }
+public static boolean PHOTO_FETCH_ISSUE=false;
+public static boolean PHOTO_STILL_FETCH=false;
+    class test extends AsyncTask<Void, Void, Bitmap> {
+        String s = "";
+        Bitmap myBitmap = null;
+
+        test(String src) {
+            s = src;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+//            Toast.makeText(getActivity(),"Please Wait we are fetching Photo", Toast.LENGTH_LONG).show();
+            tv_status.setText("Please wait fetching Photo");
+            PHOTO_STILL_FETCH=true;
+            PHOTO_FETCH_ISSUE=false;
+        }
+
+        @Override
+        protected Bitmap doInBackground(Void... voids) {
+
+            try {
+                URL url = new URL(s);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setDoInput(true);
+                connection.connect();
+                InputStream input = connection.getInputStream();
+                bPhoto=   myBitmap = BitmapFactory.decodeStream(input);
+                return myBitmap;
+            } catch (IOException e) {
+                e.printStackTrace();
+                PHOTO_FETCH_ISSUE=true;
+
+                return null;
+            }
+//        return myBitmap;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap bitmap) {
+            super.onPostExecute(bitmap);
+            if (bPhoto != null) {
+                System.out.println("bb ");
+                imgBytePhoto = bitmapToBase64(bPhoto);
+             //   System.out.println("String!!!!!!!!!!!! " + imgBytePhoto + "");
+                System.out.println("String LEN!!!!!!!!!!!! " + imgBytePhoto.length() + "");
+
+                String ex = ProfileFragment.FILE_PHOTO;
+                System.out.println("String ex!!!!!!!!!!!! " + ex + "");
+                String e = ex.substring(ex.lastIndexOf("."), ex.length());
+
+                PHOTO_FILE_NAME = ProfileFragment.ADMISSTION_NO + "" + e + "";
+                System.out.println("PHOTO_FILE_NAME " + PHOTO_FILE_NAME + "");
+                try {
+                    Drawable mDefaultBackground = getResources().getDrawable(R.drawable.defaultprofile);
+                   // Glide.with(getActivity()).load(ProfileFragment.PROFILE_PHOTO).fitCenter().error(mDefaultBackground).into(imgbtnselectphot);
+                    Picasso.get().load(ProfileFragment.PROFILE_PHOTO).into(imgbtnselectphot);
+                    tv_status.append("Fetching Photo Status : COMPLETED ");
+                }catch(Exception ee)
+                {
+
+                }
+            } else {
+                System.out.println("NUL!!!!!!!!!!!!!!!!!!!!!");
+                PHOTO_FETCH_ISSUE=true;
+                PHOTO_STILL_FETCH=false;
+                tv_status.append("Fetching Photo Status : FAILED ");
+            }
+
+
+            if (!ProfileFragment.PROFILE_SIGN.contentEquals("")) {
+                // bSign = getBitmapFromURL(ProfileFragment.PROFILE_SIGN);
+                tv_status.append("\n Please wait fetching Signature");
+                new test_sign(ProfileFragment.PROFILE_SIGN + "").execute();
+//
+
+            } else {
+                System.out.println("bSign NUL!!!!!!!!!!!!!!!!!!!!!");
+            }
+        }
+    }class test_sign extends AsyncTask<Void, Void, Bitmap> {
+        String s = "";
+        Bitmap myBitmap = null;
+
+        test_sign(String src) {
+            s = src;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            //Toast.makeText(getActivity(),"Please Wait we are fetching Signature", Toast.LENGTH_LONG).show();
+        }
+
+        @Override
+        protected Bitmap doInBackground(Void... voids) {
+
+            try {
+                URL url = new URL(s);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setDoInput(true);
+                connection.connect();
+                InputStream input = connection.getInputStream();
+                bSign = myBitmap = BitmapFactory.decodeStream(input);
+                return myBitmap;
+            } catch (IOException e) {
+                e.printStackTrace();
+                PHOTO_FETCH_ISSUE=true;
+                PHOTO_STILL_FETCH=false;
+
+                return null;
+            }
+//        return myBitmap;
+        }
+
+        @Override
+        protected void onPostExecute(Bitmap bitmap) {
+            super.onPostExecute(bitmap);
+            /*if (bSign != null) {
+                System.out.println("bb sign ");
+                imgByteSign = bitmapToBase64(bSign);
+             //   System.out.println("String!!!!!!!!!!!! " + imgBytePhoto + "");
+                System.out.println("String LEN!!!!!!!!!!!! " + imgByteSign.length() + "");
+
+                String ex = ProfileFragment.FILE_SIGN;
+                System.out.println("String ex!!!!!!!!!!!! " + ex + "");
+                String e = ex.substring(ex.lastIndexOf("."), ex.length());
+
+                SIGN_FILE_NAME = ProfileFragment.ADMISSTION_NO + "" + e + "";
+                System.out.println("SIGN_FILE_NAME " + SIGN_FILE_NAME + "");
+
+
+            } else {
+                System.out.println("NUL!!!!!!!!!!!!!!!!!!!!!");
+            }*/
+            if (bSign != null) {
+                System.out.println("bSign ");
+                imgByteSign = bitmapToBase64(bSign);
+                System.out.println("String sign!!!!!!!!!!!! " + imgByteSign.length() + "");
+
+                String ex = ProfileFragment.FILE_SIGN;
+                String e = ex.substring(ex.lastIndexOf("."), ex.length());
+
+                SIGN_FILE_NAME = ProfileFragment.ADMISSTION_NO + "" + e + "";
+                try {
+                    Drawable mDefaultBackground = getResources().getDrawable(R.drawable.defaultprofile);
+
+                  //  Glide.with(getActivity()).load(ProfileFragment.PROFILE_SIGN).fitCenter().error(mDefaultBackground).into(imgbtnsignature);
+                    Picasso.get().load(ProfileFragment.PROFILE_SIGN).into(imgbtnsignature);
+                    tv_status.append("Fetching Signature Status : COMPLETED ");
+                    PHOTO_STILL_FETCH = false;
+                    tv_status.setText("");
+                }
+                catch (Exception p)
+                {
+
+                }
+             //   tv_status.append("\n Signature  : OK ");
+            }
+            else{
+                PHOTO_FETCH_ISSUE=true;
+                PHOTO_STILL_FETCH=false;
+                tv_status.setText("");
+                tv_status.append("Fetching Signature Status : FAILED ");
+             //   tv_status.append("\n Signature  : Not Found ");
+            }
         }
     }
 

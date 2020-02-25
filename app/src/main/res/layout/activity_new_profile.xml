@@ -32,7 +32,7 @@
                     android:id="@+id/title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Profle"
+                    android:text="Profile"
                     android:layout_marginLeft="10dp"
                     android:textSize="17sp"
                     android:textColor="@color/black" />

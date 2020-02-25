@@ -5,35 +5,37 @@
     android:layout_height="match_parent"
     android:background="@drawable/background">
 
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+    android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_alignParentTop="true"    android:background="@drawable/background"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
             android:orientation="vertical">
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="220dp"
-                android:layout_height="200dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_gravity="center"
-                android:padding="10dp"
-                android:src="@drawable/logo_login" />
+
+                android:src="@drawable/logo_ab" />
 
 </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="5dp"
             android:gravity="center"
             android:orientation="vertical"
             android:visibility="visible">
@@ -41,7 +43,8 @@
             <ListView
                 android:id="@+id/lv_login"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"></ListView>
+                android:scrollbars="vertical"
+                android:layout_height="110dp"></ListView>
         </LinearLayout>
 
         <LinearLayout
@@ -50,12 +53,12 @@
             android:layout_gravity="bottom"
             android:gravity="center"
             android:orientation="vertical"
-            android:padding="15dp">
+            android:padding="10dp">
 
             <com.infinity.infoway.bmef.CommonCls.CustomTextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:text="Username"
                 android:visibility="gone" />
 

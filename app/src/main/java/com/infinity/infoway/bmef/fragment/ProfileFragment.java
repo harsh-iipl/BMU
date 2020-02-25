@@ -245,6 +245,8 @@ public class ProfileFragment extends Fragment {
                 //  SELECTED_CATEGORY = "00";
             }
         });
+
+
 //        spin_category.setSelection(0);
         edtadharno = view.findViewById(R.id.edtadharno);
         edtnationality = view.findViewById(R.id.edtnationality);
@@ -255,12 +257,26 @@ public class ProfileFragment extends Fragment {
         btnnext = view.findViewById(R.id.btnnext);
         rbMale.setTypeface(Validations.setTypeface(getActivity()));
         rbFemale.setTypeface(Validations.setTypeface(getActivity()));
+
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                if (i == R.id.rb_male) {
+                    STUD_GENDER = 1 + "";
+                }
+                if (i == R.id.rb_female) {
+                    STUD_GENDER = 2 + "";
+                }
+            }
+        });
 //        getBooldGroup();
         //  getCategoryApi();
 //        Get_Country_Master_API();
         btnnext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 if (isEmpty()) {
                     getStrings();
 
@@ -268,17 +284,17 @@ public class ProfileFragment extends Fragment {
 
 
                 }
-                rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-                    @Override
-                    public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                        if (i == R.id.rb_male) {
-                            STUD_GENDER = 1 + "";
-                        }
-                        if (i == R.id.rb_female) {
-                            STUD_GENDER = 2 + "";
-                        }
-                    }
-                });
+//                rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//                    @Override
+//                    public void onCheckedChanged(RadioGroup radioGroup, int i) {
+//                        if (i == R.id.rb_male) {
+//                            STUD_GENDER = 1 + "";
+//                        }
+//                        if (i == R.id.rb_female) {
+//                            STUD_GENDER = 2 + "";
+//                        }
+//                    }
+//                });
             }
         });
 
@@ -329,8 +345,8 @@ public class ProfileFragment extends Fragment {
 
     }
 
-    public static String STUD_BIRTH_PLACE = "", STUD_RELIGION = "",Stud_fatherOccupation = "",Stud_motherOccupation = "",
-            STUD_NATION = "", STUD_BDATE = "", STUD_BLOOD = "", STUD_CATEGORY = "", STUD_GENDER = "1", STUD_AADHAR = "";
+    public static String STUD_BIRTH_PLACE = "", STUD_RELIGION = "", Stud_fatherOccupation = "", Stud_motherOccupation = "",
+            STUD_NATION = "", STUD_BDATE = "", STUD_BLOOD = "", STUD_CATEGORY = "", STUD_GENDER = "1", STUD_AADHAR = "", STUD_MOTHER_NAME = "";
     public static int SELECTEDGENDER = 0;
 
 
@@ -350,8 +366,11 @@ public class ProfileFragment extends Fragment {
 
         STUD_NATION = SELCTED_NATIONALITY;
         STUD_AADHAR = edtadharno.getText().toString().trim();
-
-
+        try {
+            STUD_MOTHER_NAME = edtmothername.getText().toString().trim();
+        } catch (Exception e) {
+            STUD_MOTHER_NAME = "";
+        }
     }
 
     public static String ADMISSTION_NO = "";
@@ -404,12 +423,14 @@ public class ProfileFragment extends Fragment {
                     edtadharno.setText(studenDetailsPojo.getStud_adhar_no());
                     ADMISSTION_NO = studenDetailsPojo.getStud_admission_no() + "";
                     PROFILE_PHOTO = studenDetailsPojo.getStud_photo() + "";
-                    PROFILE_SIGN = studenDetailsPojo.getStud_signature()+"";
-                    FILE_SIGN = PROFILE_SIGN+"";
-                    FILE_PHOTO = PROFILE_PHOTO+"";
-
+                    PROFILE_SIGN = studenDetailsPojo.getStud_signature() + "";
+                    FILE_SIGN = PROFILE_SIGN + "";
+                    FILE_PHOTO = PROFILE_PHOTO + "";
+//                    FILE_SIGN = ""+"";
+//                    FILE_PHOTO = ""+"";
                     //  edtreligion.setText(studenDetailsPojo.getReligion_name() + "");
-                    if (studenDetailsPojo.getStud_gender() == 1) {
+//                    if (studenDetailsPojo.getStud_gender() == 1) {
+                    if (studenDetailsPojo.getStud_gender() == 2) {
                         rbFemale.setChecked(true);
                         SELECTED_GENDER = "FEMALE";
                         STUD_GENDER = 2 + "";
@@ -421,7 +442,7 @@ public class ProfileFragment extends Fragment {
                         SELECTED_GENDER = "MALE";
                     }
 
-                    edtmothername.setText(studenDetailsPojo.getStud_mothers_name());
+                    edtmothername.setText(studenDetailsPojo.getStud_mothers_name() + "");
                     edtfathersoccupation.setText(studenDetailsPojo.getStud_father_Occupation());
                     edtmotheroccupation.setText(studenDetailsPojo.getStud_Mother_Occupation());
                     getStrings();
@@ -434,7 +455,7 @@ public class ProfileFragment extends Fragment {
                     country_id = studenDetailsPojo.getStud_Country() + "";
                     religion_id = studenDetailsPojo.getStud_religion() + "";
 
-                   // district_id = studenDetailsPojo.getStud_district() + "";
+                    // district_id = studenDetailsPojo.getStud_district() + "";
                     System.out.println("cat Id.... " + category_id + "");
                     System.out.println("bloodgroup_id Id.... " + bloodgroup_id + "");
                     System.out.println("country_id Id.... " + country_id + "");
@@ -489,7 +510,7 @@ public class ProfileFragment extends Fragment {
                     coluntry_id_list.add("00");
 //
 
-                    System.out.println("country_id "+country_id+"");
+                    System.out.println("country_id " + country_id + "");
 
                     for (int i = 0; i < countryPojo.getTable().size(); i++) {
 
@@ -735,26 +756,26 @@ public class ProfileFragment extends Fragment {
 
         System.out.println("SELECTED_BLOOD_GORUP  " + SELECTED_BLOOD_GORUP + "");
         if (edtName.getText().toString().trim().contentEquals("") || edtName.getText().toString().trim().length() < 0) {
-            DialogUtils.Show_Toast(getActivity().getApplicationContext(), "Enter Student Name");
+            DialogUtils.Show_Toast(getActivity().getApplicationContext(), "Enter SurName");
             return false;
         } else if (edtmiddlename.getText().toString().trim().contentEquals("") || edtmiddlename.getText().toString().trim().length() < 0) {
             DialogUtils.Show_Toast(getActivity().getApplicationContext(), "Enter Middle Name");
             return false;
-        } else if (edtfathersName.getText().toString().contentEquals("") || edtfathersName.getText().toString().trim().length() < 0) {
-            DialogUtils.Show_Toast(getActivity().getApplicationContext(), "Enter Father's Name");
-
-            return false;
-        }else if (edtfathersoccupation.getText().toString().contentEquals("") || edtfathersoccupation.getText().toString().trim().length() < 0) {
+        }
+//        else if (edtfathersName.getText().toString().contentEquals("") || edtfathersName.getText().toString().trim().length() < 0) {
+//            DialogUtils.Show_Toast(getActivity().getApplicationContext(), "Enter Father's Name");
+//
+//            return false;
+//        }
+        else if (edtfathersoccupation.getText().toString().contentEquals("") || edtfathersoccupation.getText().toString().trim().length() < 0) {
             DialogUtils.Show_Toast(getActivity().getApplicationContext(), "Enter Father's Occupation");
 
             return false;
-        }
-        else if (edtmotheroccupation.getText().toString().contentEquals("") || edtmotheroccupation.getText().toString().trim().length() < 0) {
+        } else if (edtmotheroccupation.getText().toString().contentEquals("") || edtmotheroccupation.getText().toString().trim().length() < 0) {
             DialogUtils.Show_Toast(getActivity().getApplicationContext(), "Enter Mothers's Occupation");
 
             return false;
-        }
-        else if (edtbirthdate.getText().toString().contentEquals("") || edtbirthdate.getText().toString().trim().length() < 0) {
+        } else if (edtbirthdate.getText().toString().contentEquals("") || edtbirthdate.getText().toString().trim().length() < 0) {
             DialogUtils.Show_Toast(getActivity().getApplicationContext(), "Enter Date of Birth");
 
             return false;

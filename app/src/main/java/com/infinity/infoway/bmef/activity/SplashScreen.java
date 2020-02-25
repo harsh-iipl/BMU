@@ -571,12 +571,14 @@ public class SplashScreen extends Activity {
             if (value != null) {
                 DataStorage cstorage = new DataStorage("Login_Detail", this);
                 if (cstorage.CheckLogin("stud_id", this)) {
+                    System.out.println("11111111111111111111111");
                     //                    Intent openMainActivity = new Intent(SplashScreen.this, Notification_Activity.class);
                     Intent openMainActivity = new Intent(SplashScreen.this, AnnouncementStudentActiivty.class);
                     openMainActivity.putExtra("type", "notification");
                     startActivity(openMainActivity);
                     finish();
                 } else {
+                    System.out.println("2222222222222");
                     Intent openMainActivity = new Intent(SplashScreen.this, AnnouncementFaculty.class);
                     openMainActivity.putExtra("type", "notification");
                     startActivity(openMainActivity);
@@ -584,12 +586,14 @@ public class SplashScreen extends Activity {
 
                 }
             } else {
+                System.out.println("33333333333333333333333");
                 Intent openMainActivity = new Intent(SplashScreen.this, Login.class);
                 startActivity(openMainActivity);
                 finish();
             }
             //startActivity(new Intent(SplashScreen.this, Notification_Activity.class));
         } else {
+            System.out.println("4444444444444444444444444444");
             Intent openMainActivity = new Intent(SplashScreen.this, Login.class);
             startActivity(openMainActivity);
             finish();

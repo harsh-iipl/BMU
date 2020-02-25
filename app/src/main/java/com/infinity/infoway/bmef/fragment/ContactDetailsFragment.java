@@ -443,7 +443,7 @@ int selectedDistrict  = 0;
                         coluntry_id_list.add(countryPojo.getTable().get(i).getCountry_id() + "");
 
 
-                        if (country_id.contentEquals(countryPojo.getTable().get(i).getCountry_id() + "")) {
+                        //if (country_id.contentEquals(countryPojo.getTable().get(i).getCountry_id() + "")) {
                             // Bl_selection=i+1  ;
                             //   System.out.println(i+1);
                             if (country_id.contentEquals(countryPojo.getTable().get(i).getCountry_id() + "")) {
@@ -455,7 +455,7 @@ int selectedDistrict  = 0;
 
                             }
 
-                        }
+                        //}
 
 
                     }
@@ -639,7 +639,7 @@ int selectedDistrict  = 0;
 
             return false;
         }
-        else if (txtpincode.getText().toString().contentEquals("") || txtfathermobileno.getText().toString().trim().length() < 3) {
+        else if (txtpincode.getText().toString().contentEquals("") || txtpincode.getText().toString().trim().length() < 3) {
             DialogUtils.Show_Toast(getActivity().getApplicationContext(), "Enter Valid Pincode");
 
             return false;

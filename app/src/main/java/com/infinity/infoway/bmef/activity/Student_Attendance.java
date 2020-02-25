@@ -59,7 +59,7 @@ public class Student_Attendance extends AppCompatActivity implements View.OnClic
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student__attendance);
-
+        System.out.println("ATTENDANCE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         txt_records = (CustomTextView) findViewById(R.id.txt_records);
         toolbar.post(new Runnable()
@@ -339,7 +339,7 @@ public class Student_Attendance extends AppCompatActivity implements View.OnClic
                             tbrow.setLayoutParams(lp);
 
                             date = response.body().get(i).getdate();
-                            Log.d("date", date);
+                            Log.d("date ppppppppp", date);
                             String stringa;
                             String stringb = "";
                             if (date.contains("_"))
@@ -357,22 +357,26 @@ public class Student_Attendance extends AppCompatActivity implements View.OnClic
                             }
 
                             TextView t1v = new TextView(Student_Attendance.this);
-                            t1v.setText(stringa);
+                            t1v.setText(stringa+ "");
                             t1v.setTextSize(17);
                             t1v.setTextColor(getResources().getColor(R.color.lightgreen));
                             t1v.setGravity(Gravity.CENTER);
                             //t1v.setTypeface(null, Typeface.BOLD);
                             t1v.setLayoutParams(lp);
                             t1v.setBackground(getResources().getDrawable(R.drawable.table_row_bg));
+                          //  t1v.setBackgroundColor(getResources().getColor(R.color.allpresent));
                             tbrow.addView(t1v);
                             tbrow.setGravity(Gravity.CENTER);
-
+//                            tbrow.setBackgroundColor(getResources().getColor(R.color.orange));
                             for (int j = 0; j < lectures.size(); j++)
                             {
                                 attstatus = lectures.get(j).getatt_status();
-                                Log.d("Att_status", attstatus);
+                                Log.d("Att_status: ", attstatus);
+                                Log.d("PPPPPPPPPPP: ", response.body().get(i).getdate()+"");
+                                Log.d("DAY ID : ", response.body().get(i).getDay_id()+"");
+                                System.out.println("this is DAY ID1 "+response.body().get(i).getDay_id()+"");
                                 lecstatus = lectures.get(j).getlec_status();
-                                Log.d("Lecture_Status", lecstatus);
+                                Log.d("Lecture_Status: ", lecstatus);
 
                                 TextView t1v4 = new TextView(Student_Attendance.this);
                                 t1v4.setTextSize(17);
@@ -380,7 +384,7 @@ public class Student_Attendance extends AppCompatActivity implements View.OnClic
 
                                 switch (attstatus)
                                 {
-                                    case "R":
+                                   /** case "R":
                                         t1v4.setTextColor(getResources().getColor(R.color.remaining));
                                         t1v4.setTypeface(null, Typeface.BOLD);
                                         break;
@@ -399,9 +403,35 @@ public class Student_Attendance extends AppCompatActivity implements View.OnClic
                                     case "S":
                                         t1v4.setTextColor(getResources().getColor(R.color.suspend));
                                         t1v4.setTypeface(null, Typeface.BOLD);
+                                        break;*/
+                                    case "R":
+                                        t1v4.setTextColor(getResources().getColor(R.color.black));
+                                        t1v4.setTypeface(null, Typeface.BOLD);
                                         break;
-                                }
+                                    case "null":
+                                        t1v4.setTextColor(getResources().getColor(R.color.black));
+                                        t1v4.setTypeface(null, Typeface.BOLD);
+                                        break;
+                                    case "A":
+                                        t1v4.setTextColor(getResources().getColor(R.color.red));
+                                        t1v4.setTypeface(null, Typeface.BOLD);
+                                        break;
+                                    case "P":
+                                        t1v4.setTextColor(getResources().getColor(R.color.lightgreen));
+                                        t1v4.setTypeface(null, Typeface.BOLD);
+                                        break;
+                                    case "S":
+                                        t1v4.setTextColor(getResources().getColor(R.color.news));
+                                        t1v4.setTypeface(null, Typeface.BOLD);
+                                        break;
 
+
+
+
+
+
+                                }
+                                t1v4.setBackground(getResources().getDrawable(R.drawable.table_row_bg));
                                 t1v4.setText(attstatus);
                                 t1v4.setLayoutParams(lp);
                                 // t1v4.setPadding(5, 0, 5, 0);
@@ -433,7 +463,7 @@ public class Student_Attendance extends AppCompatActivity implements View.OnClic
                                         {
                                             switch (attstatus3)
                                             {
-                                                case "R":
+                                               /* case "R":
                                                     t1v4.setTextColor(getResources().getColor(R.color.remaining));
                                                     t1v4.setTypeface(null, Typeface.BOLD);
                                                     break;
@@ -452,7 +482,31 @@ public class Student_Attendance extends AppCompatActivity implements View.OnClic
                                                 case "S":
                                                     t1v4.setTextColor(getResources().getColor(R.color.suspend));
                                                     t1v4.setTypeface(null, Typeface.BOLD);
+                                                    break;*/
+
+                                                case "R":
+                                                    t1v4.setTextColor(getResources().getColor(R.color.black));
+                                                    t1v4.setTypeface(null, Typeface.BOLD);
                                                     break;
+                                                case "null":
+                                                    t1v4.setTextColor(getResources().getColor(R.color.black));
+                                                    t1v4.setTypeface(null, Typeface.BOLD);
+                                                    break;
+                                                case "A":
+                                                    t1v4.setTextColor(getResources().getColor(R.color.red));
+                                                    t1v4.setTypeface(null, Typeface.BOLD);
+                                                    break;
+                                                case "P":
+                                                    t1v4.setTextColor(getResources().getColor(R.color.lightgreen));
+                                                    t1v4.setTypeface(null, Typeface.BOLD);
+                                                    break;
+                                                case "S":
+                                                    t1v4.setTextColor(getResources().getColor(R.color.news));
+                                                    t1v4.setTypeface(null, Typeface.BOLD);
+                                                    break;
+
+
+
                                             }
 
                                             t1v4.setText(attstatus3);
@@ -532,15 +586,43 @@ public class Student_Attendance extends AppCompatActivity implements View.OnClic
                                     }*/
                                     // t1v4.setBackgroundColor(Color.parseColor("#E0E0E0"));
                                 }
-                                if (stringb.contains("H"))
+                                if (stringb.contains("H"))//PUBLIC HOLIDAY -
                                 {
-                                    t1v4.setTextColor(getResources().getColor(R.color.holiday));
+                                    t1v4.setBackgroundColor(getResources().getColor(R.color.lightgreen));
+//                                    t1v4.setTextColor(getResources().getColor(R.color.holiday));
+//                                    t1v4.setTextColor(getResources().getColor(R.color.lightgreen));
+                                    t1v4.setTextColor(getResources().getColor(R.color.white));
                                     t1v4.setTypeface(null, Typeface.BOLD);
                                     t1v4.setText("H");
                                     // t1v.setTextColor(getResources().getColor(R.color.news));
                                 }
+                                System.out.println("this is DAY ID2222: "+response.body().get(i).getDay_id()+"");
+
+                                if (response.body().get(i).getDay_id()==null||response.body().get(i).getDay_id().contentEquals(""))// SUNDAY -
+                                {
+//                                    t1v4.setTextColor(getResources().getColor(R.color.holiday));
+//                                    t1v4.setTextColor(getResources().getColor(R.color.suspend));
+//                                    t1v4.setTypeface(null, Typeface.BOLD);
+                                    t1v4.setBackgroundColor(getResources().getColor(R.color.lightgreen));
+
+
+                                    if (stringb.contains("H"))//PUBLIC HOLIDAY -
+                                    {
+//                                    t1v4.setTextColor(getResources().getColor(R.color.holiday));
+                                        //t1v4.setTextColor(getResources().getColor(R.color.darksy3));
+                                        t1v4.setTextColor(getResources().getColor(R.color.white));
+                                        t1v4.setTypeface(null, Typeface.BOLD);
+                                        t1v4.setText("H");
+                                        // t1v.setTextColor(getResources().getColor(R.color.news));
+                                    }
+                                    // t1v.setTextColor(getResources().getColor(R.color.news));
+                                }
                                 tbrow.setGravity(Gravity.CENTER);
                                 tbrow.addView(t1v4);
+
+
+
+
 
                             }
                             tableLayout.addView(tbrow, i + 1);

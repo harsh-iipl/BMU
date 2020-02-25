@@ -16,12 +16,18 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:layout_marginBottom="20dp">
-
+<com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
+    android:layout_width="wrap_content"
+    android:id="@+id/tv_status"
+    android:text="Status : "
+    android:textColor="@color/red"
+    android:textSize="@dimen/text_size"
+    android:layout_height="wrap_content"></com.infinity.infoway.bmef.CommonCls.CustomBoldTextView>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_student_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:layout_alignParentStart="true"
 
             android:layout_alignParentTop="true"
@@ -31,7 +37,9 @@
             android:src="@drawable/user_add"
 
              />
-        <TextView
+
+
+        <com.infinity.infoway.bmef.CommonCls.CustomTextView
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -47,8 +55,8 @@
             app:layout_constraintTop_toBottomOf="@+id/iv_student_image" />
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/iv_student_signaturephoto"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
             android:layout_marginTop="20dp"
             android:layout_alignParentStart="true"
 
@@ -59,7 +67,7 @@
             android:src="@drawable/uplod_sig"
 
             />
-        <TextView
+        <com.infinity.infoway.bmef.CommonCls.CustomTextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

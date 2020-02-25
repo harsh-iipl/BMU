@@ -110,7 +110,7 @@ android:layout_gravity="center"
                     android:focusable="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:textSize="@dimen/text_size_u_small"
 android:background="@null"
                     android:paddingLeft="10dp" />
 
@@ -165,7 +165,7 @@ android:background="@null"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 android:focusable="false"
-                    android:maxLines="1"
+                    android:maxLines="1"  android:textSize="@dimen/text_size_u_small"
                     android:background="@null"
                     android:paddingLeft="10dp"
                      />
@@ -222,7 +222,7 @@ android:focusable="false"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:focusable="false"
-
+                            android:textSize="@dimen/text_size_u_small"
                             android:maxLines="1"
                             android:background="@null"
                             android:paddingLeft="10dp"
@@ -283,7 +283,7 @@ android:focusable="false"
                             android:focusable="true"
                             android:focusableInTouchMode="true"
                             android:maxLines="1"
-                            android:background="@null"
+                            android:background="@null"  android:textSize="@dimen/text_size_u_small"
                             android:paddingLeft="10dp"
                             />
                     </android.support.design.widget.TextInputLayout>
@@ -337,7 +337,7 @@ android:focusable="false"
                             android:id="@+id/edtmothername"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:focusable="false"
+                            android:focusable="false"  android:textSize="@dimen/text_size_u_small"
 
                             android:maxLines="1"
                             android:background="@null"
@@ -398,7 +398,7 @@ android:focusable="false"
 
                             android:focusableInTouchMode="true"
 
-
+                            android:textSize="@dimen/text_size_u_small"
                             android:background="@null"
 
                             android:maxLines="1"
@@ -465,7 +465,7 @@ android:focusable="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.40"
-                    android:focusable="false"
+                    android:focusable="false"  android:textSize="@dimen/text_size_u_small"
                     android:paddingLeft="10dp"
                     />
 
@@ -528,7 +528,7 @@ android:focusable="false"
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
+                    android:textSize="@dimen/text_size_u_small"
                     android:background="@null"
 
                     android:paddingLeft="10dp"
@@ -580,6 +580,7 @@ android:focusable="false"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Male"
+                        android:textSize="@dimen/text_size_u_small"
                         android:textColor="@color/black"
                         android:theme="@style/RadioButtonStyle" />
 
@@ -588,6 +589,7 @@ android:focusable="false"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Female"
+                        android:textSize="@dimen/text_size_u_small"
                         android:textColor="@color/black"
                         android:theme="@style/RadioButtonStyle" />
 
@@ -720,7 +722,7 @@ android:focusable="false"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
                     android:textSize="@dimen/text_size_u_small"
-
+android:lines="2"
                     android:text="Adhar Card No."
                     android:textColor="@color/black" />
 
@@ -751,6 +753,7 @@ android:focusable="false"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 android:inputType="number"
+                    android:textSize="@dimen/text_size_u_small"
                     android:maxLines="1"
                     android:background="@null"
                     android:paddingLeft="10dp"

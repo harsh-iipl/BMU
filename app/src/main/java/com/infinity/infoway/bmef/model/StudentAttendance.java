@@ -12,6 +12,17 @@ public class StudentAttendance {
     @SerializedName("date")
     private String date;
 
+    public String getDay_id() {
+        return day_id;
+    }
+
+    public void setDay_id(String day_id) {
+        this.day_id = day_id;
+    }
+
+    @SerializedName("day_id")
+    private String day_id;
+
     public String getdate() {
         return date;
     }

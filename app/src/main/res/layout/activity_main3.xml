@@ -677,13 +677,24 @@
             android:layout_alignParentBottom="true"
             android:background="@color/white"
             android:orientation="horizontal">-->
+    <!--  <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="20dp"
+          android:background="@color/bg_home_tab"
+            android:gravity="bottom"
+            android:orientation="horizontal"
+
+           >-->
         <LinearLayout
             android:id="@+id/llactionbar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="20dp"
-            android:background="@drawable/border_cat_main"
+android:background="@drawable/border_cat_main"
             android:gravity="bottom"
             android:orientation="horizontal"
 
@@ -770,6 +781,7 @@
             </RelativeLayout>
 
         </LinearLayout>
+      <!--  </LinearLayout>-->
     </RelativeLayout>
 
 

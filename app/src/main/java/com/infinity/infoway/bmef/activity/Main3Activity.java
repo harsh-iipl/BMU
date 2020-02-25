@@ -161,6 +161,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main3);
+        System.out.println("main3333333333333333333311111111111111");
         try {
             Intent intent = new Intent();
 
@@ -395,7 +396,12 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         nav_timetable.setOnClickListener(this);
         nav_end_sem_result.setOnClickListener(this);
         nav_change_psw = (TextView) findViewById(R.id.nav_change_psw);
+
+
         nav_change_psw.setOnClickListener(this);
+
+
+
         nav_attendance = (TextView) findViewById(R.id.nav_attendance);
         llactionbar = (LinearLayout) findViewById(R.id.llactionbar);
         nav_attendance.setOnClickListener(this);
@@ -524,6 +530,10 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
 
         } else {
             nav_attendance.setVisibility(View.GONE);
+            /**21-feb-2020 change pwd hide!!!!!!!!!!!!!*/
+            nav_change_psw.setVisibility(View.INVISIBLE);
+
+
 //            nav_fees.setVisibility(View.GONE);
 //            nav_rec.setVisibility(View.GONE);
 //            nav_activity.setVisibility(View.GONE);
@@ -664,7 +674,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
     public void UpdateUserinterface()
     {
         if (storage.CheckLogin("emp_id", this))
-        {
+        { if(!String.valueOf(storage.read("emp_id", 3)).contentEquals("")) {
             ll_view_more.setVisibility(View.GONE);
             ll_views_hide.setVisibility(View.VISIBLE);
             studentlayout.setVisibility(View.VISIBLE);
@@ -710,7 +720,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
 
             imgfeedback.setVisibility(View.GONE);
 
-
+        }
         } else if (storage.CheckLogin("stud_id", this)) {
          //   this.nav_internship_work_rpt.setVisibility(View.VISIBLE);
 //            this.nav_punch_in_out.setVisibility(View.VISIBLE);
