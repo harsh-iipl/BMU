@@ -21,8 +21,11 @@ android
 //                        versionCode 2
 //                        versionName "2"//user mother name
 
-                        versionCode 3
-                        versionName "3"
+//                        versionCode 3
+//                        versionName "3"
+
+                        versionCode 4
+                        versionName "4"
                         renderscriptTargetApi 25
                         renderscriptSupportModeEnabled true
                         /*for vector images support****** nirali 11 nov 2019*/

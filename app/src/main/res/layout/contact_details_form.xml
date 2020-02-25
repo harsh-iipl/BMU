@@ -118,6 +118,7 @@
                             android:background="@null"
                             android:textSize="@dimen/text_size_u_small"
                             android:maxLines="1"
+                            android:maxLength="12"
                             android:paddingLeft="10dp" />
 
                     </android.support.design.widget.TextInputLayout>
@@ -177,6 +178,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@null"
+                            android:maxLength="12"
 
                             android:textSize="@dimen/text_size_u_small"
                             android:inputType="number"
@@ -563,6 +565,7 @@ android:visibility="gone"
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:textSize="@dimen/text_size_u_small"
+                            android:maxLength="10"
 
                             android:inputType="number"
                             android:maxLines="1"

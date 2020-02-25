@@ -356,6 +356,7 @@ public class ProfileFragment extends Fragment {
 
         System.out.println(STUD_BIRTH_PLACE);
         STUD_RELIGION = SELCTED_RELIGION;
+
         Stud_fatherOccupation = edtfathersoccupation.getText().toString().trim();
         Stud_motherOccupation = edtmotheroccupation.getText().toString().trim();
         System.out.println("get String done religion" + STUD_RELIGION);
@@ -441,8 +442,12 @@ public class ProfileFragment extends Fragment {
 
                         SELECTED_GENDER = "MALE";
                     }
+try {
+    edtmothername.setText(studenDetailsPojo.getStud_mothers_name() + "");
+}catch (Exception e)
+{
 
-                    edtmothername.setText(studenDetailsPojo.getStud_mothers_name() + "");
+}
                     edtfathersoccupation.setText(studenDetailsPojo.getStud_father_Occupation());
                     edtmotheroccupation.setText(studenDetailsPojo.getStud_Mother_Occupation());
                     getStrings();
@@ -755,19 +760,20 @@ public class ProfileFragment extends Fragment {
 
 
         System.out.println("SELECTED_BLOOD_GORUP  " + SELECTED_BLOOD_GORUP + "");
-        if (edtName.getText().toString().trim().contentEquals("") || edtName.getText().toString().trim().length() < 0) {
-            DialogUtils.Show_Toast(getActivity().getApplicationContext(), "Enter SurName");
-            return false;
-        } else if (edtmiddlename.getText().toString().trim().contentEquals("") || edtmiddlename.getText().toString().trim().length() < 0) {
-            DialogUtils.Show_Toast(getActivity().getApplicationContext(), "Enter Middle Name");
-            return false;
-        }
+//        if (edtName.getText().toString().trim().contentEquals("") || edtName.getText().toString().trim().length() < 0) {
+//            DialogUtils.Show_Toast(getActivity().getApplicationContext(), "Enter SurName");
+//            return false;
+//        } else if (edtmiddlename.getText().toString().trim().contentEquals("") || edtmiddlename.getText().toString().trim().length() < 0) {
+//            DialogUtils.Show_Toast(getActivity().getApplicationContext(), "Enter Middle Name");
+//            return false;
+//        }
 //        else if (edtfathersName.getText().toString().contentEquals("") || edtfathersName.getText().toString().trim().length() < 0) {
 //            DialogUtils.Show_Toast(getActivity().getApplicationContext(), "Enter Father's Name");
 //
 //            return false;
 //        }
-        else if (edtfathersoccupation.getText().toString().contentEquals("") || edtfathersoccupation.getText().toString().trim().length() < 0) {
+      //  else
+            if (edtfathersoccupation.getText().toString().contentEquals("") || edtfathersoccupation.getText().toString().trim().length() < 0) {
             DialogUtils.Show_Toast(getActivity().getApplicationContext(), "Enter Father's Occupation");
 
             return false;
