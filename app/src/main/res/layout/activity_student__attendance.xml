@@ -375,6 +375,7 @@ android:visibility="gone"
                 android:id="@+id/table1"
                 android:orientation="horizontal"
                 android:showDividers="middle"
+
                 android:stretchColumns="*"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"

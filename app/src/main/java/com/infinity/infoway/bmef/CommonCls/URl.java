@@ -199,11 +199,12 @@ public class URl extends Application
 
 
     public static String Get_Religion_Master_API = BMU_STUDENT_URL + "Get_Religion_Master_API?";
+    public static String Direct_Login_to_Employee_using_emp_id_API = BMU_STUDENT_URL + "Direct_Login_to_Employee_using_emp_id_API?";
 
     public static String Get_Student_Result_Marksheet_BMU = API_STUDENT_RESULT_COMMAN + "Get_Student_Result_Marksheet_BMU?";
 
 
-
+    public static String get_student_today_lecture_Api = BMU_STUDENT_URL + "get_student_today_lecture_Api?";
 
 //
 

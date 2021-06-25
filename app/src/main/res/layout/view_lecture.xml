@@ -71,6 +71,7 @@
             android:textColor="@color/white"/>
 
        <com.infinity.infoway.bmef.CommonCls.CustomTextView
+           android:id="@+id/llto"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="To"

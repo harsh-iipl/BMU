@@ -185,9 +185,28 @@ public class Get_Student_Result_Marksheet_BMU_Adapter extends BaseAdapter {
         /*FieldName From Json (Grid View Multiple Row)	sub_code	subject_name	sub_credit	srd_sub_SPI_Credit	final_credit	srd_Grade_sub
  	Credits	Earned Grade Points	SPI	Total Credits	Earned Grade Points	CPI	Result
 FieldName From Json (Single Row)	ssrd_sgpa_credit	ssrd_sgpa_earned_grade_point	ssrd_SGPA	ssrd_cgpa_credit	ssrd_cgpa_earned_grade_point	ssrd_CGPA	result*/
-        holder.tv_CPI.setText("" + assignView.getData().get(position).getSsrd_CGPA() + "");
-        holder.tv_EarnedGradePoints.setText("" + assignView.getData().get(position).getSsrd_cgpa_earned_grade_point() + "");
-        holder.tv_Total_Credits.setText("" + assignView.getData().get(position).getSsrd_cgpa_credit() + "");
+       // holder.tv_CPI.setText("" + assignView.getData().get(position).getSsrd_CGPA() + "");
+        holder.tv_CPI.setText("" + assignView.getData().get(position).getSsrd_CPI() + "");
+        //holder.tv_EarnedGradePoints.setText("" + assignView.getData().get(position).getSsrd_cgpa_earned_grade_point() + "");
+        holder.tv_EarnedGradePoints.setText("" + assignView.getData().get(position).getSsrd_cpi_earned_grade_point() + "");
+     //   holder.tv_Total_Credits.setText("" + assignView.getData().get(position).getSsrd_cgpa_credit() + "");
+        holder.tv_Total_Credits.setText("" + assignView.getData().get(position).getSsrd_cpi_credit() + "");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         holder.tv_SPI.setText("" + assignView.getData().get(position).getSsrd_SGPA() + "");
         holder.tv_ssrd_sgpa_credit.setText("" + assignView.getData().get(position).getSsrd_sgpa_credit() + "");
         holder.tv_srd_Grade_sub.setText("" + assignView.getData().get(position).getSrd_Grade_sub() + "");

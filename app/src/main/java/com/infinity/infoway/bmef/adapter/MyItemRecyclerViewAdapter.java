@@ -64,14 +64,18 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                 holder.lllecture.setVisibility(View.INVISIBLE);
                 holder.lltime.setVisibility(View.INVISIBLE);
 
+
                 if (mValues.get(position).getlect_name().length() > 15) {
                     holder.lllecture.setVisibility(View.GONE);
                     holder.tvSemester.setVisibility(View.GONE);
                     holder.tvLectureNo.setText("RECESS");
                     holder.lltime.setVisibility(View.VISIBLE);
+
                 }
                 //  holder.mainlectlayout.setBackgroundResource(R.color.list_row_hover_start_color);
             }
+
+
 //            else {
 //                holder.llclassroom.setVisibility(View.VISIBLE);
 //                holder.lllecture.setVisibility(View.VISIBLE);
@@ -339,6 +343,12 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                 holder.lllecture.setVisibility(View.INVISIBLE);
                 holder.lltime.setVisibility(View.INVISIBLE);
             }
+            //added by harsh lathigara 1332020
+
+            if (storage.CheckLogin("stud_id", ctx) && mValues.get(position).getLab_array() == null && mValues.get(position).getlect_st_time().equals("") && mValues.get(position).getlect_end_time().equals("")){
+                holder.llto.setVisibility(View.GONE);
+
+            }
             if (storage.CheckLogin("stud_id", ctx) && (mValues.get(position).getlect_name().equals("") || mValues.get(position).getlect_name() == null)) {
 
                 holder.llclassroom.setVisibility(View.VISIBLE);
@@ -355,7 +365,14 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 //               String lectname1=mValues.get(position+1).getlect_name();
                     //String lect2=mValues.get(position+1).getlect_name();
 //                    holder.tvLectureNo.setText(lectname + "/" + String.valueOf((Integer.parseInt(lectname.substring(lectname.length() - 1)) + 1)));
-                    holder.tvLectureNo.setText(lectname + "-" + String.valueOf((Integer.parseInt(lectname.substring(lectname.length() - 1)) + 1)));
+
+                    //holder.tvLectureNo.setText(lectname + "-" + String.valueOf((Integer.parseInt(lectname.substring(lectname.length() - 1)) + 1)));
+                    holder.tvLectureNo.setText(lectname);
+                    holder.tvstarttime.setText( mValues.get(position).getLab_array().get(0).getlect_st_time());
+                    holder.tvendtime.setText( mValues.get(position ).getLab_array().get(0).getlect_end_time());
+
+
+
                     holder.lllecture.setVisibility(View.GONE);
                     holder.lldivision.setVisibility(View.VISIBLE);
                     holder.tvhdivision.setText("Batch");
@@ -397,11 +414,16 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
                     }
                 }
 
+
             }
+
+
+
 
             if (storage.CheckLogin("stud_id", ctx) && mValues.get(position).getLab_array() == null && mValues.get(position).getlect_st_time().equals("") && position != 0) {
                 if (mValues.get(position - 1).getLab_array() != null) {
                     holder.mainlectlayout.setVisibility(View.GONE);
+
                 }
             }
 
@@ -411,6 +433,13 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             holder.lllecture.setVisibility(View.GONE);
             holder.tvSemester.setVisibility(View.GONE);
             holder.tvLectureNo.setText("RECESS");
+
+            //added by harsh 1332020
+            if (storage.CheckLogin("emp_id",ctx)){
+                holder.llto.setVisibility(View.GONE);
+                holder.lltime.setVisibility(View.GONE);
+            }
+
             holder.lltime.setVisibility(View.VISIBLE);
             holder.rllectureheader.setBackgroundColor(a.getResources().getColor(R.color.recess));
             holder.llimagelecture.setBackgroundColor(a.getResources().getColor(R.color.darkrecess));
@@ -433,7 +462,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
         //holder.tvhdivision.setText("Faculty");
 
 
-        holder.lltime.setVisibility(View.INVISIBLE);
+        holder.lltime.setVisibility(View.VISIBLE);
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -456,7 +485,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
     class ViewHolder extends RecyclerView.ViewHolder {
         final View mView;
         ImageView imglecture;
-        final TextView tvhdivision, tvLectureNo, tvSemester, tvDivision, tvBatch, tvClassroom, tvendtime, tvstarttime;
+        final TextView tvhdivision, tvLectureNo, tvSemester, tvDivision, tvBatch, tvClassroom, tvendtime, tvstarttime,llto;
         LinearLayout lllecture, llclassroom, mainlectlayout, lldivision, lltime, batchlayout, llimagelecture;
         ArrayList<Lecturedetail> mItem;
         RelativeLayout rllectureheader;
@@ -480,6 +509,7 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
             llimagelecture = (LinearLayout) view.findViewById(R.id.llimagelecture);
             rllectureheader = (RelativeLayout) view.findViewById(R.id.rllectureheader);
             lltime = (LinearLayout) view.findViewById(R.id.lltime);
+            llto = view.findViewById(R.id.llto);
             imglecture = (ImageView) view.findViewById(R.id.imglecture);
         }
 

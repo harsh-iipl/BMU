@@ -24,6 +24,7 @@ import com.infinity.infoway.bmef.CommonCls.URl;
 import com.infinity.infoway.bmef.HrAppPojo.ChangepswPojo;
 import com.infinity.infoway.bmef.R;
 import com.infinity.infoway.bmef.app.DataStorage;
+import com.infinity.infoway.bmef.app.StorageLogin;
 import com.infinity.infoway.bmef.model.ChangePwdPojo;
 import com.infinity.infoway.bmef.model.change_psw;
 import com.infinity.infoway.bmef.rest.ApiClient;
@@ -42,6 +43,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
     Button btn_change_psw;
     DataStorage storage;
     Toolbar toolbar;
+    StorageLogin storageLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +75,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
     public void findviews() {
         storage = new DataStorage("Login_Detail", ChangePasswordActivity.this);
         queue = Volley.newRequestQueue(this);
+        storageLogin = new StorageLogin("Login", ChangePasswordActivity.this);
         old_password = (EditText) findViewById(R.id.old_psw);
         new_password = (EditText) findViewById(R.id.new_psw);
         confirm_password = (EditText) findViewById(R.id.confirm_psw);
@@ -100,7 +103,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
     RequestQueue queue;
 
     void change_pwd() {
-
+      //  String         final_username= String.valueOf();
         final ProgressDialog process = new ProgressDialog(ChangePasswordActivity.this, R.style.MyTheme1);
         process.setCancelable(false);
         process.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
@@ -112,7 +115,8 @@ public class ChangePasswordActivity extends AppCompatActivity {
             System.out.println("this is STUDENT!!!!!!!!!");
             String URLs = "http://bmef.icrp.in/cms/API_Student_Panel_JSON_Icampus.asmx/application_change_password?" + "&stud_id=" + String.valueOf(storage.read("stud_id", 3)) +
                     "&user_name=" +
-                    String.valueOf(storage.read("stud_admission_no", 3)) +
+                    String.valueOf(storageLogin.read("UserName", 3)+"") +
+
 
                     "&new_pass=" +
 
@@ -131,6 +135,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
                     ChangePwdPojo pojo = new ChangePwdPojo();
                     pojo = gson.fromJson(response, ChangePwdPojo.class);
                     if (pojo != null) {
+
                         if (pojo.getTable().get(0).getStatus() == 1) {
                             storage.clear();
                             DialogUtils.Show_Toast(ChangePasswordActivity.this, pojo.getTable().get(0).getMessage() + "");

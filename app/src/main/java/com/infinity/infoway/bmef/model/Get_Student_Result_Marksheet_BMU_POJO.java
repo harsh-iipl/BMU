@@ -270,8 +270,8 @@ public class Get_Student_Result_Marksheet_BMU_POJO {
         private int ssrd_cpi_earned_grade_point;
         private int ssrd_cpi_credit;
         private int ssrd_earned_cpi_credit;
-        private int ssrd_cpi_percentage;
-        private int ssrd_CPI;
+        private double ssrd_cpi_percentage;
+        private double ssrd_CPI;
         private String Degree_Code;
         private int Degree_Id;
         private int sem_id;
@@ -1072,20 +1072,22 @@ public class Get_Student_Result_Marksheet_BMU_POJO {
         public void setSsrd_earned_cpi_credit(int ssrd_earned_cpi_credit) {
             this.ssrd_earned_cpi_credit = ssrd_earned_cpi_credit;
         }
+        // changed from int to double
+        //1642020
 
-        public int getSsrd_cpi_percentage() {
+        public double getSsrd_cpi_percentage() {
             return ssrd_cpi_percentage;
         }
 
-        public void setSsrd_cpi_percentage(int ssrd_cpi_percentage) {
+        public void setSsrd_cpi_percentage(double ssrd_cpi_percentage) {
             this.ssrd_cpi_percentage = ssrd_cpi_percentage;
         }
 
-        public int getSsrd_CPI() {
+        public double getSsrd_CPI() {
             return ssrd_CPI;
         }
 
-        public void setSsrd_CPI(int ssrd_CPI) {
+        public void setSsrd_CPI(double ssrd_CPI) {
             this.ssrd_CPI = ssrd_CPI;
         }
 

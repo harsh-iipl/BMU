@@ -723,7 +723,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         tv_emp_code = (CustomBoldTextView) findViewById(R.id.tv_emp_code);
         tv_version = (CustomBoldTextView) findViewById(R.id.tv_version);
         tv_version_code = (CustomBoldTextView) findViewById(R.id.tv_version_code);
-        tv_version.setText(pInfo.versionName);
+        //tv_version.setText(pInfo.versionName);
+        tv_version.setText("V."+pInfo.versionName);
         tv_emp_code.setText(mySharedPreferenses.getEmpCode());
 //        tv_version_code.setText(pInfo.versionCode);
 

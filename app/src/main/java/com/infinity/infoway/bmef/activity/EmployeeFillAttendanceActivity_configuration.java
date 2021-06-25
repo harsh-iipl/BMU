@@ -154,7 +154,7 @@ public class EmployeeFillAttendanceActivity_configuration extends AppCompatActiv
 
             }
             else
-                {
+            {
                 cbcheckfillattendance.setChecked(false);
 
             }
@@ -340,6 +340,8 @@ public class EmployeeFillAttendanceActivity_configuration extends AppCompatActiv
 
         //  ll_method_2_inner.setVisibility(View.GONE);
 //        ll_method1inner.setVisibility(View.GONE);
+        //harsh 1732020
+        this.ll_topic_configuration_2 = (LinearLayout) findViewById(R.id.ll_topic_configuration_2);
 
 
 
@@ -984,6 +986,7 @@ public class EmployeeFillAttendanceActivity_configuration extends AppCompatActiv
             if (edtrollno.getText().toString().trim().contentEquals("")) {
                 DialogUtils.Show_Toast(EmployeeFillAttendanceActivity_configuration.this, "Please Enter Roll Number");
             } else {
+
                 if (isNotEmpty()) {
 
 
@@ -1166,7 +1169,8 @@ public class EmployeeFillAttendanceActivity_configuration extends AppCompatActiv
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
-                DialogUtils.Show_Toast(EmployeeFillAttendanceActivity_configuration.this, "Please try again!");
+                DialogUtils.Show_Toast(EmployeeFillAttendanceActivity_configuration.this, "Please try Again!");
+                // DialogUtils.Show_Toast(EmployeeFillAttendanceActivity_configuration.this, "Please try again!");
                 //DialogUtils.hideProgressDialog();
             }
         });
@@ -1218,7 +1222,7 @@ public class EmployeeFillAttendanceActivity_configuration extends AppCompatActiv
 
         }
         else
-            {
+        {
             selected_method = "";
             AID = "0";
             flint = "0";
@@ -1277,6 +1281,7 @@ public class EmployeeFillAttendanceActivity_configuration extends AppCompatActiv
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
                 DialogUtils.Show_Toast(EmployeeFillAttendanceActivity_configuration.this, "Please try again!");
+                // DialogUtils.Show_Toast(EmployeeFillAttendanceActivity_configuration.this, "Please try again!");
                 //DialogUtils.hideProgressDialog();
             }
         });
@@ -1388,7 +1393,8 @@ public class EmployeeFillAttendanceActivity_configuration extends AppCompatActiv
 
                 progressDialog.dismiss();
                 //   progressDialog.dismiss();
-                DialogUtils.Show_Toast(EmployeeFillAttendanceActivity_configuration.this, "Please try again!");
+                DialogUtils.Show_Toast(EmployeeFillAttendanceActivity_configuration.this, "Please try Again!");
+                //DialogUtils.Show_Toast(EmployeeFillAttendanceActivity_configuration.this, "Please try again!");
                 //DialogUtils.hideProgressDialog();
             }
         });
@@ -1476,6 +1482,7 @@ public class EmployeeFillAttendanceActivity_configuration extends AppCompatActiv
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
+
                 DialogUtils.Show_Toast(EmployeeFillAttendanceActivity_configuration.this, "Please try again!");
                 //DialogUtils.hideProgressDialog();
             }
@@ -1581,6 +1588,7 @@ public class EmployeeFillAttendanceActivity_configuration extends AppCompatActiv
 
                 progressDialog.dismiss();
                 //   progressDialog.dismiss();
+
                 DialogUtils.Show_Toast(EmployeeFillAttendanceActivity_configuration.this, "Please try again!");
                 //DialogUtils.hideProgressDialog();
             }
@@ -1676,6 +1684,7 @@ public class EmployeeFillAttendanceActivity_configuration extends AppCompatActiv
             @Override
             public void onErrorResponse(VolleyError error) {
                 progressDialog.dismiss();
+
                 DialogUtils.Show_Toast(EmployeeFillAttendanceActivity_configuration.this, "Please try again!");
                 //DialogUtils.hideProgressDialog();
             }
@@ -1972,8 +1981,13 @@ public class EmployeeFillAttendanceActivity_configuration extends AppCompatActiv
         spin_flint.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                position_flint = Month_list.get(i);
-                System.out.println("positin_month In spin_month_oug_ou_pass_gd" + position_flint);
+                if (i>0)
+                {
+                    position_flint = Month_list.get(i);
+                    System.out.println("positin_month In spin_month_oug_ou_pass_gd" + position_flint);}else{
+
+                    position_flint = "0";
+                }
             }
 
             @Override

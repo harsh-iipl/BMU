@@ -57,7 +57,7 @@
                             android:layout_gravity="center"
                             android:layout_margin="30dp"
                             android:background="@color/white"
-                            android:src="@drawable/logo_login" />
+                            android:src="@drawable/bmu_logo" />
                     </LinearLayout>
                 </LinearLayout>
 

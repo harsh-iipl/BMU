@@ -254,7 +254,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                         finish();
                     }
                 })
-                .setIcon(R.drawable.logo_b)
+                .setIcon(R.drawable.bmu_logo)
                 .show();
     }
 
@@ -530,6 +530,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                                 storage.write("name", response.body().getname());
                                 storage.write("stud_admission_no", response.body().getstud_admission_no());
                                 storage.write("stud_photo", response.body().getstud_photo());
+                                storage.write("userName", response.body().getusername());
 
                                 storage.write("swd_batch_id", response.body().getswd_batch_id());
                                 storage.write("shift_id", response.body().getshift_id());

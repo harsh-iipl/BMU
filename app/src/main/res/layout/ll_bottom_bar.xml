@@ -33,7 +33,7 @@
             <com.infinity.infoway.bmef.CommonCls.CustomBoldTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Employee Code :"
+                android:text="Emp Code :"
                 android:textColor="@color/white"
                 android:textSize="@dimen/text_size"></com.infinity.infoway.bmef.CommonCls.CustomBoldTextView>
 

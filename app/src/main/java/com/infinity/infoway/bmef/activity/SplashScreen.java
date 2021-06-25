@@ -211,7 +211,7 @@ public class SplashScreen extends Activity {
                         finish();
                     }
                 })
-                .setIcon(R.drawable.logo_b)
+                .setIcon(R.drawable.bmu_logo)
                 .show();
     }
 

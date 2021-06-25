@@ -25,6 +25,10 @@ public class Lablist implements Serializable
     private String dvm_name;
 
 
+
+
+
+
     public  String getlect_name()
     {
         return lect_name;

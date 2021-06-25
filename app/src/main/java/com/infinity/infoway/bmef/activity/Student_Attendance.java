@@ -92,6 +92,7 @@ public class Student_Attendance extends AppCompatActivity implements View.OnClic
             public void onClick(DialogInterface dialog, int which)
             {
                 tvFromDate.setText(myp.getSelectedMonthName() + "-" + myp.getSelectedYear());
+                init();
             }
         }, null);
         init();
@@ -155,7 +156,7 @@ public class Student_Attendance extends AppCompatActivity implements View.OnClic
 
         if (v == tvFromDate)
         {
-            //ppppppppppppppp  myp.show();
+              myp.show();
             //showAndSetDateDialog(tvFromDate);
             // createDialogWithoutDateField(tvFromDate);
         }
@@ -310,6 +311,7 @@ public class Student_Attendance extends AppCompatActivity implements View.OnClic
                         t1v1.setGravity(Gravity.CENTER);
                         t1v1.setBackground(getResources().getDrawable(R.drawable.table_cell_header_bg));
                         t1v1.setPadding(5,10,5,10);
+
                         t1v1.setBackgroundColor(getResources().getColor(R.color.blueattendance));
 //                        t1v1.setBackground(getResources().getDrawable(R.drawable.table_cell_right));
                         tbrow2.addView(t1v1);
@@ -626,6 +628,7 @@ public class Student_Attendance extends AppCompatActivity implements View.OnClic
 
                             }
                             tableLayout.addView(tbrow, i + 1);
+
                         }
                     } else {
                         Toast.makeText(Student_Attendance.this, "No Records Found", Toast.LENGTH_LONG).show();

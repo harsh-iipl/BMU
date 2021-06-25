@@ -52,7 +52,7 @@ public class NotificationUtils
             return;
 
 
-        final int icon = R.drawable.logo;
+        final int icon = R.drawable.bmu_logo;
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         final PendingIntent resultPendingIntent =
                 PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
@@ -101,7 +101,7 @@ public class NotificationUtils
 
         NotificationCompat.Builder notification = (NotificationCompat.Builder) new
                NotificationCompat.Builder(mContext)
-                .setSmallIcon(R.drawable.logo)
+                .setSmallIcon(R.drawable.bmu_logo)
                 .setContentTitle(title)
                 .setAutoCancel(true)
                 .setContentText(message)
@@ -128,7 +128,7 @@ public class NotificationUtils
 
        NotificationCompat.Builder notification = (NotificationCompat.Builder) new
                NotificationCompat.Builder(mContext)
-                .setSmallIcon(R.drawable.logo)
+                .setSmallIcon(R.drawable.bmu_logo)
                 .setContentTitle(title)
                 .setAutoCancel(true)
                 .setContentText(message)

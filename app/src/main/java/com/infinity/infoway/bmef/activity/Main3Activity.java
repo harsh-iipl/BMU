@@ -56,6 +56,7 @@ import com.infinity.infoway.bmef.CommonCls.DialogUtils;
 import com.infinity.infoway.bmef.CommonCls.MySharedPrefereces;
 import com.infinity.infoway.bmef.HrAppAPI.URLS;
 import com.infinity.infoway.bmef.HrAppPojo.LoginPojo;
+import com.infinity.infoway.bmef.OnlineLecture.JoinOnlineLectureActivity;
 import com.infinity.infoway.bmef.R;
 import com.infinity.infoway.bmef.adapter.Pageradapter;
 import com.infinity.infoway.bmef.app.DataStorage;
@@ -63,6 +64,7 @@ import com.infinity.infoway.bmef.app.Login_Master;
 import com.infinity.infoway.bmef.model.FcmResponse;
 import com.infinity.infoway.bmef.model.LoginResponse;
 import com.infinity.infoway.bmef.model.NotificationResponse;
+import com.infinity.infoway.bmef.model.ProfileResponse;
 import com.infinity.infoway.bmef.rest.ApiClient;
 import com.infinity.infoway.bmef.rest.ApiInterface;
 import com.infinity.infoway.bmef.rest.Api_Client;
@@ -71,6 +73,7 @@ import com.bumptech.glide.Glide;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.sothree.slidinguppanel.SlidingUpPanelLayout;
+import com.squareup.picasso.Picasso;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
@@ -92,7 +95,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
     private static int currentPage = 0;
     private ArrayList<String> XMENArray = new ArrayList<String>();
     private static final int MENU_ADD = 0;
-    ImageView assignment_img, iv_internship_work_report, receipt_img, pending_fees_img, img_home_work, img_dashboard, imgtimetable, imgattendance, imgfees, imgnews, imgfeedback, imgsyllabus, iv_rem_att, imglessionplan, imgexam_tt, img_feecircular, imgprofile, imgprofile_emp, imgattendance_emp, iv_leave_app_emp, imgnews_emp, imgtimetable_emp, img_Moreapp, img_Moreapp_emp,iv_endsemesterresult;
+    ImageView assignment_img, iv_internship_work_report, receipt_img, pending_fees_img, img_home_work, img_dashboard, imgtimetable, imgattendance, imgfees, imgnews, imgfeedback, imgsyllabus, iv_rem_att, imglessionplan, imgexam_tt, img_feecircular, imgprofile, imgprofile_emp, imgattendance_emp, iv_leave_app_emp, imgnews_emp, imgtimetable_emp, img_Moreapp, img_Moreapp_emp, iv_endsemesterresult;
     TextView nav_profile, nav_change_psw, nav_timetable, nav_attendance, nav_pending_fees, nav_fees, nav_news, nav_feedback, nav_syllabus, nav_lessionplan, nav_share, nav_logout, nav_rec, nav_fee_circular, nav_result, nav_activity, nav_homewrork, nav_assignment, nav_exam_time_table, nav_memberno, nav_version_name, nav_placement, nav_Leave_app, nav_elrning, nav_more, nav_lleave;
     Context ctx;
     CustomTextView nav_end_sem_result;
@@ -100,7 +103,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
     ImageView notification_dashboard, img_result, img_elerning, img_placement, img_leave_app;
     DataStorage storage;
     NavigationView mNavigationView;
-  public static  CircleImageView imgmenuprofile;
+    public static CircleImageView imgmenuprofile;
     LinearLayout five_ll;
     TextView txtmenuname, txtmenucourse, tvActionNotification, textfee, txtnews, txtfeedback, emp_nav_el;
     LinearLayout studentlayout, ll_view_more, ll_views_hide;
@@ -125,9 +128,9 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
     private ImageView ivplacement, iv_att;
     private TextView textattendence;
     private LinearLayout layout1;
-    private ImageView ivlessionplan;
+    private ImageView ivlessionplan,ivOnlineLecture;
 
-    private TextView textView6;
+    private TextView textView6,nav_payroll;
     private ImageView ivassignment;
     private ImageView imgnewannouncement;
     private TextView txterning;
@@ -143,6 +146,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
     private ImageView imgresult;
     private ImageView assignmentimg;
     private ImageView iv_el_emp;
+    private ImageView imggotoWebview_emp;
     private LinearLayout feeslayout;
 
     ImageView img_assignment_emp;
@@ -156,6 +160,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
     private ImageView imgfeecircular;
     private LinearLayout fivell;
     private LinearLayout llviewshide;
+    private TextView nav_WebView,nav_online_lec;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -169,7 +174,11 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
 
             student_layout = findViewById(R.id.student_layout);
             Emp_layout = findViewById(R.id.employee1_layout);
+            nav_result = (TextView) findViewById(R.id.nav_result);
+            nav_result.setOnClickListener(this);
             Emp_layout.setVisibility(View.GONE);
+            nav_payroll = findViewById(R.id.nav_payroll);
+            nav_payroll.setOnClickListener(this);
 
 
             if ("xiaomi".equalsIgnoreCase(manufacturer)) {
@@ -283,8 +292,23 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         //Log.d("notification_size",String.valueOf(products.size()));
 
         findviews();
+        //added by harsh 7/3/2020
 
         MenuSlice();
+        if (storage.CheckLogin("emp_id", Main3Activity.this)) {
+            nav_WebView.setVisibility(View.VISIBLE);
+            nav_online_lec.setVisibility(View.GONE);
+           // nav_payroll.setVisibility(View.VISIBLE);
+
+            nav_end_sem_result.setVisibility(View.GONE);
+        } else {
+            nav_online_lec.setVisibility(View.VISIBLE);
+            nav_WebView.setVisibility(View.GONE);
+            nav_payroll.setVisibility(View.GONE);
+
+            nav_end_sem_result.setVisibility(View.VISIBLE);
+        }
+        profileApi();
 
 
         //************** for login data store only for students not of employee***************
@@ -379,7 +403,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
             myQuittingDialogBox.show();*/
     }
 
-/*nirali intialize app controls 3aug*/
+    /*nirali intialize app controls 3aug*/
     public void MenuSlice() {
 //  View headerLayout = mNavigationView.getHeaderView(0);
         imgmenuprofile = (CircleImageView) findViewById(R.id.imgmenuprofile);
@@ -387,10 +411,15 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         ll_view_more.setOnClickListener(this);
         ll_views_hide = (LinearLayout) findViewById(R.id.ll_views_hide);
         ll_views_hide.setOnClickListener(this);
+        ll_views_hide.setVisibility(View.GONE);
         txtmenuname = (TextView) findViewById(R.id.txtmenuname);
         txtmenucourse = (TextView) findViewById(R.id.txtmenucourse);
         nav_profile = (TextView) findViewById(R.id.nav_profile);
+        nav_WebView = (TextView) findViewById(R.id.nav_WebView);
+        nav_online_lec = (TextView) findViewById(R.id.nav_online_lec);
         nav_profile.setOnClickListener(this);
+        nav_online_lec.setOnClickListener(this);
+        nav_WebView.setOnClickListener(this);
         nav_timetable = (TextView) findViewById(R.id.nav_timetable);
         nav_end_sem_result = findViewById(R.id.nav_end_sem_result);
         nav_timetable.setOnClickListener(this);
@@ -399,7 +428,6 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
 
 
         nav_change_psw.setOnClickListener(this);
-
 
 
         nav_attendance = (TextView) findViewById(R.id.nav_attendance);
@@ -413,7 +441,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         nav_fees.setOnClickListener(this);
 
 
-        nav_result = (TextView) findViewById(R.id.nav_result);
+
         nav_placement = (TextView) findViewById(R.id.nav_placement);
         nav_placement.setOnClickListener(this);
         nav_Leave_app = (TextView) findViewById(R.id.nav_Leave_app);
@@ -437,7 +465,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         nav_lleave = (TextView) findViewById(R.id.nav_lleave);
         //     syl = (TextView) findViewById(R.id.syl);
         nav_lleave.setOnClickListener(this);
-        nav_result.setOnClickListener(this);
+
         nav_activity = (TextView) findViewById(R.id.nav_acivity);
         nav_activity.setOnClickListener(this);
         nav_homewrork = (TextView) findViewById(R.id.nav_homework);
@@ -472,6 +500,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         nav_news_a = (TextView) findViewById(R.id.nav_bb);
         nav_share_a = (TextView) findViewById(R.id.nav_cc);
         imglessionplan = (ImageView) findViewById(R.id.imglessionplan);
+        imggotoWebview_emp = (ImageView) findViewById(R.id.imggotoWebview_emp);
 
         imgtimetable = (ImageView) findViewById(R.id.imgtimetable);
         imgtimetable.setOnClickListener(this);
@@ -480,6 +509,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
 
 
         imglessionplan.setOnClickListener(this);
+        imggotoWebview_emp.setOnClickListener(this);
 
         imgnews = (ImageView) findViewById(R.id.imgnews);
         imgnews.setOnClickListener(this);
@@ -509,6 +539,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
 
         imgsyllabus = (ImageView) findViewById(R.id.imgsyllabus);
         imgsyllabus.setOnClickListener(this);
+        imgsyllabus.setVisibility(View.GONE);
         img_Moreapp = (ImageView) findViewById(R.id.img_Moreapp);
         img_Moreapp.setOnClickListener(this);
         img_Moreapp_emp = (ImageView) findViewById(R.id.img_Moreapp_emp);
@@ -517,21 +548,22 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         iv_endsemesterresult.setOnClickListener(this);
 
 
-
         if (storage.CheckLogin("stud_id", ctx)) {
             nav_fees.setVisibility(View.GONE);
             nav_rec.setVisibility(View.GONE);
             nav_activity.setVisibility(View.GONE);
             nav_homewrork.setVisibility(View.GONE);
-            nav_result.setVisibility(View.GONE);
+
             nav_feedback.setVisibility(View.GONE);
             nav_lleave.setVisibility(View.GONE);
             nav_attendance.setVisibility(View.VISIBLE);
 
         } else {
+            nav_fees.setVisibility(View.VISIBLE);
             nav_attendance.setVisibility(View.GONE);
             /**21-feb-2020 change pwd hide!!!!!!!!!!!!!*/
             nav_change_psw.setVisibility(View.INVISIBLE);
+            nav_feedback.setVisibility(View.VISIBLE);
 
 
 //            nav_fees.setVisibility(View.GONE);
@@ -553,10 +585,50 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
 //            Drawable mDefaultBackground = getResources().getDrawable(R.drawable.defaultprofile);
 //            Glide.with(Main3Activity.this).load(String.valueOf(storage.read("stud_photo", 3))).fitCenter().error(mDefaultBackground).into(imgmenuprofile);
 //        }
+        //HARSH 1232020
+
     }
 
-    public void findviews()
-    {
+
+    public void profileApi(){
+        if (storage.CheckLogin("stud_id", this)) {
+            ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+
+            Map<String, String> mParams;
+            mParams = new HashMap<String, String>();
+            mParams.put("stud_id", String.valueOf(storage.read("stud_id", 3)));
+            mParams.put("year_id", String.valueOf(storage.read("swd_year_id", 3)));
+            mParams.put("school_id", String.valueOf(storage.read("ac_id", 3)));
+
+            Call<ProfileResponse> call = apiService.getStudentProfile(mParams);
+
+            call.enqueue(new Callback<ProfileResponse>() {
+                @Override
+                public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
+                    if (response.isSuccessful()){
+                        Picasso.get().load(response.body().getStud_photo()).into(imgmenuprofile);
+
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ProfileResponse> call, Throwable t) {
+
+                }
+            });
+
+        }
+        if (storage.CheckLogin("emp_id", this)) {
+            Picasso.get().load(R.drawable.defaultprofile).into(imgmenuprofile);
+
+
+        }
+
+    }
+
+
+
+    public void findviews() {
         iv_internship_work_report = (ImageView) findViewById(R.id.iv_internship_work_report);
         iv_internship_work_report.setOnClickListener(this);
         notification_dashboard = (ImageView) findViewById(R.id.notification_dashboard);
@@ -566,18 +638,14 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         storage = new DataStorage("Login_Detail", ctx);
         login_master = new Login_Master("Login_Master", this);
 
-        if (!storage.isOnline(Main3Activity.this))
-        {
+        if (!storage.isOnline(Main3Activity.this)) {
             showDialog(DataStorage.DIALOG_ERROR_CONNECTION);
         }
 
-        if (storage.CheckLogin("stud_id", ctx))
-        {
+        if (storage.CheckLogin("stud_id", ctx)) {
             student_layout.setVisibility(View.VISIBLE);
             Emp_layout.setVisibility(View.GONE);
-        }
-        else
-            {
+        } else {
             student_layout.setVisibility(View.GONE);
             Emp_layout.setVisibility(View.VISIBLE);
         }
@@ -586,12 +654,9 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         refreshedToken = FirebaseInstanceId.getInstance().getToken();
         System.out.println("refreshedToken:::::" + refreshedToken);
         //Log.d("refreshedToken", refreshedToken);
-        if (storage.CheckLogin("stud_id", Main3Activity.this))
-        {
+        if (storage.CheckLogin("stud_id", Main3Activity.this)) {
             //  Log.d("stud_id", String.valueOf(storage.read("stud_id",3)));
-        }
-        else
-            {
+        } else {
             // Log.d("emp_id", String.valueOf(storage.read("emp_id",3)));
         }
         nav_memberno = (TextView) findViewById(R.id.nav_memberno);
@@ -599,12 +664,9 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
 
 
         PackageInfo pInfo = null;
-        try
-        {
-            pInfo = getPackageManager().getPackageInfo(getPackageName(),0);
-        }
-        catch (PackageManager.NameNotFoundException e)
-        {
+        try {
+            pInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+        } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
         }
         assert pInfo != null;
@@ -643,6 +705,16 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         this.textView6 = (TextView) findViewById(R.id.textView6);
         this.imgtimetable = (ImageView) findViewById(R.id.imgtimetable);
         this.ivlessionplan = (ImageView) findViewById(R.id.iv_lession_plan);
+        this.ivOnlineLecture = (ImageView) findViewById(R.id.ivOnlineLecture);
+        this.ivOnlineLecture.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(Main3Activity.this, JoinOnlineLectureActivity.class);
+                startActivity(intent
+                );
+
+            }
+        });
         this.layout1 = (LinearLayout) findViewById(R.id.layout1);
         this.textattendence = (TextView) findViewById(R.id.textattendence);
         this.ivplacement = (ImageView) findViewById(R.id.iv_placement);
@@ -671,58 +743,58 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         // iv_el_emp.setOnClickListener(this);
     }
 
-    public void UpdateUserinterface()
-    {
-        if (storage.CheckLogin("emp_id", this))
-        { if(!String.valueOf(storage.read("emp_id", 3)).contentEquals("")) {
-            ll_view_more.setVisibility(View.GONE);
-            ll_views_hide.setVisibility(View.VISIBLE);
-            studentlayout.setVisibility(View.VISIBLE);
-            emp_nav_asnmnt.setVisibility(View.VISIBLE);
-            emp_nav_el.setVisibility(View.GONE);
+    public void UpdateUserinterface() {
+        if (storage.CheckLogin("emp_id", this)) {
+            if (!String.valueOf(storage.read("emp_id", 3)).contentEquals("")) {
+                // ll_view_more.setVisibility(View.GONE);
+                //  ll_views_hide.setVisibility(View.VISIBLE);
+                ll_views_hide.setVisibility(View.GONE);
+                studentlayout.setVisibility(View.VISIBLE);
+                emp_nav_asnmnt.setVisibility(View.VISIBLE);
+                emp_nav_el.setVisibility(View.GONE);
 
-            nav_fees.setText("Pending Attendance");
-            nav_fees.setCompoundDrawablesWithIntrinsicBounds(R.mipmap.remaining_attendance, 0, 0, 0);
+                nav_fees.setText("Pending Attendance");
+                nav_fees.setCompoundDrawablesWithIntrinsicBounds(R.mipmap.remaining_attendance, 0, 0, 0);
 
 //            nav_news.setText("News");
-            nav_news.setText("Announcement");
-            nav_news.setCompoundDrawablesWithIntrinsicBounds(R.mipmap.news, 0, 0, 0);
+                nav_news.setText("Announcement");
+                nav_news.setCompoundDrawablesWithIntrinsicBounds(R.mipmap.news, 0, 0, 0);
 
 //            nav_feedback.setText("Lession Plan");
-            nav_feedback.setText("Lesson Plan");
-            nav_feedback.setCompoundDrawablesWithIntrinsicBounds(R.mipmap.lesson_plan, 0, 0, 0);
+                nav_feedback.setText("Lesson Plan");
+                nav_feedback.setCompoundDrawablesWithIntrinsicBounds(R.mipmap.lesson_plan, 0, 0, 0);
 
-            // nav_lessionplan.setText("Pending Attendance");
-            nav_lessionplan.setCompoundDrawablesWithIntrinsicBounds(R.mipmap.time_table, 0, 0, 0);
-            nav_lessionplan.setVisibility(View.GONE);
-            nav_syllabus.setVisibility(View.GONE);
-            nav_pending_fees.setVisibility(View.GONE);
-            nav_rec.setVisibility(View.GONE);
-            nav_logout.setVisibility(View.VISIBLE);
+                // nav_lessionplan.setText("Pending Attendance");
+                nav_lessionplan.setCompoundDrawablesWithIntrinsicBounds(R.mipmap.time_table, 0, 0, 0);
+                nav_lessionplan.setVisibility(View.GONE);
+                nav_syllabus.setVisibility(View.GONE);
+                nav_pending_fees.setVisibility(View.GONE);
+                nav_rec.setVisibility(View.GONE);
+                nav_logout.setVisibility(View.VISIBLE);
 
 
-            nav_assignment.setVisibility(View.GONE);
-            nav_syllabus.setVisibility(View.GONE);
-            nav_pending_fees.setVisibility(View.GONE);
-            nav_rec.setVisibility(View.GONE);
-            nav_exam_time_table.setVisibility(View.GONE);
-            nav_homewrork.setVisibility(View.GONE);
-            nav_activity.setVisibility(View.GONE);
-            nav_result.setVisibility(View.GONE);
-            nav_elrning.setVisibility(View.GONE);
-            nav_Leave_app.setVisibility(View.GONE);
-            nav_placement.setVisibility(View.GONE);
+                nav_assignment.setVisibility(View.GONE);
+                nav_syllabus.setVisibility(View.GONE);
+                nav_pending_fees.setVisibility(View.GONE);
+                nav_rec.setVisibility(View.GONE);
+                nav_exam_time_table.setVisibility(View.GONE);
+                nav_homewrork.setVisibility(View.GONE);
+                nav_activity.setVisibility(View.GONE);
 
-            nav_fee_circular.setVisibility(View.GONE);
-            //       img_leave_app.setVisibility(View.INVISIBLE);
-            //       img_placement.setVisibility(View.INVISIBLE);
-            //img_elerning.setVisibility(View.GONE);
+                nav_elrning.setVisibility(View.GONE);
+                nav_Leave_app.setVisibility(View.GONE);
+                nav_placement.setVisibility(View.GONE);
 
-            imgfeedback.setVisibility(View.GONE);
+                nav_fee_circular.setVisibility(View.GONE);
+                //       img_leave_app.setVisibility(View.INVISIBLE);
+                //       img_placement.setVisibility(View.INVISIBLE);
+                //img_elerning.setVisibility(View.GONE);
 
-        }
+                imgfeedback.setVisibility(View.GONE);
+
+            }
         } else if (storage.CheckLogin("stud_id", this)) {
-         //   this.nav_internship_work_rpt.setVisibility(View.VISIBLE);
+            //   this.nav_internship_work_rpt.setVisibility(View.VISIBLE);
 //            this.nav_punch_in_out.setVisibility(View.VISIBLE);
             this.iv_payroll.setVisibility(View.GONE);
         } else {
@@ -781,17 +853,13 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
 
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id)
-    {
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //        Intent intent = new Intent(Main3Activity.this, Notification_Activity.class);
         Intent intent;
-        if (storage.CheckLogin("stud_id", Main3Activity.this))
-        {
+        if (storage.CheckLogin("stud_id", Main3Activity.this)) {
             intent = new Intent(Main3Activity.this, AnnouncementStudentActiivty.class);
 
-        }
-        else
-            {
+        } else {
             intent = new Intent(Main3Activity.this, AnnouncementFaculty.class);
 
         }
@@ -807,8 +875,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
 
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
+    public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
@@ -816,8 +883,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_notification)
-        {
+        if (id == R.id.action_notification) {
             return true;
         }
 
@@ -826,15 +892,12 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
 
     // call the updating code on the main thread,
 // so we can call this asynchronously
-    public void updateHotCount(final int new_hot_number)
-    {
+    public void updateHotCount(final int new_hot_number) {
         //if (tvActionNotification == null) return;
 
-        runOnUiThread(new Runnable()
-        {
+        runOnUiThread(new Runnable() {
             @Override
-            public void run()
-            {
+            public void run() {
                 if (new_hot_number == 0)
                     tvActionNotification.setVisibility(View.INVISIBLE);
                 else {
@@ -845,13 +908,11 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         });
     }
 
-    static abstract class MyMenuItemStuffListener implements View.OnClickListener, View.OnLongClickListener
-    {
+    static abstract class MyMenuItemStuffListener implements View.OnClickListener, View.OnLongClickListener {
         private String hint;
         private View view;
 
-        MyMenuItemStuffListener(View view, String hint)
-        {
+        MyMenuItemStuffListener(View view, String hint) {
             this.view = view;
             this.hint = hint;
             view.setOnClickListener(this);
@@ -862,8 +923,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
         // @Override abstract public void onClick(View v);
 
         @Override
-        public boolean onLongClick(View v)
-        {
+        public boolean onLongClick(View v) {
             final int[] screenPos = new int[2];
             final Rect displayFrame = new Rect();
             view.getLocationOnScreen(screenPos);
@@ -889,8 +949,7 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
     MySharedPrefereces mySharedPrefereces;
 
     @Override
-    public void onClick(View v)
-    {
+    public void onClick(View v) {
         mySharedPrefereces = new MySharedPrefereces(Main3Activity.this);
         queue = Volley.newRequestQueue(Main3Activity.this);
         switch (v.getId()) {
@@ -935,32 +994,24 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
                 url.replace(" ", "%20");
 
                 System.out.println("LoginCheck URL " + url + "");
-                StringRequest request = new StringRequest(Request.Method.GET, url, new com.android.volley.Response.Listener<String>()
-                {
+                StringRequest request = new StringRequest(Request.Method.GET, url, new com.android.volley.Response.Listener<String>() {
                     @Override
-                    public void onResponse(String response)
-                    {
+                    public void onResponse(String response) {
                         DialogUtils.hideProgressDialog();
 
                         System.out.println("response of LoginCheck !!!!!!!!!!! " + response);
                         response = response + "";
-                        if (response.length() > 5)
-                        {
+                        if (response.length() > 5) {
                             response = "{\"Data\":" + response + "}";
 
                             System.out.println("sucess response LoginCheck !!!!!!!!!!!!!!!!!!!" + response + "");
                             Gson gson = new Gson();
                             LoginPojo loginPojo = gson.fromJson(response, LoginPojo.class);
-                            if (loginPojo != null)
-                            {
-                                if (loginPojo.getData() != null)
-                                {
-                                    if (loginPojo.getData().get(0) != null)
-                                    {
-                                        if (loginPojo.getData().size() > 0)
-                                        {
-                                            if (loginPojo.getData().get(0).getStatus().contentEquals("1"))
-                                            {
+                            if (loginPojo != null) {
+                                if (loginPojo.getData() != null) {
+                                    if (loginPojo.getData().get(0) != null) {
+                                        if (loginPojo.getData().size() > 0) {
+                                            if (loginPojo.getData().get(0).getStatus().contentEquals("1")) {
                                                 //DialogUtils.Show_Toast(LoginActivity.this,"Login Sucessfully");
                                                 //********* store login data of user ****************
                                                 mySharedPrefereces.storeLoginData(loginPojo.getData().get(0).getStatus() + "", loginPojo.getData().get(0).getUsrm_id() + "", loginPojo.getData().get(0).getEmp_code() + "", loginPojo.getData().get(0).getUsrm_name() + "", loginPojo.getData().get(0).getUsrm_dis_name() + "", loginPojo.getData().get(0).getComp_id() + "", loginPojo.getData().get(0).getUsrm_brm_id() + "", loginPojo.getData().get(0).getCom_name() + "", loginPojo.getData().get(0).getFin_year() + "", loginPojo.getData().get(0).getFin_id() + "", loginPojo.getData().get(0).getFin_start_date() + "", loginPojo.getData().get(0).getFin_end_date() + "", loginPojo.getData().get(0).getEmp_id() + "", loginPojo.getData().get(0).getDepartment() + "", loginPojo.getData().get(0).getReportingto() + "", loginPojo.getData().get(0).getUserphoto() + "", loginPojo.getData().get(0).getDesignation() + "", loginPojo.getData().get(0).getBranch() + "", loginPojo.getData().get(0).getFullName() + "");
@@ -968,11 +1019,9 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
 
                                                 Intent payroll_intent = new Intent(Main3Activity.this, com.infinity.infoway.bmef.HrAppActivities.MainActivity.class);
                                                 startActivity(payroll_intent);
-                                               // finish();
+                                                // finish();
 
-                                            }
-                                            else
-                                                {
+                                            } else {
                                                 //  DialogUtils.Show_Toast(LoginActivity.this,"Invalid UserName/Password");
                                             }
                                         }
@@ -998,6 +1047,76 @@ public class Main3Activity extends AppCompatActivity implements View.OnClickList
                 queue.add(request);
 
 
+                break;
+
+// ==== added by harsh == //
+            case R.id.nav_payroll:
+                /*nirali**** 4dec 2019 for HR app automatically login*/
+                String PASSWORDpayroll = String.valueOf(storage.read("emp_password", 3));
+                String psswordroll = PASSWORDpayroll;
+                /*encrypt password for special characters allowed ***** 27aug 2019 nirali*/
+                try {
+                    psswordroll = URLEncoder.encode(psswordroll, "utf-8");
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+                DialogUtils.showProgressDialog(Main3Activity.this, "");
+//        String url = URLS.LoginCheck + "&userName=" + edtuname.getText().toString() + "&passWord=" + edtpassword.getText().toString() + "";
+                String urlroll = URLS.LoginCheck + "&userName=" + String.valueOf(storage.read("emp_username", 3)) + "&passWord=" + psswordroll + "";
+                urlroll.replace(" ", "%20");
+
+                System.out.println("LoginCheck URL " + urlroll + "");
+                StringRequest requestroll = new StringRequest(Request.Method.GET, urlroll, new com.android.volley.Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        DialogUtils.hideProgressDialog();
+
+                        System.out.println("response of LoginCheck !!!!!!!!!!! " + response);
+                        response = response + "";
+                        if (response.length() > 5) {
+                            response = "{\"Data\":" + response + "}";
+
+                            System.out.println("sucess response LoginCheck !!!!!!!!!!!!!!!!!!!" + response + "");
+                            Gson gson = new Gson();
+                            LoginPojo loginPojo = gson.fromJson(response, LoginPojo.class);
+                            if (loginPojo != null) {
+                                if (loginPojo.getData() != null) {
+                                    if (loginPojo.getData().get(0) != null) {
+                                        if (loginPojo.getData().size() > 0) {
+                                            if (loginPojo.getData().get(0).getStatus().contentEquals("1")) {
+                                                //DialogUtils.Show_Toast(LoginActivity.this,"Login Sucessfully");
+                                                //********* store login data of user ****************
+                                                mySharedPrefereces.storeLoginData(loginPojo.getData().get(0).getStatus() + "", loginPojo.getData().get(0).getUsrm_id() + "", loginPojo.getData().get(0).getEmp_code() + "", loginPojo.getData().get(0).getUsrm_name() + "", loginPojo.getData().get(0).getUsrm_dis_name() + "", loginPojo.getData().get(0).getComp_id() + "", loginPojo.getData().get(0).getUsrm_brm_id() + "", loginPojo.getData().get(0).getCom_name() + "", loginPojo.getData().get(0).getFin_year() + "", loginPojo.getData().get(0).getFin_id() + "", loginPojo.getData().get(0).getFin_start_date() + "", loginPojo.getData().get(0).getFin_end_date() + "", loginPojo.getData().get(0).getEmp_id() + "", loginPojo.getData().get(0).getDepartment() + "", loginPojo.getData().get(0).getReportingto() + "", loginPojo.getData().get(0).getUserphoto() + "", loginPojo.getData().get(0).getDesignation() + "", loginPojo.getData().get(0).getBranch() + "", loginPojo.getData().get(0).getFullName() + "");
+
+
+                                                Intent payroll_intent = new Intent(Main3Activity.this, com.infinity.infoway.bmef.HrAppActivities.MainActivity.class);
+                                                startActivity(payroll_intent);
+                                                // finish();
+
+                                            } else {
+                                                //  DialogUtils.Show_Toast(LoginActivity.this,"Invalid UserName/Password");
+                                            }
+                                        }
+
+
+                                    }
+                                }
+                            }
+                        }
+
+
+                    }
+                }, new com.android.volley.Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        DialogUtils.Show_Toast(Main3Activity.this, "Please Try Again Later");
+                        DialogUtils.hideProgressDialog();
+                        System.out.println("errorrrrrrrrrr " + error);
+                        System.out.println("errorrrrrrrrrr in api" + error.networkResponse);
+                    }
+                });
+                requestroll.setRetryPolicy(new DefaultRetryPolicy(0, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                queue.add(requestroll);
 
 
                 break;
@@ -1479,6 +1598,15 @@ Student Link: http://online.jau.in/mobileapp/students/index.php?uid=2010457852*/
                     overridePendingTransition(R.anim.enter, R.anim.exit);
                 }
                 break;
+
+            case R.id.imggotoWebview_emp:
+                if (storage.CheckLogin("emp_id", Main3Activity.this)) {
+                    Intent imgfeedback = new Intent(Main3Activity.this, EmpWebVeiwActivity.class);
+                    //Intent imgfeedback = new Intent(Main3Activity.this, FacultyAttendance.class);
+                    startActivity(imgfeedback);
+                    overridePendingTransition(R.anim.enter, R.anim.exit);
+                }
+                break;
             case R.id.iv_lession_plan:
                 if (storage.CheckLogin("emp_id", Main3Activity.this)) {
                     Intent imgfeedback = new Intent(Main3Activity.this, NewEmpLectPlan.class);
@@ -1526,12 +1654,12 @@ Student Link: http://online.jau.in/mobileapp/students/index.php?uid=2010457852*/
             }
 
             case R.id.ll_view_more:
-                Animation slide_up = AnimationUtils.loadAnimation(getApplicationContext(),
-                        R.anim.slide_up);
-
-                ll_view_more.setVisibility(View.GONE);
-                ll_views_hide.setAnimation(slide_up);
-                ll_views_hide.setVisibility(View.VISIBLE);
+//                Animation slide_up = AnimationUtils.loadAnimation(getApplicationContext(),
+//                        R.anim.slide_up);
+//
+//                ll_view_more.setVisibility(View.GONE);
+//                ll_views_hide.setAnimation(slide_up);
+//                ll_views_hide.setVisibility(View.VISIBLE);
                 break;
 
             //MENU
@@ -1541,6 +1669,23 @@ Student Link: http://online.jau.in/mobileapp/students/index.php?uid=2010457852*/
                 startActivity(intmenuprofile);
                 overridePendingTransition(R.anim.slide_up, R.anim.blink);
                 break;
+
+
+
+            case R.id.nav_WebView:
+
+                Intent intmenuprofilewebview = new Intent(Main3Activity.this, EmpWebVeiwActivity.class);
+                startActivity(intmenuprofilewebview);
+                overridePendingTransition(R.anim.slide_up, R.anim.blink);
+                break;
+
+            case R.id.nav_online_lec:
+
+                Intent joinLecture = new Intent(Main3Activity.this, JoinOnlineLectureActivity.class);
+                startActivity(joinLecture);
+                overridePendingTransition(R.anim.slide_up, R.anim.blink);
+                break;
+
 
             case R.id.nav_timetable:
                 Intent intentmenutimetable = new Intent(Main3Activity.this, Timetable.class);
@@ -1882,8 +2027,7 @@ Student Link: http://online.jau.in/mobileapp/students/index.php?uid=2010457852*/
 */
 
 
-    private void init()
-    {
+    private void init() {
 
 
         final long DELAY_MS = 600;//delay in milliseconds before task is to be executed
@@ -1891,15 +2035,12 @@ Student Link: http://online.jau.in/mobileapp/students/index.php?uid=2010457852*/
 
         final ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<LoginResponse> call = apiService.getSliderImages(String.valueOf(storage.read("im_domain_name", 3)), String.valueOf(storage.read("intitute_id", 3)));
-        call.enqueue(new Callback<LoginResponse>()
-        {
+        call.enqueue(new Callback<LoginResponse>() {
             @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response)
-            {
-                System.out.println("Request slider !!!!!!!!!!!!!!"+call.request()+"");
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                System.out.println("Request slider !!!!!!!!!!!!!!" + call.request() + "");
                 // Toast.makeText(MainActivity.this,  "products found", Toast.LENGTH_LONG).show();
-                if (response.isSuccessful())
-                {
+                if (response.isSuccessful()) {
                     ArrayList<String> resp = response.body().geturl();
                     for (int i = 0; i < resp.size(); i++)
                         XMENArray.add(resp.get(i));
@@ -2193,7 +2334,7 @@ Student Link: http://online.jau.in/mobileapp/students/index.php?uid=2010457852*/
 
                     } else {
 //                        progressDialog.dismiss();
-                        Toast.makeText(Main3Activity.this, "Please try again later", Toast.LENGTH_LONG).show();
+                        //pragna  12-03-2020        Toast.makeText(Main3Activity.this, "Please try again later", Toast.LENGTH_LONG).show();
                     }
                 }
 
@@ -2258,7 +2399,7 @@ Student Link: http://online.jau.in/mobileapp/students/index.php?uid=2010457852*/
 //                                    }
 
                                 } else {
-                                    Toast.makeText(Main3Activity.this, "Please try again later", Toast.LENGTH_LONG).show();
+                                    //    pragna  12-03-2020     Toast.makeText(Main3Activity.this, "Please try again later", Toast.LENGTH_LONG).show();
                                 }
                             }
 
@@ -2270,7 +2411,7 @@ Student Link: http://online.jau.in/mobileapp/students/index.php?uid=2010457852*/
 
 
                     } else {
-                        Toast.makeText(Main3Activity.this, "Please try again later", Toast.LENGTH_LONG).show();
+                        //pragna  12-03-2020   Toast.makeText(Main3Activity.this, "Please try again later", Toast.LENGTH_LONG).show();
                     }
                 }
 

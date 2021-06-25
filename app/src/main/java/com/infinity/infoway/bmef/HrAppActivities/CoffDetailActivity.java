@@ -349,7 +349,8 @@ public class CoffDetailActivity extends AppCompatActivity implements View.OnClic
         tv_emp_code = (CustomBoldTextView) findViewById(R.id.tv_emp_code);
         tv_version = (CustomBoldTextView) findViewById(R.id.tv_version);
         tv_version_code = (CustomBoldTextView) findViewById(R.id.tv_version_code);
-        tv_version.setText(pInfo.versionName);
+        //tv_version.setText(pInfo.versionName);
+        tv_version.setText("V."+pInfo.versionName);
         tv_emp_code.setText(mySharedPrefereces.getEmpCode());
 
     }

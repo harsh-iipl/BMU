@@ -28,7 +28,7 @@
                 android:layout_height="150dp"
                 android:layout_gravity="center"
 
-                android:src="@drawable/logo_ab" />
+                android:src="@drawable/bmu_logo" />
 
 </LinearLayout>
 
@@ -74,6 +74,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@null"
+                    android:maxLines="1"
                     android:drawableLeft="@drawable/ic_profile_orange"
 
                     android:hint="Username"

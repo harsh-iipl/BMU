@@ -257,7 +257,194 @@
                     android:textSize="13dp"
                     android:visibility="visible" />
             </LinearLayout>
-           <!-- internship Attandance-->
+            <!-- internship Attandance-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:id="@+id/img_Moreapp"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:src="@drawable/punch_in"
+                    android:visibility="visible" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lines="2"
+                    android:text="Internship \nAttendance"
+                    android:textColor="@color/black"
+                    android:textSize="13dp"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout1"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:id="@+id/ivOnlineLecture"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:src="@drawable/new_lessionplan" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lines="2"
+                    android:textSize="13dp"
+                    android:text="Today Lecture"
+                    android:textColor="@color/black"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_new_announcement"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:src="@drawable/new_announcement"
+                    android:visibility="visible" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:id="@+id/txt_erning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lines="2"
+                    android:text="Announcement"
+                    android:textColor="@color/black"
+                    android:textSize="13dp"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="invisible"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+
+                <ImageView
+                    android:id="@+id/iv_endsemesterresult"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:src="@drawable/new_profile" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lines="2"
+                    android:text="@string/End_Semester_Result"
+                    android:textColor="@color/black"
+                    android:textSize="13dp"
+                    android:visibility="visible" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imgsyllabus"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:src="@drawable/new_syallabus"
+                    android:visibility="visible" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:gravity="center"
+                    android:lines="2"
+                    android:text="Syllabus"
+                    android:textColor="@color/black"
+                    android:textSize="13dp"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+            <!--// work report-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:id="@+id/ll_internship_work_report"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+
+                <ImageView
+
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:id="@+id/iv_internship_work_report"
+                    android:src="@drawable/work_report"
+                    android:visibility="visible" />
+
+                <com.infinity.infoway.bmef.CommonCls.CustomTextView
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Internship \nWork Report"
+                    android:textColor="@color/black"
+                    android:textSize="13dp"
+                    android:visibility="visible" />
+            </LinearLayout>
+            <!-- internship Attandance-->
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -488,7 +675,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="gone"
+            >
 
             <LinearLayout
                 android:id="@+id/fees_layout"
@@ -755,7 +943,7 @@
 
         </LinearLayout>
 
-       <!-- new profile added -->
+        <!-- new profile added -->
 
 
 

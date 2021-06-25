@@ -1,7 +1,7 @@
 <resources>
     <!--<string name="app_name">JAU</string>-->
     <!--    <string name="app_name">GSFC University</string>-->
-    <string name="app_name">B.M.E.F</string>
+    <string name="app_name">B.M.U</string>
     <string name="title_activity_main">MainActivity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -23,6 +23,7 @@
     <string name="l_name">Leave\nApplication</string>
     <string name="title_activity_tabactivity">tabactivity</string>
     <string name="att">My\nAttendance</string>
+    <string name="webview">WebView</string>
     <string name="view_detail">   View\nDetail  </string>
     <string name="section_format">Hello World from section: %1$d</string>
     <string name="internal_storage">Internal storage</string>

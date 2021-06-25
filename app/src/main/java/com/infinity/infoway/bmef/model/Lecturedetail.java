@@ -33,6 +33,7 @@ public class Lecturedetail implements Serializable {
     private String lec_gaip;
 
 
+
     public String getlec_gaip() {
         return lec_gaip;
     }

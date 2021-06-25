@@ -136,6 +136,7 @@
                             android:layout_height="90dp"
                             android:layout_alignParentLeft="true"
                             android:layout_marginLeft="10dp"
+                            app:civ_fill_color="@color/white"
                             android:src="@drawable/defaultprofile"
                             app:civ_border_color="@color/white"
                             app:civ_border_width="2dp" />
@@ -274,7 +275,7 @@
                         android:drawablePadding="15dp"
                         android:gravity="center_vertical"
                         android:padding="7dp"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:text="Fees"
                         android:textColor="@color/white"
                         android:textSize="16dp" />
@@ -395,19 +396,19 @@
                         android:textColor="@color/white"
                         android:textSize="16dp" />
 
-                                        <com.infinity.infoway.bmef.CommonCls.CustomTextView
-                                            android:id="@+id/nav_Leave_app"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_gravity="center_vertical"
-                                            android:drawableLeft="@drawable/nav_leave_app"
-                                            android:drawablePadding="15dp"
-                                            android:gravity="center_vertical"
-                                            android:padding="7dp"
-                                            android:visibility="gone"
-                                            android:text="Leave Application"
-                                            android:textColor="@color/white"
-                                            android:textSize="16dp" />
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                        android:id="@+id/nav_Leave_app"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:drawableLeft="@drawable/nav_leave_app"
+                        android:drawablePadding="15dp"
+                        android:gravity="center_vertical"
+                        android:padding="7dp"
+                        android:visibility="gone"
+                        android:text="Leave Application"
+                        android:textColor="@color/white"
+                        android:textSize="16dp" />
 
                     <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:id="@+id/nav_news"
@@ -429,6 +430,7 @@
                         android:drawableLeft="@mipmap/profile"
                         android:drawablePadding="15dp"
                         android:gravity="center_vertical"
+                        android:visibility="gone"
                         android:padding="7dp"
                         android:text="Results"
                         android:textColor="@color/white"
@@ -523,6 +525,7 @@
 
 
 
+
                     <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:id="@+id/nav_exam_TT"
                         android:layout_width="match_parent"
@@ -537,6 +540,7 @@
                         android:visibility="gone"
                         android:textSize="16dp"
                         />
+
 
                     <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:id="@+id/nav_fee_circular"
@@ -623,6 +627,35 @@
                         android:visibility="gone" />
 
                     <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                        android:id="@+id/nav_payroll"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:drawableLeft="@drawable/ic_payroll"
+                        android:drawablePadding="15dp"
+                        android:gravity="center_vertical"
+                        android:padding="7dp"
+                        android:visibility="gone"
+                        android:text="Payroll"
+                        android:textColor="@color/white"
+                        android:textSize="16dp" />
+
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                        android:id="@+id/nav_WebView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:drawableLeft="@drawable/ic_web_black_24dp"
+                        android:drawablePadding="15dp"
+                        android:gravity="center_vertical"
+                        android:padding="7dp"
+                        android:text="WebView"
+                        android:textColor="@color/white"
+                        android:visibility="visible"
+                        android:textSize="16dp"
+                        />
+
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:id="@+id/emp_nav_el"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -637,6 +670,19 @@
                         android:visibility="gone" />
 
                     <com.infinity.infoway.bmef.CommonCls.CustomTextView
+                        android:id="@+id/nav_online_lec"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:drawableLeft="@mipmap/lesson_plan"
+                        android:drawablePadding="15dp"
+                        android:gravity="center_vertical"
+                        android:padding="7dp"
+                        android:text="Today Lecture"
+                        android:textColor="@color/white"
+                        android:textSize="16dp" />
+
+                    <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:id="@+id/nav_change_psw"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -648,6 +694,8 @@
                         android:text="Change Password"
                         android:textColor="@color/white"
                         android:textSize="16dp" />
+
+
 
                     <com.infinity.infoway.bmef.CommonCls.CustomTextView
                         android:id="@+id/nav_share"
@@ -677,24 +725,24 @@
             android:layout_alignParentBottom="true"
             android:background="@color/white"
             android:orientation="horizontal">-->
-    <!--  <LinearLayout
+        <!--  <LinearLayout
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginTop="20dp"
-          android:background="@color/bg_home_tab"
-            android:gravity="bottom"
-            android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="20dp"
+              android:background="@color/bg_home_tab"
+                android:gravity="bottom"
+                android:orientation="horizontal"
 
-           >-->
+               >-->
         <LinearLayout
             android:id="@+id/llactionbar"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_alignParentBottom="true"
             android:layout_marginTop="20dp"
-android:background="@drawable/border_cat_main"
+            android:background="@drawable/border_cat_main"
             android:gravity="bottom"
             android:orientation="horizontal"
 
@@ -781,7 +829,7 @@ android:background="@drawable/border_cat_main"
             </RelativeLayout>
 
         </LinearLayout>
-      <!--  </LinearLayout>-->
+        <!--  </LinearLayout>-->
     </RelativeLayout>
 
 

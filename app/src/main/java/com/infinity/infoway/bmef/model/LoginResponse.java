@@ -105,6 +105,9 @@ public class LoginResponse {
     @SerializedName("emp_department_id")
     private String emp_department_id;
 
+    @SerializedName("Stud_user_name")
+    private String Stud_user_name;
+
 
     public ArrayList<String> geturl() {
         return url;
